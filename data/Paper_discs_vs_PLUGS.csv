@@ -1,0 +1,2465 @@
+Fungicide,inoculum,experiment,treatment,experimental_repeatition,growth
+boscalid,152,plug,fungicide,one,1.58
+boscalid,152,plug,fungicide,one,1.755
+boscalid,152,plug,fungicide,one,1.77
+boscalid,152,plug,fungicide,one,1.765
+boscalid,152,plug,fungicide,two,3.2
+boscalid,152,plug,fungicide,two,3.045
+boscalid,152,plug,fungicide,two,3.05
+boscalid,152,plug,fungicide,two,2.985
+boscalid,152,plug,control,one,6.125
+boscalid,152,plug,control,one,6.345
+boscalid,152,plug,control,one,6.05
+boscalid,152,plug,control,one,6.48
+boscalid,152,plug,control,two,5.45
+boscalid,152,plug,control,two,6.65
+boscalid,152,plug,control,two,5.695
+boscalid,152,plug,control,two,6.945
+boscalid,152,paper,fungicide,one,2.05
+boscalid,152,paper,fungicide,one,2.065
+boscalid,152,paper,fungicide,one,2.2
+boscalid,152,paper,fungicide,one,2.335
+boscalid,152,paper,fungicide,two,2.745
+boscalid,152,paper,fungicide,two,2.895
+boscalid,152,paper,fungicide,two,2.69
+boscalid,152,paper,fungicide,two,2.87
+boscalid,152,paper,control,one,4.465
+boscalid,152,paper,control,one,4.665
+boscalid,152,paper,control,one,5.305
+boscalid,152,paper,control,one,4.165
+boscalid,152,paper,control,two,5.3
+boscalid,152,paper,control,two,5.575
+boscalid,152,paper,control,two,5.495
+boscalid,152,paper,control,two,5.63
+boscalid,274,plug,fungicide,one,1.63
+boscalid,274,plug,fungicide,one,1.655
+boscalid,274,plug,fungicide,one,1.6
+boscalid,274,plug,fungicide,one,1.63
+boscalid,274,plug,fungicide,two,2.6
+boscalid,274,plug,fungicide,two,2.645
+boscalid,274,plug,fungicide,two,2.66
+boscalid,274,plug,fungicide,two,2.555
+boscalid,274,plug,control,one,5.74
+boscalid,274,plug,control,one,5.86
+boscalid,274,plug,control,one,6.045
+boscalid,274,plug,control,one,5.98
+boscalid,274,plug,control,two,5.23
+boscalid,274,plug,control,two,6.1
+boscalid,274,plug,control,two,5.28
+boscalid,274,plug,control,two,6.24
+boscalid,274,paper,fungicide,one,
+boscalid,274,paper,fungicide,one,
+boscalid,274,paper,fungicide,one,
+boscalid,274,paper,fungicide,one,
+boscalid,274,paper,fungicide,two,2.32
+boscalid,274,paper,fungicide,two,2.42
+boscalid,274,paper,fungicide,two,2.36
+boscalid,274,paper,fungicide,two,2.36
+boscalid,274,paper,control,one,
+boscalid,274,paper,control,one,
+boscalid,274,paper,control,one,
+boscalid,274,paper,control,one,
+boscalid,274,paper,control,two,4.835
+boscalid,274,paper,control,two,5.355
+boscalid,274,paper,control,two,4.95
+boscalid,274,paper,control,two,5.22
+boscalid,465,plug,fungicide,one,1.75
+boscalid,465,plug,fungicide,one,1.885
+boscalid,465,plug,fungicide,one,1.925
+boscalid,465,plug,fungicide,one,2.05
+boscalid,465,plug,fungicide,two,3.15
+boscalid,465,plug,fungicide,two,3.15
+boscalid,465,plug,fungicide,two,3.145
+boscalid,465,plug,fungicide,two,2.98
+boscalid,465,plug,control,one,6.525
+boscalid,465,plug,control,one,6.485
+boscalid,465,plug,control,one,6.515
+boscalid,465,plug,control,one,6.4
+boscalid,465,plug,control,two,5.5
+boscalid,465,plug,control,two,6.555
+boscalid,465,plug,control,two,5.695
+boscalid,465,plug,control,two,6.615
+boscalid,465,paper,fungicide,one,
+boscalid,465,paper,fungicide,one,
+boscalid,465,paper,fungicide,one,
+boscalid,465,paper,fungicide,one,
+boscalid,465,paper,fungicide,two,2.115
+boscalid,465,paper,fungicide,two,1.855
+boscalid,465,paper,fungicide,two,1.955
+boscalid,465,paper,fungicide,two,2.02
+boscalid,465,paper,control,one,
+boscalid,465,paper,control,one,
+boscalid,465,paper,control,one,
+boscalid,465,paper,control,one,
+boscalid,465,paper,control,two,4.075
+boscalid,465,paper,control,two,4.065
+boscalid,465,paper,control,two,4.285
+boscalid,465,paper,control,two,4.145
+boscalid,560,plug,fungicide,one,1.99
+boscalid,560,plug,fungicide,one,2.065
+boscalid,560,plug,fungicide,one,2.04
+boscalid,560,plug,fungicide,one,1.98
+boscalid,560,plug,fungicide,two,2.48
+boscalid,560,plug,fungicide,two,2.465
+boscalid,560,plug,fungicide,two,2.385
+boscalid,560,plug,fungicide,two,2.34
+boscalid,560,plug,control,one,6.175
+boscalid,560,plug,control,one,6.03
+boscalid,560,plug,control,one,6.015
+boscalid,560,plug,control,one,6.315
+boscalid,560,plug,control,two,5.37
+boscalid,560,plug,control,two,6.415
+boscalid,560,plug,control,two,5.21
+boscalid,560,plug,control,two,6.58
+boscalid,560,paper,fungicide,one,1.81
+boscalid,560,paper,fungicide,one,1.815
+boscalid,560,paper,fungicide,one,1.84
+boscalid,560,paper,fungicide,one,1.73
+boscalid,560,paper,fungicide,two,2.165
+boscalid,560,paper,fungicide,two,1.99
+boscalid,560,paper,fungicide,two,1.995
+boscalid,560,paper,fungicide,two,2.04
+boscalid,560,paper,control,one,4.845
+boscalid,560,paper,control,one,4.11
+boscalid,560,paper,control,one,4.475
+boscalid,560,paper,control,one,4.345
+boscalid,560,paper,control,two,5.73
+boscalid,560,paper,control,two,6.1
+boscalid,560,paper,control,two,5.75
+boscalid,560,paper,control,two,5.595
+boscalid,601,plug,fungicide,one,1.37
+boscalid,601,plug,fungicide,one,1.48
+boscalid,601,plug,fungicide,one,1.435
+boscalid,601,plug,fungicide,one,1.44
+boscalid,601,plug,fungicide,two,2.39
+boscalid,601,plug,fungicide,two,2.33
+boscalid,601,plug,fungicide,two,2.355
+boscalid,601,plug,fungicide,two,2.335
+boscalid,601,plug,control,one,6.42
+boscalid,601,plug,control,one,6.695
+boscalid,601,plug,control,one,6.65
+boscalid,601,plug,control,one,6.405
+boscalid,601,plug,control,two,5.375
+boscalid,601,plug,control,two,6.31
+boscalid,601,plug,control,two,5.52
+boscalid,601,plug,control,two,6.485
+boscalid,601,paper,fungicide,one,1.975
+boscalid,601,paper,fungicide,one,1.96
+boscalid,601,paper,fungicide,one,2.03
+boscalid,601,paper,fungicide,one,1.625
+boscalid,601,paper,fungicide,two,1.74
+boscalid,601,paper,fungicide,two,1.795
+boscalid,601,paper,fungicide,two,1.75
+boscalid,601,paper,fungicide,two,1.895
+boscalid,601,paper,control,one,3.68
+boscalid,601,paper,control,one,3.71
+boscalid,601,paper,control,one,2.995
+boscalid,601,paper,control,one,
+boscalid,601,paper,control,two,4.92
+boscalid,601,paper,control,two,4.905
+boscalid,601,paper,control,two,5.5
+boscalid,601,paper,control,two,5.71
+boscalid,771,plug,fungicide,one,2.445
+boscalid,771,plug,fungicide,one,2.32
+boscalid,771,plug,fungicide,one,2.41
+boscalid,771,plug,fungicide,one,2.39
+boscalid,771,plug,fungicide,two,3.545
+boscalid,771,plug,fungicide,two,3.44
+boscalid,771,plug,fungicide,two,3.51
+boscalid,771,plug,fungicide,two,3.165
+boscalid,771,plug,control,one,6.75
+boscalid,771,plug,control,one,6.71
+boscalid,771,plug,control,one,6.69
+boscalid,771,plug,control,one,6.77
+boscalid,771,plug,control,two,5.89
+boscalid,771,plug,control,two,6.79
+boscalid,771,plug,control,two,5.635
+boscalid,771,plug,control,two,6.815
+boscalid,771,paper,fungicide,one,2.95
+boscalid,771,paper,fungicide,one,2.9
+boscalid,771,paper,fungicide,one,2.85
+boscalid,771,paper,fungicide,one,2.9
+boscalid,771,paper,fungicide,two,3.09
+boscalid,771,paper,fungicide,two,3.17
+boscalid,771,paper,fungicide,two,2.945
+boscalid,771,paper,fungicide,two,3.365
+boscalid,771,paper,control,one,5.25
+boscalid,771,paper,control,one,4.7
+boscalid,771,paper,control,one,4.65
+boscalid,771,paper,control,one,4.45
+boscalid,771,paper,control,two,5.385
+boscalid,771,paper,control,two,5.375
+boscalid,771,paper,control,two,5.33
+boscalid,771,paper,control,two,5.57
+boscalid,801,plug,fungicide,one,2.98
+boscalid,801,plug,fungicide,one,2.05
+boscalid,801,plug,fungicide,one,2.175
+boscalid,801,plug,fungicide,one,2.1
+boscalid,801,plug,fungicide,two,3.25
+boscalid,801,plug,fungicide,two,3.06
+boscalid,801,plug,fungicide,two,3.33
+boscalid,801,plug,fungicide,two,3.17
+boscalid,801,plug,control,one,6.375
+boscalid,801,plug,control,one,6.51
+boscalid,801,plug,control,one,6.265
+boscalid,801,plug,control,one,6.295
+boscalid,801,plug,control,two,5.475
+boscalid,801,plug,control,two,6.24
+boscalid,801,plug,control,two,5.37
+boscalid,801,plug,control,two,6.555
+boscalid,801,paper,fungicide,one,2.25
+boscalid,801,paper,fungicide,one,2.375
+boscalid,801,paper,fungicide,one,2.285
+boscalid,801,paper,fungicide,one,2.385
+boscalid,801,paper,fungicide,two,2.635
+boscalid,801,paper,fungicide,two,2.57
+boscalid,801,paper,fungicide,two,2.445
+boscalid,801,paper,fungicide,two,2.555
+boscalid,801,paper,control,one,3.475
+boscalid,801,paper,control,one,4.41
+boscalid,801,paper,control,one,3.295
+boscalid,801,paper,control,one,3.785
+boscalid,801,paper,control,two,5.475
+boscalid,801,paper,control,two,5.42
+boscalid,801,paper,control,two,5.58
+boscalid,801,paper,control,two,5.545
+boscalid,851,plug,fungicide,one,1.71
+boscalid,851,plug,fungicide,one,1.65
+boscalid,851,plug,fungicide,one,1.73
+boscalid,851,plug,fungicide,one,1.63
+boscalid,851,plug,fungicide,two,2.535
+boscalid,851,plug,fungicide,two,2.47
+boscalid,851,plug,fungicide,two,2.51
+boscalid,851,plug,fungicide,two,2.52
+boscalid,851,plug,control,one,6.36
+boscalid,851,plug,control,one,6.615
+boscalid,851,plug,control,one,6.445
+boscalid,851,plug,control,one,6.635
+boscalid,851,plug,control,two,5.39
+boscalid,851,plug,control,two,6.28
+boscalid,851,plug,control,two,5.55
+boscalid,851,plug,control,two,6.64
+boscalid,851,paper,fungicide,one,1.675
+boscalid,851,paper,fungicide,one,1.615
+boscalid,851,paper,fungicide,one,1.685
+boscalid,851,paper,fungicide,one,1.695
+boscalid,851,paper,fungicide,two,1.535
+boscalid,851,paper,fungicide,two,1.5
+boscalid,851,paper,fungicide,two,1.55
+boscalid,851,paper,fungicide,two,1.42
+boscalid,851,paper,control,one,4.455
+boscalid,851,paper,control,one,4.51
+boscalid,851,paper,control,one,4.95
+boscalid,851,paper,control,one,4.81
+boscalid,851,paper,control,two,3.81
+boscalid,851,paper,control,two,3.205
+boscalid,851,paper,control,two,3.785
+boscalid,851,paper,control,two,3.965
+boscalid,859,plug,fungicide,one,1.79
+boscalid,859,plug,fungicide,one,1.775
+boscalid,859,plug,fungicide,one,1.825
+boscalid,859,plug,fungicide,one,1.84
+boscalid,859,plug,fungicide,two,2.45
+boscalid,859,plug,fungicide,two,2.315
+boscalid,859,plug,fungicide,two,2.38
+boscalid,859,plug,fungicide,two,2.32
+boscalid,859,plug,control,one,6.795
+boscalid,859,plug,control,one,6.745
+boscalid,859,plug,control,one,6.9
+boscalid,859,plug,control,one,6.46
+boscalid,859,plug,control,two,4.68
+boscalid,859,plug,control,two,6.43
+boscalid,859,plug,control,two,5.095
+boscalid,859,plug,control,two,6.28
+boscalid,859,paper,fungicide,one,1.915
+boscalid,859,paper,fungicide,one,1.91
+boscalid,859,paper,fungicide,one,1.88
+boscalid,859,paper,fungicide,one,1.88
+boscalid,859,paper,fungicide,two,1.95
+boscalid,859,paper,fungicide,two,1.88
+boscalid,859,paper,fungicide,two,1.815
+boscalid,859,paper,fungicide,two,1.76
+boscalid,859,paper,control,one,5.68
+boscalid,859,paper,control,one,4.53
+boscalid,859,paper,control,one,5.36
+boscalid,859,paper,control,one,4.715
+boscalid,859,paper,control,two,4.925
+boscalid,859,paper,control,two,4.72
+boscalid,859,paper,control,two,4.84
+boscalid,859,paper,control,two,5.32
+boscalid,861,plug,fungicide,one,1.44
+boscalid,861,plug,fungicide,one,1.55
+boscalid,861,plug,fungicide,one,1.67
+boscalid,861,plug,fungicide,one,1.67
+boscalid,861,plug,fungicide,two,2.45
+boscalid,861,plug,fungicide,two,2.27
+boscalid,861,plug,fungicide,two,2.33
+boscalid,861,plug,fungicide,two,2.435
+boscalid,861,plug,control,one,6.02
+boscalid,861,plug,control,one,6.56
+boscalid,861,plug,control,one,6.58
+boscalid,861,plug,control,one,6.865
+boscalid,861,plug,control,two,4.76
+boscalid,861,plug,control,two,6.7
+boscalid,861,plug,control,two,4.79
+boscalid,861,plug,control,two,6.37
+boscalid,861,paper,fungicide,one,1.61
+boscalid,861,paper,fungicide,one,1.6
+boscalid,861,paper,fungicide,one,1.34
+boscalid,861,paper,fungicide,one,1.575
+boscalid,861,paper,fungicide,two,2.175
+boscalid,861,paper,fungicide,two,2.125
+boscalid,861,paper,fungicide,two,2.225
+boscalid,861,paper,fungicide,two,2.225
+boscalid,861,paper,control,one,3.875
+boscalid,861,paper,control,one,4.825
+boscalid,861,paper,control,one,4.78
+boscalid,861,paper,control,one,4.935
+boscalid,861,paper,control,two,5.125
+boscalid,861,paper,control,two,4.2
+boscalid,861,paper,control,two,5.6
+boscalid,861,paper,control,two,5.15
+boscalid,902,plug,fungicide,one,2.275
+boscalid,902,plug,fungicide,one,2.24
+boscalid,902,plug,fungicide,one,2.275
+boscalid,902,plug,fungicide,one,2.165
+boscalid,902,plug,fungicide,two,3.13
+boscalid,902,plug,fungicide,two,2.925
+boscalid,902,plug,fungicide,two,3.195
+boscalid,902,plug,fungicide,two,3.09
+boscalid,902,plug,control,one,6.31
+boscalid,902,plug,control,one,6.105
+boscalid,902,plug,control,one,5.97
+boscalid,902,plug,control,one,6.25
+boscalid,902,plug,control,two,5.835
+boscalid,902,plug,control,two,5.05
+boscalid,902,plug,control,two,5.735
+boscalid,902,plug,control,two,5.165
+boscalid,902,paper,fungicide,one,2.165
+boscalid,902,paper,fungicide,one,2.19
+boscalid,902,paper,fungicide,one,2.13
+boscalid,902,paper,fungicide,one,0.15
+boscalid,902,paper,fungicide,two,2.02
+boscalid,902,paper,fungicide,two,2.36
+boscalid,902,paper,fungicide,two,2.295
+boscalid,902,paper,fungicide,two,2.415
+boscalid,902,paper,control,one,
+boscalid,902,paper,control,one,3.55
+boscalid,902,paper,control,one,3.74
+boscalid,902,paper,control,one,
+boscalid,902,paper,control,two,5.545
+boscalid,902,paper,control,two,5.77
+boscalid,902,paper,control,two,5.395
+boscalid,902,paper,control,two,5.295
+prothioconazole,152,plug,fungicide,one,1.755
+prothioconazole,152,plug,fungicide,one,1.73
+prothioconazole,152,plug,fungicide,one,1.545
+prothioconazole,152,plug,fungicide,one,1.77
+prothioconazole,152,plug,fungicide,two,2.075
+prothioconazole,152,plug,fungicide,two,1.895
+prothioconazole,152,plug,fungicide,two,1.765
+prothioconazole,152,plug,fungicide,two,2.15
+prothioconazole,152,plug,control,one,6.355
+prothioconazole,152,plug,control,one,5.97
+prothioconazole,152,plug,control,one,5.965
+prothioconazole,152,plug,control,one,6.2
+prothioconazole,152,plug,control,two,6.93
+prothioconazole,152,plug,control,two,6.895
+prothioconazole,152,plug,control,two,6.365
+prothioconazole,152,plug,control,two,6.545
+prothioconazole,152,paper,fungicide,one,0.67
+prothioconazole,152,paper,fungicide,one,0.8
+prothioconazole,152,paper,fungicide,one,0.995
+prothioconazole,152,paper,fungicide,one,1.355
+prothioconazole,152,paper,fungicide,two,0.715
+prothioconazole,152,paper,fungicide,two,0.4
+prothioconazole,152,paper,fungicide,two,0
+prothioconazole,152,paper,fungicide,two,1.515
+prothioconazole,152,paper,control,one,4.35
+prothioconazole,152,paper,control,one,4.65
+prothioconazole,152,paper,control,one,4.69
+prothioconazole,152,paper,control,one,4.33
+prothioconazole,152,paper,control,two,6.07
+prothioconazole,152,paper,control,two,6.225
+prothioconazole,152,paper,control,two,6.04
+prothioconazole,152,paper,control,two,6.32
+prothioconazole,274,plug,fungicide,one,0.5
+prothioconazole,274,plug,fungicide,one,0.96
+prothioconazole,274,plug,fungicide,one,0.93
+prothioconazole,274,plug,fungicide,one,0.97
+prothioconazole,274,plug,fungicide,two,0.985
+prothioconazole,274,plug,fungicide,two,1.065
+prothioconazole,274,plug,fungicide,two,1.11
+prothioconazole,274,plug,fungicide,two,1.225
+prothioconazole,274,plug,control,one,5.415
+prothioconazole,274,plug,control,one,5.82
+prothioconazole,274,plug,control,one,5.75
+prothioconazole,274,plug,control,one,5.455
+prothioconazole,274,plug,control,two,5.855
+prothioconazole,274,plug,control,two,6.03
+prothioconazole,274,plug,control,two,5.83
+prothioconazole,274,plug,control,two,5.885
+prothioconazole,274,paper,fungicide,one,0.15
+prothioconazole,274,paper,fungicide,one,0
+prothioconazole,274,paper,fungicide,one,0.5
+prothioconazole,274,paper,fungicide,one,0.45
+prothioconazole,274,paper,fungicide,two,0.8
+prothioconazole,274,paper,fungicide,two,0.5
+prothioconazole,274,paper,fungicide,two,0.6
+prothioconazole,274,paper,fungicide,two,0.7
+prothioconazole,274,paper,control,one,4.495
+prothioconazole,274,paper,control,one,4.44
+prothioconazole,274,paper,control,one,4.155
+prothioconazole,274,paper,control,one,3.665
+prothioconazole,274,paper,control,two,4.375
+prothioconazole,274,paper,control,two,4.93
+prothioconazole,274,paper,control,two,4.33
+prothioconazole,274,paper,control,two,4.215
+prothioconazole,465,plug,fungicide,one,3.735
+prothioconazole,465,plug,fungicide,one,3.84
+prothioconazole,465,plug,fungicide,one,3.795
+prothioconazole,465,plug,fungicide,one,3.76
+prothioconazole,465,plug,fungicide,two,3.92
+prothioconazole,465,plug,fungicide,two,3.985
+prothioconazole,465,plug,fungicide,two,3.85
+prothioconazole,465,plug,fungicide,two,3.965
+prothioconazole,465,plug,control,one,5.9
+prothioconazole,465,plug,control,one,5.935
+prothioconazole,465,plug,control,one,5.515
+prothioconazole,465,plug,control,one,6.195
+prothioconazole,465,plug,control,two,6.39
+prothioconazole,465,plug,control,two,6.28
+prothioconazole,465,plug,control,two,6.41
+prothioconazole,465,plug,control,two,6.21
+prothioconazole,465,paper,fungicide,one,2.475
+prothioconazole,465,paper,fungicide,one,2.755
+prothioconazole,465,paper,fungicide,one,2.83
+prothioconazole,465,paper,fungicide,one,2.685
+prothioconazole,465,paper,fungicide,two,2.355
+prothioconazole,465,paper,fungicide,two,2.925
+prothioconazole,465,paper,fungicide,two,2.57
+prothioconazole,465,paper,fungicide,two,2.165
+prothioconazole,465,paper,control,one,4.87
+prothioconazole,465,paper,control,one,5.07
+prothioconazole,465,paper,control,one,5.005
+prothioconazole,465,paper,control,one,4.81
+prothioconazole,465,paper,control,two,4.87
+prothioconazole,465,paper,control,two,4.02
+prothioconazole,465,paper,control,two,4.95
+prothioconazole,465,paper,control,two,4.675
+prothioconazole,560,plug,fungicide,one,4.08
+prothioconazole,560,plug,fungicide,one,4.02
+prothioconazole,560,plug,fungicide,one,3.725
+prothioconazole,560,plug,fungicide,one,3.02
+prothioconazole,560,plug,fungicide,two,4.805
+prothioconazole,560,plug,fungicide,two,4.58
+prothioconazole,560,plug,fungicide,two,4.005
+prothioconazole,560,plug,fungicide,two,4.44
+prothioconazole,560,plug,control,one,5.91
+prothioconazole,560,plug,control,one,6.055
+prothioconazole,560,plug,control,one,5.435
+prothioconazole,560,plug,control,one,6.44
+prothioconazole,560,plug,control,two,6.515
+prothioconazole,560,plug,control,two,6.725
+prothioconazole,560,plug,control,two,6.665
+prothioconazole,560,plug,control,two,6.55
+prothioconazole,560,paper,fungicide,one,2.775
+prothioconazole,560,paper,fungicide,one,3.035
+prothioconazole,560,paper,fungicide,one,3.48
+prothioconazole,560,paper,fungicide,one,3.425
+prothioconazole,560,paper,fungicide,two,2.81
+prothioconazole,560,paper,fungicide,two,3.94
+prothioconazole,560,paper,fungicide,two,3.455
+prothioconazole,560,paper,fungicide,two,4.14
+prothioconazole,560,paper,control,one,4.56
+prothioconazole,560,paper,control,one,3.765
+prothioconazole,560,paper,control,one,4.5
+prothioconazole,560,paper,control,one,4.36
+prothioconazole,560,paper,control,two,4.37
+prothioconazole,560,paper,control,two,5.44
+prothioconazole,560,paper,control,two,5.965
+prothioconazole,560,paper,control,two,6.13
+prothioconazole,601,plug,fungicide,one,0.975
+prothioconazole,601,plug,fungicide,one,0.945
+prothioconazole,601,plug,fungicide,one,0.84
+prothioconazole,601,plug,fungicide,one,1
+prothioconazole,601,plug,fungicide,two,1.23
+prothioconazole,601,plug,fungicide,two,1.025
+prothioconazole,601,plug,fungicide,two,1.18
+prothioconazole,601,plug,fungicide,two,1.14
+prothioconazole,601,plug,control,one,5.72
+prothioconazole,601,plug,control,one,5.905
+prothioconazole,601,plug,control,one,6.175
+prothioconazole,601,plug,control,one,5.74
+prothioconazole,601,plug,control,two,6.325
+prothioconazole,601,plug,control,two,6.425
+prothioconazole,601,plug,control,two,6.52
+prothioconazole,601,plug,control,two,6.415
+prothioconazole,601,paper,fungicide,one,0.7
+prothioconazole,601,paper,fungicide,one,0.75
+prothioconazole,601,paper,fungicide,one,0.6
+prothioconazole,601,paper,fungicide,one,0.925
+prothioconazole,601,paper,fungicide,two,0.05
+prothioconazole,601,paper,fungicide,two,0.05
+prothioconazole,601,paper,fungicide,two,0.15
+prothioconazole,601,paper,fungicide,two,0.5
+prothioconazole,601,paper,control,one,3.83
+prothioconazole,601,paper,control,one,4.335
+prothioconazole,601,paper,control,one,4.14
+prothioconazole,601,paper,control,one,4.14
+prothioconazole,601,paper,control,two,5.495
+prothioconazole,601,paper,control,two,4.745
+prothioconazole,601,paper,control,two,5.69
+prothioconazole,601,paper,control,two,5.82
+prothioconazole,771,plug,fungicide,one,3.375
+prothioconazole,771,plug,fungicide,one,3.455
+prothioconazole,771,plug,fungicide,one,3.77
+prothioconazole,771,plug,fungicide,one,3.955
+prothioconazole,771,plug,fungicide,two,4.69
+prothioconazole,771,plug,fungicide,two,4.48
+prothioconazole,771,plug,fungicide,two,4.48
+prothioconazole,771,plug,fungicide,two,4.66
+prothioconazole,771,plug,control,one,6.175
+prothioconazole,771,plug,control,one,6.305
+prothioconazole,771,plug,control,one,6.35
+prothioconazole,771,plug,control,one,6.2
+prothioconazole,771,plug,control,two,6.65
+prothioconazole,771,plug,control,two,6.52
+prothioconazole,771,plug,control,two,6.735
+prothioconazole,771,plug,control,two,6.39
+prothioconazole,771,paper,fungicide,one,3.125
+prothioconazole,771,paper,fungicide,one,1.6
+prothioconazole,771,paper,fungicide,one,2.9
+prothioconazole,771,paper,fungicide,one,1.55
+prothioconazole,771,paper,fungicide,two,2.445
+prothioconazole,771,paper,fungicide,two,2.6
+prothioconazole,771,paper,fungicide,two,2.43
+prothioconazole,771,paper,fungicide,two,
+prothioconazole,771,paper,control,one,5
+prothioconazole,771,paper,control,one,4.885
+prothioconazole,771,paper,control,one,4.845
+prothioconazole,771,paper,control,one,3.875
+prothioconazole,771,paper,control,two,5.45
+prothioconazole,771,paper,control,two,5.165
+prothioconazole,771,paper,control,two,5.04
+prothioconazole,771,paper,control,two,
+prothioconazole,801,plug,fungicide,one,2.725
+prothioconazole,801,plug,fungicide,one,2.93
+prothioconazole,801,plug,fungicide,one,2.79
+prothioconazole,801,plug,fungicide,one,2.995
+prothioconazole,801,plug,fungicide,two,2.42
+prothioconazole,801,plug,fungicide,two,2.495
+prothioconazole,801,plug,fungicide,two,2.525
+prothioconazole,801,plug,fungicide,two,2.49
+prothioconazole,801,plug,control,one,5.25
+prothioconazole,801,plug,control,one,5.44
+prothioconazole,801,plug,control,one,5.075
+prothioconazole,801,plug,control,one,5.35
+prothioconazole,801,plug,control,two,6.185
+prothioconazole,801,plug,control,two,6.27
+prothioconazole,801,plug,control,two,6.345
+prothioconazole,801,plug,control,two,6.08
+prothioconazole,801,paper,fungicide,one,2.34
+prothioconazole,801,paper,fungicide,one,2.065
+prothioconazole,801,paper,fungicide,one,2.16
+prothioconazole,801,paper,fungicide,one,2.165
+prothioconazole,801,paper,fungicide,two,2.5
+prothioconazole,801,paper,fungicide,two,2.16
+prothioconazole,801,paper,fungicide,two,2.375
+prothioconazole,801,paper,fungicide,two,2.305
+prothioconazole,801,paper,control,one,3.47
+prothioconazole,801,paper,control,one,3.255
+prothioconazole,801,paper,control,one,3.42
+prothioconazole,801,paper,control,one,3.3
+prothioconazole,801,paper,control,two,4.16
+prothioconazole,801,paper,control,two,2.99
+prothioconazole,801,paper,control,two,3.725
+prothioconazole,801,paper,control,two,3.915
+prothioconazole,851,plug,fungicide,one,3.485
+prothioconazole,851,plug,fungicide,one,3.51
+prothioconazole,851,plug,fungicide,one,3.31
+prothioconazole,851,plug,fungicide,one,3.4
+prothioconazole,851,plug,fungicide,two,4.41
+prothioconazole,851,plug,fungicide,two,4.27
+prothioconazole,851,plug,fungicide,two,4.255
+prothioconazole,851,plug,fungicide,two,4.17
+prothioconazole,851,plug,control,one,5.29
+prothioconazole,851,plug,control,one,5.13
+prothioconazole,851,plug,control,one,5.595
+prothioconazole,851,plug,control,one,5.56
+prothioconazole,851,plug,control,two,6.015
+prothioconazole,851,plug,control,two,6.165
+prothioconazole,851,plug,control,two,6.435
+prothioconazole,851,plug,control,two,6.205
+prothioconazole,851,paper,fungicide,one,2.705
+prothioconazole,851,paper,fungicide,one,2.2
+prothioconazole,851,paper,fungicide,one,2.72
+prothioconazole,851,paper,fungicide,one,2.945
+prothioconazole,851,paper,fungicide,two,1.32
+prothioconazole,851,paper,fungicide,two,2.99
+prothioconazole,851,paper,fungicide,two,2.865
+prothioconazole,851,paper,fungicide,two,1.355
+prothioconazole,851,paper,control,one,5.19
+prothioconazole,851,paper,control,one,5.04
+prothioconazole,851,paper,control,one,5.05
+prothioconazole,851,paper,control,one,5.425
+prothioconazole,851,paper,control,two,5.13
+prothioconazole,851,paper,control,two,5.615
+prothioconazole,851,paper,control,two,5.42
+prothioconazole,851,paper,control,two,5.21
+prothioconazole,859,plug,fungicide,one,3.885
+prothioconazole,859,plug,fungicide,one,4.41
+prothioconazole,859,plug,fungicide,one,3.77
+prothioconazole,859,plug,fungicide,one,4.025
+prothioconazole,859,plug,fungicide,two,4.95
+prothioconazole,859,plug,fungicide,two,4.845
+prothioconazole,859,plug,fungicide,two,4.76
+prothioconazole,859,plug,fungicide,two,4.745
+prothioconazole,859,plug,control,one,5.995
+prothioconazole,859,plug,control,one,5.79
+prothioconazole,859,plug,control,one,5.81
+prothioconazole,859,plug,control,one,5.73
+prothioconazole,859,plug,control,two,6.6
+prothioconazole,859,plug,control,two,6.425
+prothioconazole,859,plug,control,two,6.295
+prothioconazole,859,plug,control,two,6.275
+prothioconazole,859,paper,fungicide,one,4.015
+prothioconazole,859,paper,fungicide,one,3.925
+prothioconazole,859,paper,fungicide,one,4.625
+prothioconazole,859,paper,fungicide,one,4.555
+prothioconazole,859,paper,fungicide,two,4.235
+prothioconazole,859,paper,fungicide,two,4.465
+prothioconazole,859,paper,fungicide,two,4.57
+prothioconazole,859,paper,fungicide,two,4.345
+prothioconazole,859,paper,control,one,5.19
+prothioconazole,859,paper,control,one,4.6
+prothioconazole,859,paper,control,one,4.96
+prothioconazole,859,paper,control,one,4.905
+prothioconazole,859,paper,control,two,6.25
+prothioconazole,859,paper,control,two,6.08
+prothioconazole,859,paper,control,two,6.325
+prothioconazole,859,paper,control,two,6.255
+prothioconazole,861,plug,fungicide,one,3.79
+prothioconazole,861,plug,fungicide,one,4.09
+prothioconazole,861,plug,fungicide,one,3.91
+prothioconazole,861,plug,fungicide,one,4.365
+prothioconazole,861,plug,fungicide,two,4.55
+prothioconazole,861,plug,fungicide,two,4.655
+prothioconazole,861,plug,fungicide,two,4.765
+prothioconazole,861,plug,fungicide,two,5.06
+prothioconazole,861,plug,control,one,5.775
+prothioconazole,861,plug,control,one,5.995
+prothioconazole,861,plug,control,one,5.56
+prothioconazole,861,plug,control,one,5.13
+prothioconazole,861,plug,control,two,6.34
+prothioconazole,861,plug,control,two,6.08
+prothioconazole,861,plug,control,two,6.425
+prothioconazole,861,plug,control,two,6.565
+prothioconazole,861,paper,fungicide,one,4.02
+prothioconazole,861,paper,fungicide,one,3.735
+prothioconazole,861,paper,fungicide,one,4
+prothioconazole,861,paper,fungicide,one,4.13
+prothioconazole,861,paper,fungicide,two,4.3
+prothioconazole,861,paper,fungicide,two,4.58
+prothioconazole,861,paper,fungicide,two,4.325
+prothioconazole,861,paper,fungicide,two,3.82
+prothioconazole,861,paper,control,one,4.745
+prothioconazole,861,paper,control,one,4.445
+prothioconazole,861,paper,control,one,4.79
+prothioconazole,861,paper,control,one,4.57
+prothioconazole,861,paper,control,two,6.035
+prothioconazole,861,paper,control,two,6.185
+prothioconazole,861,paper,control,two,5.62
+prothioconazole,861,paper,control,two,6.22
+prothioconazole,902,plug,fungicide,one,2.555
+prothioconazole,902,plug,fungicide,one,2.84
+prothioconazole,902,plug,fungicide,one,2.65
+prothioconazole,902,plug,fungicide,one,2.77
+prothioconazole,902,plug,fungicide,two,2.495
+prothioconazole,902,plug,fungicide,two,2.48
+prothioconazole,902,plug,fungicide,two,2.425
+prothioconazole,902,plug,fungicide,two,2.55
+prothioconazole,902,plug,control,one,5.005
+prothioconazole,902,plug,control,one,5
+prothioconazole,902,plug,control,one,4.71
+prothioconazole,902,plug,control,one,4.86
+prothioconazole,902,plug,control,two,6.22
+prothioconazole,902,plug,control,two,6.1
+prothioconazole,902,plug,control,two,6.29
+prothioconazole,902,plug,control,two,6.195
+prothioconazole,902,paper,fungicide,one,2.215
+prothioconazole,902,paper,fungicide,one,2.385
+prothioconazole,902,paper,fungicide,one,2.38
+prothioconazole,902,paper,fungicide,one,2.415
+prothioconazole,902,paper,fungicide,two,2.065
+prothioconazole,902,paper,fungicide,two,1.935
+prothioconazole,902,paper,fungicide,two,2.26
+prothioconazole,902,paper,fungicide,two,2.33
+prothioconazole,902,paper,control,one,3.335
+prothioconazole,902,paper,control,one,3.735
+prothioconazole,902,paper,control,one,3.695
+prothioconazole,902,paper,control,one,4.135
+prothioconazole,902,paper,control,two,4.16
+prothioconazole,902,paper,control,two,4.24
+prothioconazole,902,paper,control,two,4.485
+prothioconazole,902,paper,control,two,4.45
+procymidone,152,plug,fungicide,one,3.58
+procymidone,152,plug,fungicide,one,3.24
+procymidone,152,plug,fungicide,one,4.055
+procymidone,152,plug,fungicide,one,4.07
+procymidone,152,plug,fungicide,two,5.775
+procymidone,152,plug,fungicide,two,5.65
+procymidone,152,plug,fungicide,two,4.61
+procymidone,152,plug,fungicide,two,4.12
+procymidone,152,plug,control,one,5.02
+procymidone,152,plug,control,one,5.33
+procymidone,152,plug,control,one,5.95
+procymidone,152,plug,control,one,6.035
+procymidone,152,plug,control,two,6.99
+procymidone,152,plug,control,two,6.85
+procymidone,152,plug,control,two,7.055
+procymidone,152,plug,control,two,6.885
+procymidone,152,paper,fungicide,one,3.325
+procymidone,152,paper,fungicide,one,4.175
+procymidone,152,paper,fungicide,one,4.19
+procymidone,152,paper,fungicide,one,3.16
+procymidone,152,paper,fungicide,two,2.88
+procymidone,152,paper,fungicide,two,4.4
+procymidone,152,paper,fungicide,two,4.855
+procymidone,152,paper,fungicide,two,3.005
+procymidone,152,paper,control,one,4.8
+procymidone,152,paper,control,one,4.825
+procymidone,152,paper,control,one,4.65
+procymidone,152,paper,control,one,4.88
+procymidone,152,paper,control,two,6.68
+procymidone,152,paper,control,two,6.39
+procymidone,152,paper,control,two,6.085
+procymidone,152,paper,control,two,6.465
+procymidone,274,plug,fungicide,one,3.605
+procymidone,274,plug,fungicide,one,4.12
+procymidone,274,plug,fungicide,one,3.41
+procymidone,274,plug,fungicide,one,3.915
+procymidone,274,plug,fungicide,two,4.49
+procymidone,274,plug,fungicide,two,4.115
+procymidone,274,plug,fungicide,two,2.71
+procymidone,274,plug,fungicide,two,3.11
+procymidone,274,plug,control,one,5.28
+procymidone,274,plug,control,one,4.95
+procymidone,274,plug,control,one,5.55
+procymidone,274,plug,control,one,5.805
+procymidone,274,plug,control,two,6.18
+procymidone,274,plug,control,two,6.55
+procymidone,274,plug,control,two,5.95
+procymidone,274,plug,control,two,6.12
+procymidone,274,paper,fungicide,one,2.53
+procymidone,274,paper,fungicide,one,2.475
+procymidone,274,paper,fungicide,one,2.365
+procymidone,274,paper,fungicide,one,3.425
+procymidone,274,paper,fungicide,two,2.4
+procymidone,274,paper,fungicide,two,2.655
+procymidone,274,paper,fungicide,two,2.17
+procymidone,274,paper,fungicide,two,2.875
+procymidone,274,paper,control,one,3.6
+procymidone,274,paper,control,one,3.275
+procymidone,274,paper,control,one,3.885
+procymidone,274,paper,control,one,3.95
+procymidone,274,paper,control,two,5.125
+procymidone,274,paper,control,two,5.06
+procymidone,274,paper,control,two,5.105
+procymidone,274,paper,control,two,5.215
+procymidone,465,plug,fungicide,one,2.6
+procymidone,465,plug,fungicide,one,2.38
+procymidone,465,plug,fungicide,one,3.52
+procymidone,465,plug,fungicide,one,3.4
+procymidone,465,plug,fungicide,two,4.465
+procymidone,465,plug,fungicide,two,4.16
+procymidone,465,plug,fungicide,two,3.535
+procymidone,465,plug,fungicide,two,3.64
+procymidone,465,plug,control,one,5.44
+procymidone,465,plug,control,one,5
+procymidone,465,plug,control,one,4.615
+procymidone,465,plug,control,one,4.7
+procymidone,465,plug,control,two,6.47
+procymidone,465,plug,control,two,6.3
+procymidone,465,plug,control,two,6.345
+procymidone,465,plug,control,two,6.45
+procymidone,465,paper,fungicide,one,3.075
+procymidone,465,paper,fungicide,one,1.825
+procymidone,465,paper,fungicide,one,3.06
+procymidone,465,paper,fungicide,one,2.15
+procymidone,465,paper,fungicide,two,1.785
+procymidone,465,paper,fungicide,two,2.6
+procymidone,465,paper,fungicide,two,2.07
+procymidone,465,paper,fungicide,two,2.76
+procymidone,465,paper,control,one,4.375
+procymidone,465,paper,control,one,4.34
+procymidone,465,paper,control,one,4.59
+procymidone,465,paper,control,one,3.98
+procymidone,465,paper,control,two,4.1
+procymidone,465,paper,control,two,4.535
+procymidone,465,paper,control,two,4.585
+procymidone,465,paper,control,two,4.34
+procymidone,560,plug,fungicide,one,2.09
+procymidone,560,plug,fungicide,one,2.04
+procymidone,560,plug,fungicide,one,2.285
+procymidone,560,plug,fungicide,one,2.31
+procymidone,560,plug,fungicide,two,3.225
+procymidone,560,plug,fungicide,two,3.71
+procymidone,560,plug,fungicide,two,2.98
+procymidone,560,plug,fungicide,two,3.16
+procymidone,560,plug,control,one,3.12
+procymidone,560,plug,control,one,3.195
+procymidone,560,plug,control,one,3.25
+procymidone,560,plug,control,one,3.25
+procymidone,560,plug,control,two,6.855
+procymidone,560,plug,control,two,6.54
+procymidone,560,plug,control,two,6.6
+procymidone,560,plug,control,two,6.37
+procymidone,560,paper,fungicide,one,3.5
+procymidone,560,paper,fungicide,one,2.48
+procymidone,560,paper,fungicide,one,3.975
+procymidone,560,paper,fungicide,one,2.15
+procymidone,560,paper,fungicide,two,2.975
+procymidone,560,paper,fungicide,two,3.86
+procymidone,560,paper,fungicide,two,3.405
+procymidone,560,paper,fungicide,two,3.765
+procymidone,560,paper,control,one,4.9
+procymidone,560,paper,control,one,4.46
+procymidone,560,paper,control,one,4.605
+procymidone,560,paper,control,one,4.605
+procymidone,560,paper,control,two,6.52
+procymidone,560,paper,control,two,6.645
+procymidone,560,paper,control,two,5.85
+procymidone,560,paper,control,two,5.99
+procymidone,601,plug,fungicide,one,2.63
+procymidone,601,plug,fungicide,one,3.005
+procymidone,601,plug,fungicide,one,3.715
+procymidone,601,plug,fungicide,one,3.68
+procymidone,601,plug,fungicide,two,5.03
+procymidone,601,plug,fungicide,two,4.75
+procymidone,601,plug,fungicide,two,3.84
+procymidone,601,plug,fungicide,two,3.515
+procymidone,601,plug,control,one,4.79
+procymidone,601,plug,control,one,4.43
+procymidone,601,plug,control,one,3.765
+procymidone,601,plug,control,one,4.305
+procymidone,601,plug,control,two,6.71
+procymidone,601,plug,control,two,6.555
+procymidone,601,plug,control,two,6.9
+procymidone,601,plug,control,two,6.72
+procymidone,601,paper,fungicide,one,2.605
+procymidone,601,paper,fungicide,one,3.475
+procymidone,601,paper,fungicide,one,2.36
+procymidone,601,paper,fungicide,one,3.86
+procymidone,601,paper,fungicide,two,2.37
+procymidone,601,paper,fungicide,two,3.93
+procymidone,601,paper,fungicide,two,3.895
+procymidone,601,paper,fungicide,two,2.37
+procymidone,601,paper,control,one,4.8
+procymidone,601,paper,control,one,4.5
+procymidone,601,paper,control,one,4.665
+procymidone,601,paper,control,one,4.735
+procymidone,601,paper,control,two,5.735
+procymidone,601,paper,control,two,5.22
+procymidone,601,paper,control,two,5.34
+procymidone,601,paper,control,two,5.32
+procymidone,771,plug,fungicide,one,
+procymidone,771,plug,fungicide,one,
+procymidone,771,plug,fungicide,one,
+procymidone,771,plug,fungicide,one,
+procymidone,771,plug,fungicide,two,4.86
+procymidone,771,plug,fungicide,two,4.525
+procymidone,771,plug,fungicide,two,3.735
+procymidone,771,plug,fungicide,two,3.6
+procymidone,771,plug,control,one,
+procymidone,771,plug,control,one,
+procymidone,771,plug,control,one,
+procymidone,771,plug,control,one,
+procymidone,771,plug,control,two,6.79
+procymidone,771,plug,control,two,6.69
+procymidone,771,plug,control,two,6.99
+procymidone,771,plug,control,two,6.785
+procymidone,771,paper,fungicide,one,
+procymidone,771,paper,fungicide,one,
+procymidone,771,paper,fungicide,one,
+procymidone,771,paper,fungicide,one,
+procymidone,771,paper,fungicide,two,3.855
+procymidone,771,paper,fungicide,two,2.275
+procymidone,771,paper,fungicide,two,2.355
+procymidone,771,paper,fungicide,two,3.56
+procymidone,771,paper,control,one,
+procymidone,771,paper,control,one,
+procymidone,771,paper,control,one,
+procymidone,771,paper,control,one,
+procymidone,771,paper,control,two,5.82
+procymidone,771,paper,control,two,5.845
+procymidone,771,paper,control,two,5.8
+procymidone,771,paper,control,two,5.91
+procymidone,801,plug,fungicide,one,2.755
+procymidone,801,plug,fungicide,one,2.96
+procymidone,801,plug,fungicide,one,4.205
+procymidone,801,plug,fungicide,one,3.99
+procymidone,801,plug,fungicide,two,4.59
+procymidone,801,plug,fungicide,two,4.31
+procymidone,801,plug,fungicide,two,3.66
+procymidone,801,plug,fungicide,two,3.62
+procymidone,801,plug,control,one,5.14
+procymidone,801,plug,control,one,5.155
+procymidone,801,plug,control,one,5.29
+procymidone,801,plug,control,one,5.1
+procymidone,801,plug,control,two,6.44
+procymidone,801,plug,control,two,6.285
+procymidone,801,plug,control,two,6.87
+procymidone,801,plug,control,two,6.41
+procymidone,801,paper,fungicide,one,2.42
+procymidone,801,paper,fungicide,one,3.76
+procymidone,801,paper,fungicide,one,1.88
+procymidone,801,paper,fungicide,one,3.6
+procymidone,801,paper,fungicide,two,1.9
+procymidone,801,paper,fungicide,two,3.895
+procymidone,801,paper,fungicide,two,3.645
+procymidone,801,paper,fungicide,two,2.445
+procymidone,801,paper,control,one,4.06
+procymidone,801,paper,control,one,4.475
+procymidone,801,paper,control,one,4.53
+procymidone,801,paper,control,one,4.265
+procymidone,801,paper,control,two,5.88
+procymidone,801,paper,control,two,5.67
+procymidone,801,paper,control,two,5.86
+procymidone,801,paper,control,two,5.745
+procymidone,851,plug,fungicide,one,3.195
+procymidone,851,plug,fungicide,one,3.56
+procymidone,851,plug,fungicide,one,4.055
+procymidone,851,plug,fungicide,one,3.055
+procymidone,851,plug,fungicide,two,5.4
+procymidone,851,plug,fungicide,two,4.91
+procymidone,851,plug,fungicide,two,3.91
+procymidone,851,plug,fungicide,two,4.39
+procymidone,851,plug,control,one,5
+procymidone,851,plug,control,one,4.4
+procymidone,851,plug,control,one,5.02
+procymidone,851,plug,control,one,4.955
+procymidone,851,plug,control,two,6.445
+procymidone,851,plug,control,two,6.6
+procymidone,851,plug,control,two,6.65
+procymidone,851,plug,control,two,6.76
+procymidone,851,paper,fungicide,one,2.35
+procymidone,851,paper,fungicide,one,3.425
+procymidone,851,paper,fungicide,one,1.885
+procymidone,851,paper,fungicide,one,3.55
+procymidone,851,paper,fungicide,two,1.42
+procymidone,851,paper,fungicide,two,2.34
+procymidone,851,paper,fungicide,two,1.605
+procymidone,851,paper,fungicide,two,3.54
+procymidone,851,paper,control,one,4.275
+procymidone,851,paper,control,one,4.6
+procymidone,851,paper,control,one,4.55
+procymidone,851,paper,control,one,4.85
+procymidone,851,paper,control,two,5.975
+procymidone,851,paper,control,two,5.805
+procymidone,851,paper,control,two,6.145
+procymidone,851,paper,control,two,5.345
+procymidone,859,plug,fungicide,one,3.575
+procymidone,859,plug,fungicide,one,3.465
+procymidone,859,plug,fungicide,one,4.365
+procymidone,859,plug,fungicide,one,4.28
+procymidone,859,plug,fungicide,two,4.28
+procymidone,859,plug,fungicide,two,3.535
+procymidone,859,plug,fungicide,two,3.5
+procymidone,859,plug,fungicide,two,4.575
+procymidone,859,plug,control,one,5.6
+procymidone,859,plug,control,one,5.28
+procymidone,859,plug,control,one,5.26
+procymidone,859,plug,control,one,5.95
+procymidone,859,plug,control,two,6.775
+procymidone,859,plug,control,two,6.73
+procymidone,859,plug,control,two,6.575
+procymidone,859,plug,control,two,6.47
+procymidone,859,paper,fungicide,one,2.825
+procymidone,859,paper,fungicide,one,3.25
+procymidone,859,paper,fungicide,one,2.87
+procymidone,859,paper,fungicide,one,3.375
+procymidone,859,paper,fungicide,two,3.585
+procymidone,859,paper,fungicide,two,2.89
+procymidone,859,paper,fungicide,two,2.805
+procymidone,859,paper,fungicide,two,3.79
+procymidone,859,paper,control,one,4.075
+procymidone,859,paper,control,one,4
+procymidone,859,paper,control,one,3.75
+procymidone,859,paper,control,one,4.45
+procymidone,859,paper,control,two,5.375
+procymidone,859,paper,control,two,5.375
+procymidone,859,paper,control,two,5.115
+procymidone,859,paper,control,two,5.615
+procymidone,861,plug,fungicide,one,3.45
+procymidone,861,plug,fungicide,one,3.22
+procymidone,861,plug,fungicide,one,4.455
+procymidone,861,plug,fungicide,one,4.135
+procymidone,861,plug,fungicide,two,
+procymidone,861,plug,fungicide,two,
+procymidone,861,plug,fungicide,two,
+procymidone,861,plug,fungicide,two,
+procymidone,861,plug,control,one,5.805
+procymidone,861,plug,control,one,5.495
+procymidone,861,plug,control,one,5.86
+procymidone,861,plug,control,one,6.18
+procymidone,861,plug,control,two,
+procymidone,861,plug,control,two,
+procymidone,861,plug,control,two,
+procymidone,861,plug,control,two,
+procymidone,861,paper,fungicide,one,4.675
+procymidone,861,paper,fungicide,one,5.175
+procymidone,861,paper,fungicide,one,3.73
+procymidone,861,paper,fungicide,one,5.4
+procymidone,861,paper,fungicide,two,
+procymidone,861,paper,fungicide,two,
+procymidone,861,paper,fungicide,two,
+procymidone,861,paper,fungicide,two,
+procymidone,861,paper,control,one,4.25
+procymidone,861,paper,control,one,4.5
+procymidone,861,paper,control,one,4.56
+procymidone,861,paper,control,one,4.95
+procymidone,861,paper,control,two,
+procymidone,861,paper,control,two,
+procymidone,861,paper,control,two,
+procymidone,861,paper,control,two,
+procymidone,902,plug,fungicide,one,3.125
+procymidone,902,plug,fungicide,one,2.835
+procymidone,902,plug,fungicide,one,3.715
+procymidone,902,plug,fungicide,one,3.39
+procymidone,902,plug,fungicide,two,4.915
+procymidone,902,plug,fungicide,two,4.325
+procymidone,902,plug,fungicide,two,3.135
+procymidone,902,plug,fungicide,two,2.9
+procymidone,902,plug,control,one,5.245
+procymidone,902,plug,control,one,4.93
+procymidone,902,plug,control,one,5.25
+procymidone,902,plug,control,one,4.78
+procymidone,902,plug,control,two,6.415
+procymidone,902,plug,control,two,6.525
+procymidone,902,plug,control,two,6.26
+procymidone,902,plug,control,two,6.19
+procymidone,902,paper,fungicide,one,2.97
+procymidone,902,paper,fungicide,one,2.775
+procymidone,902,paper,fungicide,one,3.425
+procymidone,902,paper,fungicide,one,2.12
+procymidone,902,paper,fungicide,two,2.59
+procymidone,902,paper,fungicide,two,1.67
+procymidone,902,paper,fungicide,two,1.36
+procymidone,902,paper,fungicide,two,1.74
+procymidone,902,paper,control,one,4.2
+procymidone,902,paper,control,one,4.4
+procymidone,902,paper,control,one,4.525
+procymidone,902,paper,control,one,3.15
+procymidone,902,paper,control,two,5.04
+procymidone,902,paper,control,two,5.255
+procymidone,902,paper,control,two,5.38
+procymidone,902,paper,control,two,5.535
+iprodione  ,152,plug,fungicide,one,3.275
+iprodione  ,152,plug,fungicide,one,3.675
+iprodione  ,152,plug,fungicide,one,3.825
+iprodione  ,152,plug,fungicide,one,2.825
+iprodione  ,152,plug,fungicide,two,3.76
+iprodione  ,152,plug,fungicide,two,3.505
+iprodione  ,152,plug,fungicide,two,3.54
+iprodione  ,152,plug,fungicide,two,3.735
+iprodione  ,152,plug,control,one,6.55
+iprodione  ,152,plug,control,one,6.6
+iprodione  ,152,plug,control,one,5.7
+iprodione  ,152,plug,control,one,5.5
+iprodione  ,152,plug,control,two,6.04
+iprodione  ,152,plug,control,two,6.46
+iprodione  ,152,plug,control,two,6.245
+iprodione  ,152,plug,control,two,6.625
+iprodione  ,152,paper,fungicide,one,4.275
+iprodione  ,152,paper,fungicide,one,3.65
+iprodione  ,152,paper,fungicide,one,3.65
+iprodione  ,152,paper,fungicide,one,4.1
+iprodione  ,152,paper,fungicide,two,1.625
+iprodione  ,152,paper,fungicide,two,2.05
+iprodione  ,152,paper,fungicide,two,1.6
+iprodione  ,152,paper,fungicide,two,1.85
+iprodione  ,152,paper,control,one,5.775
+iprodione  ,152,paper,control,one,5.475
+iprodione  ,152,paper,control,one,5.55
+iprodione  ,152,paper,control,one,5.4
+iprodione  ,152,paper,control,two,6.3
+iprodione  ,152,paper,control,two,6.4
+iprodione  ,152,paper,control,two,6.225
+iprodione  ,152,paper,control,two,6.325
+iprodione  ,274,plug,fungicide,one,2.7
+iprodione  ,274,plug,fungicide,one,2.05
+iprodione  ,274,plug,fungicide,one,1.7
+iprodione  ,274,plug,fungicide,one,2.2
+iprodione  ,274,plug,fungicide,two,3.01
+iprodione  ,274,plug,fungicide,two,2.735
+iprodione  ,274,plug,fungicide,two,2.825
+iprodione  ,274,plug,fungicide,two,3.355
+iprodione  ,274,plug,control,one,5.55
+iprodione  ,274,plug,control,one,5.75
+iprodione  ,274,plug,control,one,5.4
+iprodione  ,274,plug,control,one,5.35
+iprodione  ,274,plug,control,two,5.86
+iprodione  ,274,plug,control,two,5.995
+iprodione  ,274,plug,control,two,6.09
+iprodione  ,274,plug,control,two,6.015
+iprodione  ,274,paper,fungicide,one,2.1
+iprodione  ,274,paper,fungicide,one,1.95
+iprodione  ,274,paper,fungicide,one,2.325
+iprodione  ,274,paper,fungicide,one,2.425
+iprodione  ,274,paper,fungicide,two,1.55
+iprodione  ,274,paper,fungicide,two,1.45
+iprodione  ,274,paper,fungicide,two,1.375
+iprodione  ,274,paper,fungicide,two,1.55
+iprodione  ,274,paper,control,one,3.875
+iprodione  ,274,paper,control,one,4.55
+iprodione  ,274,paper,control,one,4.35
+iprodione  ,274,paper,control,one,4.225
+iprodione  ,274,paper,control,two,4.8
+iprodione  ,274,paper,control,two,5.375
+iprodione  ,274,paper,control,two,4.85
+iprodione  ,274,paper,control,two,4.9
+iprodione  ,465,plug,fungicide,one,
+iprodione  ,465,plug,fungicide,one,
+iprodione  ,465,plug,fungicide,one,
+iprodione  ,465,plug,fungicide,one,
+iprodione  ,465,plug,fungicide,two,3.305
+iprodione  ,465,plug,fungicide,two,3.315
+iprodione  ,465,plug,fungicide,two,3.33
+iprodione  ,465,plug,fungicide,two,3.355
+iprodione  ,465,plug,control,one,
+iprodione  ,465,plug,control,one,
+iprodione  ,465,plug,control,one,
+iprodione  ,465,plug,control,one,
+iprodione  ,465,plug,control,two,5.75
+iprodione  ,465,plug,control,two,5.87
+iprodione  ,465,plug,control,two,6.19
+iprodione  ,465,plug,control,two,6.245
+iprodione  ,465,paper,fungicide,one,
+iprodione  ,465,paper,fungicide,one,
+iprodione  ,465,paper,fungicide,one,
+iprodione  ,465,paper,fungicide,one,
+iprodione  ,465,paper,fungicide,two,2.05
+iprodione  ,465,paper,fungicide,two,2
+iprodione  ,465,paper,fungicide,two,2.4
+iprodione  ,465,paper,fungicide,two,2.6
+iprodione  ,465,paper,control,one,
+iprodione  ,465,paper,control,one,
+iprodione  ,465,paper,control,one,
+iprodione  ,465,paper,control,one,
+iprodione  ,465,paper,control,two,5.05
+iprodione  ,465,paper,control,two,5.25
+iprodione  ,465,paper,control,two,5.35
+iprodione  ,465,paper,control,two,4.2
+iprodione  ,560,plug,fungicide,one,3.45
+iprodione  ,560,plug,fungicide,one,4.25
+iprodione  ,560,plug,fungicide,one,4.3
+iprodione  ,560,plug,fungicide,one,4.65
+iprodione  ,560,plug,fungicide,two,3.82
+iprodione  ,560,plug,fungicide,two,3.59
+iprodione  ,560,plug,fungicide,two,3.885
+iprodione  ,560,plug,fungicide,two,3.58
+iprodione  ,560,plug,control,one,6.65
+iprodione  ,560,plug,control,one,6.55
+iprodione  ,560,plug,control,one,6.15
+iprodione  ,560,plug,control,one,5.85
+iprodione  ,560,plug,control,two,5.905
+iprodione  ,560,plug,control,two,6.12
+iprodione  ,560,plug,control,two,5.85
+iprodione  ,560,plug,control,two,6.35
+iprodione  ,560,paper,fungicide,one,2.675
+iprodione  ,560,paper,fungicide,one,3.05
+iprodione  ,560,paper,fungicide,one,3.35
+iprodione  ,560,paper,fungicide,one,3.075
+iprodione  ,560,paper,fungicide,two,2.65
+iprodione  ,560,paper,fungicide,two,2.75
+iprodione  ,560,paper,fungicide,two,3.1
+iprodione  ,560,paper,fungicide,two,3.1
+iprodione  ,560,paper,control,one,4.225
+iprodione  ,560,paper,control,one,4.6
+iprodione  ,560,paper,control,one,4.85
+iprodione  ,560,paper,control,one,4.525
+iprodione  ,560,paper,control,two,5.7
+iprodione  ,560,paper,control,two,5.55
+iprodione  ,560,paper,control,two,5.35
+iprodione  ,560,paper,control,two,5.275
+iprodione  ,601,plug,fungicide,one,3.1
+iprodione  ,601,plug,fungicide,one,2.775
+iprodione  ,601,plug,fungicide,one,2.75
+iprodione  ,601,plug,fungicide,one,3.4
+iprodione  ,601,plug,fungicide,two,3.425
+iprodione  ,601,plug,fungicide,two,3.005
+iprodione  ,601,plug,fungicide,two,2.91
+iprodione  ,601,plug,fungicide,two,2.15
+iprodione  ,601,plug,control,one,6.475
+iprodione  ,601,plug,control,one,6.875
+iprodione  ,601,plug,control,one,6.025
+iprodione  ,601,plug,control,one,5.9
+iprodione  ,601,plug,control,two,6
+iprodione  ,601,plug,control,two,5.745
+iprodione  ,601,plug,control,two,6.225
+iprodione  ,601,plug,control,two,6.19
+iprodione  ,601,paper,fungicide,one,2
+iprodione  ,601,paper,fungicide,one,2.175
+iprodione  ,601,paper,fungicide,one,1.95
+iprodione  ,601,paper,fungicide,one,2.075
+iprodione  ,601,paper,fungicide,two,1.55
+iprodione  ,601,paper,fungicide,two,1.7
+iprodione  ,601,paper,fungicide,two,1.625
+iprodione  ,601,paper,fungicide,two,2.6
+iprodione  ,601,paper,control,one,5.75
+iprodione  ,601,paper,control,one,5.875
+iprodione  ,601,paper,control,one,5.2
+iprodione  ,601,paper,control,one,4.525
+iprodione  ,601,paper,control,two,4.65
+iprodione  ,601,paper,control,two,6.25
+iprodione  ,601,paper,control,two,6.05
+iprodione  ,601,paper,control,two,6
+iprodione  ,771,plug,fungicide,one,3.55
+iprodione  ,771,plug,fungicide,one,2.95
+iprodione  ,771,plug,fungicide,one,2.8
+iprodione  ,771,plug,fungicide,one,2.925
+iprodione  ,771,plug,fungicide,two,3.525
+iprodione  ,771,plug,fungicide,two,2.735
+iprodione  ,771,plug,fungicide,two,2.99
+iprodione  ,771,plug,fungicide,two,3.145
+iprodione  ,771,plug,control,one,6.325
+iprodione  ,771,plug,control,one,6.4
+iprodione  ,771,plug,control,one,5.85
+iprodione  ,771,plug,control,one,5.775
+iprodione  ,771,plug,control,two,6.36
+iprodione  ,771,plug,control,two,6.22
+iprodione  ,771,plug,control,two,6.275
+iprodione  ,771,plug,control,two,6.55
+iprodione  ,771,paper,fungicide,one,2.775
+iprodione  ,771,paper,fungicide,one,3.15
+iprodione  ,771,paper,fungicide,one,3.2
+iprodione  ,771,paper,fungicide,one,2.575
+iprodione  ,771,paper,fungicide,two,1.35
+iprodione  ,771,paper,fungicide,two,1.5
+iprodione  ,771,paper,fungicide,two,1.55
+iprodione  ,771,paper,fungicide,two,1.525
+iprodione  ,771,paper,control,one,6.275
+iprodione  ,771,paper,control,one,5.575
+iprodione  ,771,paper,control,one,5.25
+iprodione  ,771,paper,control,one,4.3
+iprodione  ,771,paper,control,two,5.1
+iprodione  ,771,paper,control,two,4.65
+iprodione  ,771,paper,control,two,4.3
+iprodione  ,771,paper,control,two,4.22
+iprodione  ,801,plug,fungicide,one,2.925
+iprodione  ,801,plug,fungicide,one,3.075
+iprodione  ,801,plug,fungicide,one,2.8
+iprodione  ,801,plug,fungicide,one,2.35
+iprodione  ,801,plug,fungicide,two,2.825
+iprodione  ,801,plug,fungicide,two,2.795
+iprodione  ,801,plug,fungicide,two,2.485
+iprodione  ,801,plug,fungicide,two,2.56
+iprodione  ,801,plug,control,one,6.225
+iprodione  ,801,plug,control,one,6.325
+iprodione  ,801,plug,control,one,5.85
+iprodione  ,801,plug,control,one,5.625
+iprodione  ,801,plug,control,two,6.14
+iprodione  ,801,plug,control,two,6.295
+iprodione  ,801,plug,control,two,6.135
+iprodione  ,801,plug,control,two,6.205
+iprodione  ,801,paper,fungicide,one,2.45
+iprodione  ,801,paper,fungicide,one,2.475
+iprodione  ,801,paper,fungicide,one,5.2
+iprodione  ,801,paper,fungicide,one,2.625
+iprodione  ,801,paper,fungicide,two,1.75
+iprodione  ,801,paper,fungicide,two,1.675
+iprodione  ,801,paper,fungicide,two,1.675
+iprodione  ,801,paper,fungicide,two,1.8
+iprodione  ,801,paper,control,one,4.375
+iprodione  ,801,paper,control,one,4.125
+iprodione  ,801,paper,control,one,4.45
+iprodione  ,801,paper,control,one,2.725
+iprodione  ,801,paper,control,two,5.2
+iprodione  ,801,paper,control,two,5.7
+iprodione  ,801,paper,control,two,5.45
+iprodione  ,801,paper,control,two,5.35
+iprodione  ,851,plug,fungicide,one,4.475
+iprodione  ,851,plug,fungicide,one,4.55
+iprodione  ,851,plug,fungicide,one,4.55
+iprodione  ,851,plug,fungicide,one,3.7
+iprodione  ,851,plug,fungicide,two,3.94
+iprodione  ,851,plug,fungicide,two,4.045
+iprodione  ,851,plug,fungicide,two,3.735
+iprodione  ,851,plug,fungicide,two,3.95
+iprodione  ,851,plug,control,one,6.45
+iprodione  ,851,plug,control,one,6.625
+iprodione  ,851,plug,control,one,5.775
+iprodione  ,851,plug,control,one,5.7
+iprodione  ,851,plug,control,two,6.04
+iprodione  ,851,plug,control,two,5.85
+iprodione  ,851,plug,control,two,6.055
+iprodione  ,851,plug,control,two,6.025
+iprodione  ,851,paper,fungicide,one,2.95
+iprodione  ,851,paper,fungicide,one,2.3
+iprodione  ,851,paper,fungicide,one,2.1
+iprodione  ,851,paper,fungicide,one,2.2
+iprodione  ,851,paper,fungicide,two,1.5
+iprodione  ,851,paper,fungicide,two,1.35
+iprodione  ,851,paper,fungicide,two,1.6
+iprodione  ,851,paper,fungicide,two,1.5
+iprodione  ,851,paper,control,one,4.875
+iprodione  ,851,paper,control,one,3.65
+iprodione  ,851,paper,control,one,4.075
+iprodione  ,851,paper,control,one,4.8
+iprodione  ,851,paper,control,two,5.35
+iprodione  ,851,paper,control,two,5.15
+iprodione  ,851,paper,control,two,5.475
+iprodione  ,851,paper,control,two,5.75
+iprodione  ,859,plug,fungicide,one,3.25
+iprodione  ,859,plug,fungicide,one,1.7
+iprodione  ,859,plug,fungicide,one,2.55
+iprodione  ,859,plug,fungicide,one,3.225
+iprodione  ,859,plug,fungicide,two,3.525
+iprodione  ,859,plug,fungicide,two,3.685
+iprodione  ,859,plug,fungicide,two,3.63
+iprodione  ,859,plug,fungicide,two,3.56
+iprodione  ,859,plug,control,one,5.4
+iprodione  ,859,plug,control,one,5.25
+iprodione  ,859,plug,control,one,6.575
+iprodione  ,859,plug,control,one,6.525
+iprodione  ,859,plug,control,two,6.28
+iprodione  ,859,plug,control,two,6.465
+iprodione  ,859,plug,control,two,6.295
+iprodione  ,859,plug,control,two,6.35
+iprodione  ,859,paper,fungicide,one,3.275
+iprodione  ,859,paper,fungicide,one,3.5
+iprodione  ,859,paper,fungicide,one,3.4
+iprodione  ,859,paper,fungicide,one,3.3
+iprodione  ,859,paper,fungicide,two,3
+iprodione  ,859,paper,fungicide,two,3
+iprodione  ,859,paper,fungicide,two,2.8
+iprodione  ,859,paper,fungicide,two,2.875
+iprodione  ,859,paper,control,one,5.725
+iprodione  ,859,paper,control,one,6.075
+iprodione  ,859,paper,control,one,6.65
+iprodione  ,859,paper,control,one,6.075
+iprodione  ,859,paper,control,two,4.65
+iprodione  ,859,paper,control,two,5.5
+iprodione  ,859,paper,control,two,5.5
+iprodione  ,859,paper,control,two,5.35
+iprodione  ,861,plug,fungicide,one,3.125
+iprodione  ,861,plug,fungicide,one,3.225
+iprodione  ,861,plug,fungicide,one,3.25
+iprodione  ,861,plug,fungicide,one,3.225
+iprodione  ,861,plug,fungicide,two,3.905
+iprodione  ,861,plug,fungicide,two,4.1
+iprodione  ,861,plug,fungicide,two,3.6
+iprodione  ,861,plug,fungicide,two,3.705
+iprodione  ,861,plug,control,one,5.75
+iprodione  ,861,plug,control,one,5.625
+iprodione  ,861,plug,control,one,6.6
+iprodione  ,861,plug,control,one,6.575
+iprodione  ,861,plug,control,two,6.17
+iprodione  ,861,plug,control,two,6.185
+iprodione  ,861,plug,control,two,5.87
+iprodione  ,861,plug,control,two,6.285
+iprodione  ,861,paper,fungicide,one,3
+iprodione  ,861,paper,fungicide,one,3.975
+iprodione  ,861,paper,fungicide,one,3.875
+iprodione  ,861,paper,fungicide,one,3.8
+iprodione  ,861,paper,fungicide,two,3.1
+iprodione  ,861,paper,fungicide,two,2.5
+iprodione  ,861,paper,fungicide,two,3
+iprodione  ,861,paper,fungicide,two,2.8
+iprodione  ,861,paper,control,one,6.2
+iprodione  ,861,paper,control,one,5.85
+iprodione  ,861,paper,control,one,5.875
+iprodione  ,861,paper,control,one,5.475
+iprodione  ,861,paper,control,two,4.4
+iprodione  ,861,paper,control,two,4.2
+iprodione  ,861,paper,control,two,4.1
+iprodione  ,861,paper,control,two,5.05
+iprodione  ,902,plug,fungicide,one,2.375
+iprodione  ,902,plug,fungicide,one,1.9
+iprodione  ,902,plug,fungicide,one,2.05
+iprodione  ,902,plug,fungicide,one,1.925
+iprodione  ,902,plug,fungicide,two,3.635
+iprodione  ,902,plug,fungicide,two,3.55
+iprodione  ,902,plug,fungicide,two,3.27
+iprodione  ,902,plug,fungicide,two,2.88
+iprodione  ,902,plug,control,one,5.7
+iprodione  ,902,plug,control,one,5.5
+iprodione  ,902,plug,control,one,4.975
+iprodione  ,902,plug,control,one,4.825
+iprodione  ,902,plug,control,two,5.975
+iprodione  ,902,plug,control,two,6.17
+iprodione  ,902,plug,control,two,6.005
+iprodione  ,902,plug,control,two,6.025
+iprodione  ,902,paper,fungicide,one,2.275
+iprodione  ,902,paper,fungicide,one,2.15
+iprodione  ,902,paper,fungicide,one,2.175
+iprodione  ,902,paper,fungicide,one,2.175
+iprodione  ,902,paper,fungicide,two,1.3
+iprodione  ,902,paper,fungicide,two,1.3
+iprodione  ,902,paper,fungicide,two,1.4
+iprodione  ,902,paper,fungicide,two,1.4
+iprodione  ,902,paper,control,one,4.2
+iprodione  ,902,paper,control,one,4.3
+iprodione  ,902,paper,control,one,4.325
+iprodione  ,902,paper,control,one,4.35
+iprodione  ,902,paper,control,two,4.95
+iprodione  ,902,paper,control,two,4.7
+iprodione  ,902,paper,control,two,5.05
+iprodione  ,902,paper,control,two,5
+thiophanate_methyl,152,plug,fungicide,one,5.12
+thiophanate_methyl,152,plug,fungicide,one,5.01
+thiophanate_methyl,152,plug,fungicide,one,4.635
+thiophanate_methyl,152,plug,fungicide,one,3.735
+thiophanate_methyl,152,plug,fungicide,two,4.39
+thiophanate_methyl,152,plug,fungicide,two,4.81
+thiophanate_methyl,152,plug,fungicide,two,4.875
+thiophanate_methyl,152,plug,fungicide,two,4.5
+thiophanate_methyl,152,plug,control,one,6.05
+thiophanate_methyl,152,plug,control,one,6.575
+thiophanate_methyl,152,plug,control,one,6.55
+thiophanate_methyl,152,plug,control,one,6.58
+thiophanate_methyl,152,plug,control,two,6.135
+thiophanate_methyl,152,plug,control,two,6.23
+thiophanate_methyl,152,plug,control,two,5.79
+thiophanate_methyl,152,plug,control,two,5.92
+thiophanate_methyl,152,paper,fungicide,one,2.235
+thiophanate_methyl,152,paper,fungicide,one,2.095
+thiophanate_methyl,152,paper,fungicide,one,1.7
+thiophanate_methyl,152,paper,fungicide,one,0.76
+thiophanate_methyl,152,paper,fungicide,two,2.14
+thiophanate_methyl,152,paper,fungicide,two,2.71
+thiophanate_methyl,152,paper,fungicide,two,2.5
+thiophanate_methyl,152,paper,fungicide,two,3.4
+thiophanate_methyl,152,paper,control,one,4.545
+thiophanate_methyl,152,paper,control,one,4.17
+thiophanate_methyl,152,paper,control,one,4.78
+thiophanate_methyl,152,paper,control,one,4.705
+thiophanate_methyl,152,paper,control,two,4.255
+thiophanate_methyl,152,paper,control,two,4.07
+thiophanate_methyl,152,paper,control,two,4.56
+thiophanate_methyl,152,paper,control,two,4.605
+thiophanate_methyl,274,plug,fungicide,one,3.495
+thiophanate_methyl,274,plug,fungicide,one,2.725
+thiophanate_methyl,274,plug,fungicide,one,3.935
+thiophanate_methyl,274,plug,fungicide,one,4.365
+thiophanate_methyl,274,plug,fungicide,two,3.095
+thiophanate_methyl,274,plug,fungicide,two,3.1
+thiophanate_methyl,274,plug,fungicide,two,3.71
+thiophanate_methyl,274,plug,fungicide,two,2.895
+thiophanate_methyl,274,plug,control,one,5.69
+thiophanate_methyl,274,plug,control,one,5.65
+thiophanate_methyl,274,plug,control,one,6.07
+thiophanate_methyl,274,plug,control,one,6.12
+thiophanate_methyl,274,plug,control,two,5.905
+thiophanate_methyl,274,plug,control,two,6.06
+thiophanate_methyl,274,plug,control,two,6.1
+thiophanate_methyl,274,plug,control,two,5.85
+thiophanate_methyl,274,paper,fungicide,one,2.355
+thiophanate_methyl,274,paper,fungicide,one,2.94
+thiophanate_methyl,274,paper,fungicide,one,2.75
+thiophanate_methyl,274,paper,fungicide,one,2.545
+thiophanate_methyl,274,paper,fungicide,two,4.03
+thiophanate_methyl,274,paper,fungicide,two,2.78
+thiophanate_methyl,274,paper,fungicide,two,4.495
+thiophanate_methyl,274,paper,fungicide,two,4.35
+thiophanate_methyl,274,paper,control,one,4.775
+thiophanate_methyl,274,paper,control,one,4.17
+thiophanate_methyl,274,paper,control,one,4.35
+thiophanate_methyl,274,paper,control,one,4.36
+thiophanate_methyl,274,paper,control,two,5.14
+thiophanate_methyl,274,paper,control,two,4.535
+thiophanate_methyl,274,paper,control,two,4.315
+thiophanate_methyl,274,paper,control,two,4.525
+thiophanate_methyl,465,plug,fungicide,one,3.73
+thiophanate_methyl,465,plug,fungicide,one,4.24
+thiophanate_methyl,465,plug,fungicide,one,4.345
+thiophanate_methyl,465,plug,fungicide,one,3.85
+thiophanate_methyl,465,plug,fungicide,two,3.25
+thiophanate_methyl,465,plug,fungicide,two,2.87
+thiophanate_methyl,465,plug,fungicide,two,3.14
+thiophanate_methyl,465,plug,fungicide,two,3.135
+thiophanate_methyl,465,plug,control,one,6.095
+thiophanate_methyl,465,plug,control,one,6.4
+thiophanate_methyl,465,plug,control,one,5.965
+thiophanate_methyl,465,plug,control,one,6.57
+thiophanate_methyl,465,plug,control,two,4.295
+thiophanate_methyl,465,plug,control,two,4.33
+thiophanate_methyl,465,plug,control,two,4.145
+thiophanate_methyl,465,plug,control,two,3.97
+thiophanate_methyl,465,paper,fungicide,one,
+thiophanate_methyl,465,paper,fungicide,one,
+thiophanate_methyl,465,paper,fungicide,one,
+thiophanate_methyl,465,paper,fungicide,one,
+thiophanate_methyl,465,paper,fungicide,two,0.99
+thiophanate_methyl,465,paper,fungicide,two,1.08
+thiophanate_methyl,465,paper,fungicide,two,0.05
+thiophanate_methyl,465,paper,fungicide,two,3.23
+thiophanate_methyl,465,paper,control,one,
+thiophanate_methyl,465,paper,control,one,
+thiophanate_methyl,465,paper,control,one,
+thiophanate_methyl,465,paper,control,one,
+thiophanate_methyl,465,paper,control,two,3.785
+thiophanate_methyl,465,paper,control,two,2.42
+thiophanate_methyl,465,paper,control,two,3.87
+thiophanate_methyl,465,paper,control,two,4.41
+thiophanate_methyl,560,plug,fungicide,one,3.955
+thiophanate_methyl,560,plug,fungicide,one,3.675
+thiophanate_methyl,560,plug,fungicide,one,3.36
+thiophanate_methyl,560,plug,fungicide,one,3.575
+thiophanate_methyl,560,plug,fungicide,two,3.405
+thiophanate_methyl,560,plug,fungicide,two,3.59
+thiophanate_methyl,560,plug,fungicide,two,3.975
+thiophanate_methyl,560,plug,fungicide,two,4.66
+thiophanate_methyl,560,plug,control,one,5.71
+thiophanate_methyl,560,plug,control,one,6.08
+thiophanate_methyl,560,plug,control,one,5.845
+thiophanate_methyl,560,plug,control,one,5.98
+thiophanate_methyl,560,plug,control,two,6.19
+thiophanate_methyl,560,plug,control,two,6.07
+thiophanate_methyl,560,plug,control,two,5.96
+thiophanate_methyl,560,plug,control,two,6.08
+thiophanate_methyl,560,paper,fungicide,one,3.095
+thiophanate_methyl,560,paper,fungicide,one,2.41
+thiophanate_methyl,560,paper,fungicide,one,2.435
+thiophanate_methyl,560,paper,fungicide,one,2.715
+thiophanate_methyl,560,paper,fungicide,two,2.94
+thiophanate_methyl,560,paper,fungicide,two,3.03
+thiophanate_methyl,560,paper,fungicide,two,2.93
+thiophanate_methyl,560,paper,fungicide,two,2.94
+thiophanate_methyl,560,paper,control,one,4.345
+thiophanate_methyl,560,paper,control,one,4.075
+thiophanate_methyl,560,paper,control,one,3.87
+thiophanate_methyl,560,paper,control,one,3.77
+thiophanate_methyl,560,paper,control,two,4.215
+thiophanate_methyl,560,paper,control,two,4.24
+thiophanate_methyl,560,paper,control,two,3.995
+thiophanate_methyl,560,paper,control,two,4.235
+thiophanate_methyl,601,plug,fungicide,one,2.775
+thiophanate_methyl,601,plug,fungicide,one,3.515
+thiophanate_methyl,601,plug,fungicide,one,3.27
+thiophanate_methyl,601,plug,fungicide,one,3.065
+thiophanate_methyl,601,plug,fungicide,two,3.795
+thiophanate_methyl,601,plug,fungicide,two,3.355
+thiophanate_methyl,601,plug,fungicide,two,3.7
+thiophanate_methyl,601,plug,fungicide,two,2.94
+thiophanate_methyl,601,plug,control,one,5.755
+thiophanate_methyl,601,plug,control,one,6.255
+thiophanate_methyl,601,plug,control,one,6.29
+thiophanate_methyl,601,plug,control,one,6.03
+thiophanate_methyl,601,plug,control,two,6.53
+thiophanate_methyl,601,plug,control,two,6.655
+thiophanate_methyl,601,plug,control,two,6.605
+thiophanate_methyl,601,plug,control,two,6.49
+thiophanate_methyl,601,paper,fungicide,one,2.745
+thiophanate_methyl,601,paper,fungicide,one,3.005
+thiophanate_methyl,601,paper,fungicide,one,2.855
+thiophanate_methyl,601,paper,fungicide,one,3.73
+thiophanate_methyl,601,paper,fungicide,two,2.905
+thiophanate_methyl,601,paper,fungicide,two,2.855
+thiophanate_methyl,601,paper,fungicide,two,3.07
+thiophanate_methyl,601,paper,fungicide,two,3.105
+thiophanate_methyl,601,paper,control,one,5.515
+thiophanate_methyl,601,paper,control,one,4.9
+thiophanate_methyl,601,paper,control,one,4.735
+thiophanate_methyl,601,paper,control,one,4.8
+thiophanate_methyl,601,paper,control,two,4.49
+thiophanate_methyl,601,paper,control,two,5.015
+thiophanate_methyl,601,paper,control,two,3.7
+thiophanate_methyl,601,paper,control,two,4.48
+thiophanate_methyl,771,plug,fungicide,one,4.315
+thiophanate_methyl,771,plug,fungicide,one,3.78
+thiophanate_methyl,771,plug,fungicide,one,4.435
+thiophanate_methyl,771,plug,fungicide,one,3.98
+thiophanate_methyl,771,plug,fungicide,two,3.07
+thiophanate_methyl,771,plug,fungicide,two,3.5
+thiophanate_methyl,771,plug,fungicide,two,3.875
+thiophanate_methyl,771,plug,fungicide,two,3.865
+thiophanate_methyl,771,plug,control,one,6.66
+thiophanate_methyl,771,plug,control,one,6.5
+thiophanate_methyl,771,plug,control,one,6.4
+thiophanate_methyl,771,plug,control,one,7.05
+thiophanate_methyl,771,plug,control,two,6.74
+thiophanate_methyl,771,plug,control,two,6.73
+thiophanate_methyl,771,plug,control,two,6.49
+thiophanate_methyl,771,plug,control,two,6.865
+thiophanate_methyl,771,paper,fungicide,one,3.28
+thiophanate_methyl,771,paper,fungicide,one,2.735
+thiophanate_methyl,771,paper,fungicide,one,3.075
+thiophanate_methyl,771,paper,fungicide,one,3.16
+thiophanate_methyl,771,paper,fungicide,two,2.66
+thiophanate_methyl,771,paper,fungicide,two,2.795
+thiophanate_methyl,771,paper,fungicide,two,2.965
+thiophanate_methyl,771,paper,fungicide,two,2.845
+thiophanate_methyl,771,paper,control,one,4.9
+thiophanate_methyl,771,paper,control,one,4.715
+thiophanate_methyl,771,paper,control,one,4.835
+thiophanate_methyl,771,paper,control,one,3.645
+thiophanate_methyl,771,paper,control,two,3.405
+thiophanate_methyl,771,paper,control,two,3.065
+thiophanate_methyl,771,paper,control,two,2.94
+thiophanate_methyl,771,paper,control,two,2.865
+thiophanate_methyl,801,plug,fungicide,one,3.54
+thiophanate_methyl,801,plug,fungicide,one,4.135
+thiophanate_methyl,801,plug,fungicide,one,3.76
+thiophanate_methyl,801,plug,fungicide,one,3.09
+thiophanate_methyl,801,plug,fungicide,two,3.18
+thiophanate_methyl,801,plug,fungicide,two,3.345
+thiophanate_methyl,801,plug,fungicide,two,3.16
+thiophanate_methyl,801,plug,fungicide,two,3.32
+thiophanate_methyl,801,plug,control,one,5.975
+thiophanate_methyl,801,plug,control,one,5.79
+thiophanate_methyl,801,plug,control,one,6.045
+thiophanate_methyl,801,plug,control,one,6.5
+thiophanate_methyl,801,plug,control,two,6.315
+thiophanate_methyl,801,plug,control,two,6.395
+thiophanate_methyl,801,plug,control,two,6.165
+thiophanate_methyl,801,plug,control,two,6.48
+thiophanate_methyl,801,paper,fungicide,one,
+thiophanate_methyl,801,paper,fungicide,one,
+thiophanate_methyl,801,paper,fungicide,one,
+thiophanate_methyl,801,paper,fungicide,one,
+thiophanate_methyl,801,paper,fungicide,two,2.58
+thiophanate_methyl,801,paper,fungicide,two,2.78
+thiophanate_methyl,801,paper,fungicide,two,2.935
+thiophanate_methyl,801,paper,fungicide,two,1.93
+thiophanate_methyl,801,paper,control,one,
+thiophanate_methyl,801,paper,control,one,
+thiophanate_methyl,801,paper,control,one,
+thiophanate_methyl,801,paper,control,one,
+thiophanate_methyl,801,paper,control,two,4.97
+thiophanate_methyl,801,paper,control,two,4.72
+thiophanate_methyl,801,paper,control,two,4.715
+thiophanate_methyl,801,paper,control,two,4.795
+thiophanate_methyl,851,plug,fungicide,one,4.915
+thiophanate_methyl,851,plug,fungicide,one,4.8
+thiophanate_methyl,851,plug,fungicide,one,4.275
+thiophanate_methyl,851,plug,fungicide,one,3.95
+thiophanate_methyl,851,plug,fungicide,two,3.885
+thiophanate_methyl,851,plug,fungicide,two,4.09
+thiophanate_methyl,851,plug,fungicide,two,3.985
+thiophanate_methyl,851,plug,fungicide,two,4.115
+thiophanate_methyl,851,plug,control,one,6.64
+thiophanate_methyl,851,plug,control,one,7.14
+thiophanate_methyl,851,plug,control,one,6.375
+thiophanate_methyl,851,plug,control,one,6.085
+thiophanate_methyl,851,plug,control,two,6.42
+thiophanate_methyl,851,plug,control,two,6.53
+thiophanate_methyl,851,plug,control,two,6.68
+thiophanate_methyl,851,plug,control,two,6.205
+thiophanate_methyl,851,paper,fungicide,one,1.095
+thiophanate_methyl,851,paper,fungicide,one,0.2
+thiophanate_methyl,851,paper,fungicide,one,0.79
+thiophanate_methyl,851,paper,fungicide,one,0.15
+thiophanate_methyl,851,paper,fungicide,two,
+thiophanate_methyl,851,paper,fungicide,two,
+thiophanate_methyl,851,paper,fungicide,two,
+thiophanate_methyl,851,paper,fungicide,two,
+thiophanate_methyl,851,paper,control,one,6.125
+thiophanate_methyl,851,paper,control,one,5.515
+thiophanate_methyl,851,paper,control,one,6
+thiophanate_methyl,851,paper,control,one,5.855
+thiophanate_methyl,851,paper,control,two,
+thiophanate_methyl,851,paper,control,two,
+thiophanate_methyl,851,paper,control,two,
+thiophanate_methyl,851,paper,control,two,
+thiophanate_methyl,859,plug,fungicide,one,3.995
+thiophanate_methyl,859,plug,fungicide,one,3.925
+thiophanate_methyl,859,plug,fungicide,one,3.725
+thiophanate_methyl,859,plug,fungicide,one,3.34
+thiophanate_methyl,859,plug,fungicide,two,3.545
+thiophanate_methyl,859,plug,fungicide,two,3.745
+thiophanate_methyl,859,plug,fungicide,two,3.19
+thiophanate_methyl,859,plug,fungicide,two,3.24
+thiophanate_methyl,859,plug,control,one,6.15
+thiophanate_methyl,859,plug,control,one,6.12
+thiophanate_methyl,859,plug,control,one,6.97
+thiophanate_methyl,859,plug,control,one,6.975
+thiophanate_methyl,859,plug,control,two,6.19
+thiophanate_methyl,859,plug,control,two,6.19
+thiophanate_methyl,859,plug,control,two,6.13
+thiophanate_methyl,859,plug,control,two,6.49
+thiophanate_methyl,859,paper,fungicide,one,2.73
+thiophanate_methyl,859,paper,fungicide,one,2.845
+thiophanate_methyl,859,paper,fungicide,one,2.72
+thiophanate_methyl,859,paper,fungicide,one,2.745
+thiophanate_methyl,859,paper,fungicide,two,2.79
+thiophanate_methyl,859,paper,fungicide,two,0.484
+thiophanate_methyl,859,paper,fungicide,two,1.35
+thiophanate_methyl,859,paper,fungicide,two,1.43
+thiophanate_methyl,859,paper,control,one,5.615
+thiophanate_methyl,859,paper,control,one,5.79
+thiophanate_methyl,859,paper,control,one,5.85
+thiophanate_methyl,859,paper,control,one,5.595
+thiophanate_methyl,859,paper,control,two,4.56
+thiophanate_methyl,859,paper,control,two,4.38
+thiophanate_methyl,859,paper,control,two,4.79
+thiophanate_methyl,859,paper,control,two,4.38
+thiophanate_methyl,861,plug,fungicide,one,4.125
+thiophanate_methyl,861,plug,fungicide,one,4.48
+thiophanate_methyl,861,plug,fungicide,one,4.175
+thiophanate_methyl,861,plug,fungicide,one,3.415
+thiophanate_methyl,861,plug,fungicide,two,3.9
+thiophanate_methyl,861,plug,fungicide,two,4.06
+thiophanate_methyl,861,plug,fungicide,two,4.36
+thiophanate_methyl,861,plug,fungicide,two,4.62
+thiophanate_methyl,861,plug,control,one,6.395
+thiophanate_methyl,861,plug,control,one,5.695
+thiophanate_methyl,861,plug,control,one,5.86
+thiophanate_methyl,861,plug,control,one,6.305
+thiophanate_methyl,861,plug,control,two,5.08
+thiophanate_methyl,861,plug,control,two,5.19
+thiophanate_methyl,861,plug,control,two,5.115
+thiophanate_methyl,861,plug,control,two,4.84
+thiophanate_methyl,861,paper,fungicide,one,1.36
+thiophanate_methyl,861,paper,fungicide,one,2.435
+thiophanate_methyl,861,paper,fungicide,one,1.46
+thiophanate_methyl,861,paper,fungicide,one,1.6
+thiophanate_methyl,861,paper,fungicide,two,0.87
+thiophanate_methyl,861,paper,fungicide,two,2.115
+thiophanate_methyl,861,paper,fungicide,two,1.535
+thiophanate_methyl,861,paper,fungicide,two,2.25
+thiophanate_methyl,861,paper,control,one,6.285
+thiophanate_methyl,861,paper,control,one,6.45
+thiophanate_methyl,861,paper,control,one,5.26
+thiophanate_methyl,861,paper,control,one,6.005
+thiophanate_methyl,861,paper,control,two,5.305
+thiophanate_methyl,861,paper,control,two,4.785
+thiophanate_methyl,861,paper,control,two,4.965
+thiophanate_methyl,861,paper,control,two,4.37
+thiophanate_methyl,902,plug,fungicide,one,3.19
+thiophanate_methyl,902,plug,fungicide,one,3.31
+thiophanate_methyl,902,plug,fungicide,one,3.585
+thiophanate_methyl,902,plug,fungicide,one,2.94
+thiophanate_methyl,902,plug,fungicide,two,2.79
+thiophanate_methyl,902,plug,fungicide,two,2.8
+thiophanate_methyl,902,plug,fungicide,two,3.17
+thiophanate_methyl,902,plug,fungicide,two,3
+thiophanate_methyl,902,plug,control,one,6.35
+thiophanate_methyl,902,plug,control,one,5.715
+thiophanate_methyl,902,plug,control,one,6
+thiophanate_methyl,902,plug,control,one,6.43
+thiophanate_methyl,902,plug,control,two,6.01
+thiophanate_methyl,902,plug,control,two,6.425
+thiophanate_methyl,902,plug,control,two,6.38
+thiophanate_methyl,902,plug,control,two,6.725
+thiophanate_methyl,902,paper,fungicide,one,1.2
+thiophanate_methyl,902,paper,fungicide,one,1.16
+thiophanate_methyl,902,paper,fungicide,one,0.8
+thiophanate_methyl,902,paper,fungicide,one,0.8
+thiophanate_methyl,902,paper,fungicide,two,3.18
+thiophanate_methyl,902,paper,fungicide,two,2.56
+thiophanate_methyl,902,paper,fungicide,two,2.865
+thiophanate_methyl,902,paper,fungicide,two,2.795
+thiophanate_methyl,902,paper,control,one,5.745
+thiophanate_methyl,902,paper,control,one,5.49
+thiophanate_methyl,902,paper,control,one,5.94
+thiophanate_methyl,902,paper,control,one,5.86
+thiophanate_methyl,902,paper,control,two,4.41
+thiophanate_methyl,902,paper,control,two,4.91
+thiophanate_methyl,902,paper,control,two,4.585
+thiophanate_methyl,902,paper,control,two,3.77
+fluazinam,152,plug,fungicide,one,4.455
+fluazinam,152,plug,fungicide,one,3.74
+fluazinam,152,plug,fungicide,one,4.36
+fluazinam,152,plug,fungicide,one,3.855
+fluazinam,152,plug,fungicide,two,3.5
+fluazinam,152,plug,fungicide,two,3.5
+fluazinam,152,plug,fungicide,two,3.655
+fluazinam,152,plug,fungicide,two,3.445
+fluazinam,152,plug,control,one,6.99
+fluazinam,152,plug,control,one,6.85
+fluazinam,152,plug,control,one,7.055
+fluazinam,152,plug,control,one,6.89
+fluazinam,152,plug,control,two,5.695
+fluazinam,152,plug,control,two,5.695
+fluazinam,152,plug,control,two,5.705
+fluazinam,152,plug,control,two,6.615
+fluazinam,152,paper,fungicide,one,3.825
+fluazinam,152,paper,fungicide,one,3.87
+fluazinam,152,paper,fungicide,one,4.455
+fluazinam,152,paper,fungicide,one,3.94
+fluazinam,152,paper,fungicide,two,3.275
+fluazinam,152,paper,fungicide,two,3.275
+fluazinam,152,paper,fungicide,two,3.64
+fluazinam,152,paper,fungicide,two,3.54
+fluazinam,152,paper,control,one,6.555
+fluazinam,152,paper,control,one,6.185
+fluazinam,152,paper,control,one,6.55
+fluazinam,152,paper,control,one,6.095
+fluazinam,152,paper,control,two,5.49
+fluazinam,152,paper,control,two,5.49
+fluazinam,152,paper,control,two,5.595
+fluazinam,152,paper,control,two,5.375
+fluazinam,274,plug,fungicide,one,3.58
+fluazinam,274,plug,fungicide,one,3.36
+fluazinam,274,plug,fungicide,one,3.18
+fluazinam,274,plug,fungicide,one,3.51
+fluazinam,274,plug,fungicide,two,3.04
+fluazinam,274,plug,fungicide,two,3.145
+fluazinam,274,plug,fungicide,two,3.265
+fluazinam,274,plug,fungicide,two,3.065
+fluazinam,274,plug,control,one,6.18
+fluazinam,274,plug,control,one,6.55
+fluazinam,274,plug,control,one,5.95
+fluazinam,274,plug,control,one,6.12
+fluazinam,274,plug,control,two,5.485
+fluazinam,274,plug,control,two,5.345
+fluazinam,274,plug,control,two,5.96
+fluazinam,274,plug,control,two,5.81
+fluazinam,274,paper,fungicide,one,3.17
+fluazinam,274,paper,fungicide,one,3.48
+fluazinam,274,paper,fungicide,one,3.155
+fluazinam,274,paper,fungicide,one,3.6
+fluazinam,274,paper,fungicide,two,3.145
+fluazinam,274,paper,fungicide,two,3.11
+fluazinam,274,paper,fungicide,two,2.9
+fluazinam,274,paper,fungicide,two,2.985
+fluazinam,274,paper,control,one,4.345
+fluazinam,274,paper,control,one,4.27
+fluazinam,274,paper,control,one,4.43
+fluazinam,274,paper,control,one,4.52
+fluazinam,274,paper,control,two,5.06
+fluazinam,274,paper,control,two,5.205
+fluazinam,274,paper,control,two,5.21
+fluazinam,274,paper,control,two,5.015
+fluazinam,465,plug,fungicide,one,3.54
+fluazinam,465,plug,fungicide,one,3.33
+fluazinam,465,plug,fungicide,one,3.78
+fluazinam,465,plug,fungicide,one,3.56
+fluazinam,465,plug,fungicide,two,3.065
+fluazinam,465,plug,fungicide,two,3.05
+fluazinam,465,plug,fungicide,two,2.915
+fluazinam,465,plug,fungicide,two,2.915
+fluazinam,465,plug,control,one,6.47
+fluazinam,465,plug,control,one,6.3
+fluazinam,465,plug,control,one,6.345
+fluazinam,465,plug,control,one,6.45
+fluazinam,465,plug,control,two,5.495
+fluazinam,465,plug,control,two,4.91
+fluazinam,465,plug,control,two,5.67
+fluazinam,465,plug,control,two,5.83
+fluazinam,465,paper,fungicide,one,2.625
+fluazinam,465,paper,fungicide,one,2.795
+fluazinam,465,paper,fungicide,one,2.62
+fluazinam,465,paper,fungicide,one,2.785
+fluazinam,465,paper,fungicide,two,2.27
+fluazinam,465,paper,fungicide,two,2.145
+fluazinam,465,paper,fungicide,two,2.25
+fluazinam,465,paper,fungicide,two,2.205
+fluazinam,465,paper,control,one,3.74
+fluazinam,465,paper,control,one,3.665
+fluazinam,465,paper,control,one,3.655
+fluazinam,465,paper,control,one,3.76
+fluazinam,465,paper,control,two,3.8
+fluazinam,465,paper,control,two,4.135
+fluazinam,465,paper,control,two,4.37
+fluazinam,465,paper,control,two,4.24
+fluazinam,560,plug,fungicide,one,3.205
+fluazinam,560,plug,fungicide,one,2.98
+fluazinam,560,plug,fungicide,one,3.09
+fluazinam,560,plug,fungicide,one,3
+fluazinam,560,plug,fungicide,two,2.865
+fluazinam,560,plug,fungicide,two,2.92
+fluazinam,560,plug,fungicide,two,2.94
+fluazinam,560,plug,fungicide,two,2.925
+fluazinam,560,plug,control,one,6.855
+fluazinam,560,plug,control,one,6.54
+fluazinam,560,plug,control,one,6.6
+fluazinam,560,plug,control,one,6.37
+fluazinam,560,plug,control,two,6.805
+fluazinam,560,plug,control,two,6.89
+fluazinam,560,plug,control,two,6.06
+fluazinam,560,plug,control,two,5.705
+fluazinam,560,paper,fungicide,one,2.92
+fluazinam,560,paper,fungicide,one,3.11
+fluazinam,560,paper,fungicide,one,3.195
+fluazinam,560,paper,fungicide,one,3.475
+fluazinam,560,paper,fungicide,two,2.52
+fluazinam,560,paper,fungicide,two,2.565
+fluazinam,560,paper,fungicide,two,2.54
+fluazinam,560,paper,fungicide,two,2.09
+fluazinam,560,paper,control,one,5.92
+fluazinam,560,paper,control,one,5.795
+fluazinam,560,paper,control,one,5.405
+fluazinam,560,paper,control,one,6.44
+fluazinam,560,paper,control,two,5.23
+fluazinam,560,paper,control,two,4.865
+fluazinam,560,paper,control,two,4
+fluazinam,560,paper,control,two,5.45
+fluazinam,601,plug,fungicide,one,3.86
+fluazinam,601,plug,fungicide,one,3.52
+fluazinam,601,plug,fungicide,one,4.375
+fluazinam,601,plug,fungicide,one,4.06
+fluazinam,601,plug,fungicide,two,3.4
+fluazinam,601,plug,fungicide,two,3.45
+fluazinam,601,plug,fungicide,two,3.355
+fluazinam,601,plug,fungicide,two,3.34
+fluazinam,601,plug,control,one,6.71
+fluazinam,601,plug,control,one,6.555
+fluazinam,601,plug,control,one,6.9
+fluazinam,601,plug,control,one,6.72
+fluazinam,601,plug,control,two,5.815
+fluazinam,601,plug,control,two,5.655
+fluazinam,601,plug,control,two,6.66
+fluazinam,601,plug,control,two,6.68
+fluazinam,601,paper,fungicide,one,3.95
+fluazinam,601,paper,fungicide,one,3.895
+fluazinam,601,paper,fungicide,one,3.46
+fluazinam,601,paper,fungicide,one,3.99
+fluazinam,601,paper,fungicide,two,3.285
+fluazinam,601,paper,fungicide,two,3.275
+fluazinam,601,paper,fungicide,two,3.22
+fluazinam,601,paper,fungicide,two,3.14
+fluazinam,601,paper,control,one,6.045
+fluazinam,601,paper,control,one,5.35
+fluazinam,601,paper,control,one,6.035
+fluazinam,601,paper,control,one,5.74
+fluazinam,601,paper,control,two,5.315
+fluazinam,601,paper,control,two,5.285
+fluazinam,601,paper,control,two,5.355
+fluazinam,601,paper,control,two,5.31
+fluazinam,771,plug,fungicide,one,4.155
+fluazinam,771,plug,fungicide,one,3.795
+fluazinam,771,plug,fungicide,one,4.575
+fluazinam,771,plug,fungicide,one,4.33
+fluazinam,771,plug,fungicide,two,3.78
+fluazinam,771,plug,fungicide,two,4.015
+fluazinam,771,plug,fungicide,two,4.015
+fluazinam,771,plug,fungicide,two,4.265
+fluazinam,771,plug,control,one,6.79
+fluazinam,771,plug,control,one,6.69
+fluazinam,771,plug,control,one,6.99
+fluazinam,771,plug,control,one,6.785
+fluazinam,771,plug,control,two,5.805
+fluazinam,771,plug,control,two,5.875
+fluazinam,771,plug,control,two,6.645
+fluazinam,771,plug,control,two,6.57
+fluazinam,771,paper,fungicide,one,3.59
+fluazinam,771,paper,fungicide,one,3.77
+fluazinam,771,paper,fungicide,one,3.605
+fluazinam,771,paper,fungicide,one,4.21
+fluazinam,771,paper,fungicide,two,3.275
+fluazinam,771,paper,fungicide,two,3.275
+fluazinam,771,paper,fungicide,two,3.515
+fluazinam,771,paper,fungicide,two,3.535
+fluazinam,771,paper,control,one,5.69
+fluazinam,771,paper,control,one,5.73
+fluazinam,771,paper,control,one,5.63
+fluazinam,771,paper,control,one,5.75
+fluazinam,771,paper,control,two,5.32
+fluazinam,771,paper,control,two,5.31
+fluazinam,771,paper,control,two,5.35
+fluazinam,771,paper,control,two,5.28
+fluazinam,801,plug,fungicide,one,4.205
+fluazinam,801,plug,fungicide,one,3.74
+fluazinam,801,plug,fungicide,one,4.745
+fluazinam,801,plug,fungicide,one,3.795
+fluazinam,801,plug,fungicide,two,3.44
+fluazinam,801,plug,fungicide,two,3.585
+fluazinam,801,plug,fungicide,two,3.47
+fluazinam,801,plug,fungicide,two,3.555
+fluazinam,801,plug,control,one,6.44
+fluazinam,801,plug,control,one,6.285
+fluazinam,801,plug,control,one,6.87
+fluazinam,801,plug,control,one,6.41
+fluazinam,801,plug,control,two,6
+fluazinam,801,plug,control,two,5.755
+fluazinam,801,plug,control,two,6.59
+fluazinam,801,plug,control,two,6.31
+fluazinam,801,paper,fungicide,one,3.46
+fluazinam,801,paper,fungicide,one,3.735
+fluazinam,801,paper,fungicide,one,3.56
+fluazinam,801,paper,fungicide,one,4.11
+fluazinam,801,paper,fungicide,two,3.685
+fluazinam,801,paper,fungicide,two,3.905
+fluazinam,801,paper,fungicide,two,3.48
+fluazinam,801,paper,fungicide,two,3.38
+fluazinam,801,paper,control,one,5.85
+fluazinam,801,paper,control,one,5.98
+fluazinam,801,paper,control,one,5.6
+fluazinam,801,paper,control,one,5.875
+fluazinam,801,paper,control,two,6.23
+fluazinam,801,paper,control,two,5.81
+fluazinam,801,paper,control,two,5.9
+fluazinam,801,paper,control,two,5.82
+fluazinam,851,plug,fungicide,one,4.23
+fluazinam,851,plug,fungicide,one,3.845
+fluazinam,851,plug,fungicide,one,4.44
+fluazinam,851,plug,fungicide,one,4.1
+fluazinam,851,plug,fungicide,two,3.42
+fluazinam,851,plug,fungicide,two,3.645
+fluazinam,851,plug,fungicide,two,3.445
+fluazinam,851,plug,fungicide,two,3.43
+fluazinam,851,plug,control,one,6.445
+fluazinam,851,plug,control,one,6.6
+fluazinam,851,plug,control,one,6.65
+fluazinam,851,plug,control,one,6.76
+fluazinam,851,plug,control,two,5.095
+fluazinam,851,plug,control,two,5.43
+fluazinam,851,plug,control,two,6.475
+fluazinam,851,plug,control,two,6.4
+fluazinam,851,paper,fungicide,one,2.56
+fluazinam,851,paper,fungicide,one,3.405
+fluazinam,851,paper,fungicide,one,3.42
+fluazinam,851,paper,fungicide,one,3.72
+fluazinam,851,paper,fungicide,two,3.765
+fluazinam,851,paper,fungicide,two,3.495
+fluazinam,851,paper,fungicide,two,3.435
+fluazinam,851,paper,fungicide,two,3.59
+fluazinam,851,paper,control,one,4.97
+fluazinam,851,paper,control,one,4.835
+fluazinam,851,paper,control,one,4.72
+fluazinam,851,paper,control,one,4.845
+fluazinam,851,paper,control,two,5.615
+fluazinam,851,paper,control,two,5.29
+fluazinam,851,paper,control,two,5.755
+fluazinam,851,paper,control,two,5.45
+fluazinam,859,plug,fungicide,one,3.205
+fluazinam,859,plug,fungicide,one,2.885
+fluazinam,859,plug,fungicide,one,3.36
+fluazinam,859,plug,fungicide,one,2.985
+fluazinam,859,plug,fungicide,two,2.905
+fluazinam,859,plug,fungicide,two,2.95
+fluazinam,859,plug,fungicide,two,2.82
+fluazinam,859,plug,fungicide,two,2.81
+fluazinam,859,plug,control,one,6.775
+fluazinam,859,plug,control,one,6.73
+fluazinam,859,plug,control,one,6.575
+fluazinam,859,plug,control,one,6.47
+fluazinam,859,plug,control,two,5.27
+fluazinam,859,plug,control,two,5.01
+fluazinam,859,plug,control,two,6.36
+fluazinam,859,plug,control,two,6.445
+fluazinam,859,paper,fungicide,one,2.735
+fluazinam,859,paper,fungicide,one,3.28
+fluazinam,859,paper,fungicide,one,2.94
+fluazinam,859,paper,fungicide,one,3.18
+fluazinam,859,paper,fungicide,two,2.85
+fluazinam,859,paper,fungicide,two,2.71
+fluazinam,859,paper,fungicide,two,2.735
+fluazinam,859,paper,fungicide,two,2.74
+fluazinam,859,paper,control,one,4.215
+fluazinam,859,paper,control,one,6.405
+fluazinam,859,paper,control,one,4.895
+fluazinam,859,paper,control,one,4.79
+fluazinam,859,paper,control,two,5.66
+fluazinam,859,paper,control,two,5.435
+fluazinam,859,paper,control,two,5.845
+fluazinam,859,paper,control,two,5.725
+fluazinam,861,plug,fungicide,one,3.18
+fluazinam,861,plug,fungicide,one,2.835
+fluazinam,861,plug,fungicide,one,3.345
+fluazinam,861,plug,fungicide,one,3
+fluazinam,861,plug,fungicide,two,2.73
+fluazinam,861,plug,fungicide,two,3.01
+fluazinam,861,plug,fungicide,two,2.795
+fluazinam,861,plug,fungicide,two,2.73
+fluazinam,861,plug,control,one,6.74
+fluazinam,861,plug,control,one,6.77
+fluazinam,861,plug,control,one,6.755
+fluazinam,861,plug,control,one,6.45
+fluazinam,861,plug,control,two,5.43
+fluazinam,861,plug,control,two,5.34
+fluazinam,861,plug,control,two,6.23
+fluazinam,861,plug,control,two,6.275
+fluazinam,861,paper,fungicide,one,
+fluazinam,861,paper,fungicide,one,
+fluazinam,861,paper,fungicide,one,
+fluazinam,861,paper,fungicide,one,
+fluazinam,861,paper,fungicide,two,2.73
+fluazinam,861,paper,fungicide,two,2.155
+fluazinam,861,paper,fungicide,two,2.665
+fluazinam,861,paper,fungicide,two,2.655
+fluazinam,861,paper,control,one,
+fluazinam,861,paper,control,one,
+fluazinam,861,paper,control,one,
+fluazinam,861,paper,control,one,
+fluazinam,861,paper,control,two,4.835
+fluazinam,861,paper,control,two,5.775
+fluazinam,861,paper,control,two,4.18
+fluazinam,861,paper,control,two,5.98
+fluazinam,902,plug,fungicide,one,3.42
+fluazinam,902,plug,fungicide,one,3.255
+fluazinam,902,plug,fungicide,one,3.905
+fluazinam,902,plug,fungicide,one,3.425
+fluazinam,902,plug,fungicide,two,3.29
+fluazinam,902,plug,fungicide,two,3.455
+fluazinam,902,plug,fungicide,two,3.395
+fluazinam,902,plug,fungicide,two,3.395
+fluazinam,902,plug,control,one,6.415
+fluazinam,902,plug,control,one,6.525
+fluazinam,902,plug,control,one,6.26
+fluazinam,902,plug,control,one,6.19
+fluazinam,902,plug,control,two,5.5
+fluazinam,902,plug,control,two,5.455
+fluazinam,902,plug,control,two,5.875
+fluazinam,902,plug,control,two,5.875
+fluazinam,902,paper,fungicide,one,3.23
+fluazinam,902,paper,fungicide,one,3.41
+fluazinam,902,paper,fungicide,one,3.39
+fluazinam,902,paper,fungicide,one,3.685
+fluazinam,902,paper,fungicide,two,2.865
+fluazinam,902,paper,fungicide,two,3
+fluazinam,902,paper,fungicide,two,2.775
+fluazinam,902,paper,fungicide,two,2.775
+fluazinam,902,paper,control,one,5.37
+fluazinam,902,paper,control,one,5.125
+fluazinam,902,paper,control,one,5.3
+fluazinam,902,paper,control,one,5.45
+fluazinam,902,paper,control,two,4.64
+fluazinam,902,paper,control,two,4.0735
+fluazinam,902,paper,control,two,4.665
+fluazinam,902,paper,control,two,4.665
+pyraclostrobin,152,plug,fungicide,one,3.35
+pyraclostrobin,152,plug,fungicide,one,3.05
+pyraclostrobin,152,plug,fungicide,one,3.3
+pyraclostrobin,152,plug,fungicide,one,3.275
+pyraclostrobin,152,plug,fungicide,two,1.9
+pyraclostrobin,152,plug,fungicide,two,2.75
+pyraclostrobin,152,plug,fungicide,two,1.45
+pyraclostrobin,152,plug,fungicide,two,1.4
+pyraclostrobin,152,plug,control,one,5.8
+pyraclostrobin,152,plug,control,one,6.15
+pyraclostrobin,152,plug,control,one,5.85
+pyraclostrobin,152,plug,control,one,5.95
+pyraclostrobin,152,plug,control,two,5.1
+pyraclostrobin,152,plug,control,two,5.2
+pyraclostrobin,152,plug,control,two,4.3
+pyraclostrobin,152,plug,control,two,5
+pyraclostrobin,152,paper,fungicide,one,1.875
+pyraclostrobin,152,paper,fungicide,one,1.525
+pyraclostrobin,152,paper,fungicide,one,1.925
+pyraclostrobin,152,paper,fungicide,one,1.8
+pyraclostrobin,152,paper,fungicide,two,2.8
+pyraclostrobin,152,paper,fungicide,two,2.8
+pyraclostrobin,152,paper,fungicide,two,2.9
+pyraclostrobin,152,paper,fungicide,two,2.65
+pyraclostrobin,152,paper,control,one,3.85
+pyraclostrobin,152,paper,control,one,3.65
+pyraclostrobin,152,paper,control,one,3.875
+pyraclostrobin,152,paper,control,one,3.75
+pyraclostrobin,152,paper,control,two,4.4
+pyraclostrobin,152,paper,control,two,4.8
+pyraclostrobin,152,paper,control,two,4.5
+pyraclostrobin,152,paper,control,two,4.55
+pyraclostrobin,274,plug,fungicide,one,3.45
+pyraclostrobin,274,plug,fungicide,one,2.9
+pyraclostrobin,274,plug,fungicide,one,3.05
+pyraclostrobin,274,plug,fungicide,one,3.2
+pyraclostrobin,274,plug,fungicide,two,3.1
+pyraclostrobin,274,plug,fungicide,two,3.1
+pyraclostrobin,274,plug,fungicide,two,3.1
+pyraclostrobin,274,plug,fungicide,two,3.35
+pyraclostrobin,274,plug,control,one,5.95
+pyraclostrobin,274,plug,control,one,5.85
+pyraclostrobin,274,plug,control,one,5.7
+pyraclostrobin,274,plug,control,one,5.75
+pyraclostrobin,274,plug,control,two,5.2
+pyraclostrobin,274,plug,control,two,5.2
+pyraclostrobin,274,plug,control,two,5.1
+pyraclostrobin,274,plug,control,two,5.1
+pyraclostrobin,274,paper,fungicide,one,2.45
+pyraclostrobin,274,paper,fungicide,one,2.4
+pyraclostrobin,274,paper,fungicide,one,2.45
+pyraclostrobin,274,paper,fungicide,one,2.6
+pyraclostrobin,274,paper,fungicide,two,2.9
+pyraclostrobin,274,paper,fungicide,two,3
+pyraclostrobin,274,paper,fungicide,two,2.85
+pyraclostrobin,274,paper,fungicide,two,2.75
+pyraclostrobin,274,paper,control,one,3.95
+pyraclostrobin,274,paper,control,one,4.1
+pyraclostrobin,274,paper,control,one,3.9
+pyraclostrobin,274,paper,control,one,3.9
+pyraclostrobin,274,paper,control,two,4.15
+pyraclostrobin,274,paper,control,two,4.2
+pyraclostrobin,274,paper,control,two,4
+pyraclostrobin,274,paper,control,two,3.95
+pyraclostrobin,465,plug,fungicide,one,3.3
+pyraclostrobin,465,plug,fungicide,one,3.3
+pyraclostrobin,465,plug,fungicide,one,3.45
+pyraclostrobin,465,plug,fungicide,one,3.25
+pyraclostrobin,465,plug,fungicide,two,0
+pyraclostrobin,465,plug,fungicide,two,0
+pyraclostrobin,465,plug,fungicide,two,1.35
+pyraclostrobin,465,plug,fungicide,two,1.8
+pyraclostrobin,465,plug,control,one,5.7
+pyraclostrobin,465,plug,control,one,5.85
+pyraclostrobin,465,plug,control,one,5.9
+pyraclostrobin,465,plug,control,one,5.9
+pyraclostrobin,465,plug,control,two,5.2
+pyraclostrobin,465,plug,control,two,5.2
+pyraclostrobin,465,plug,control,two,4.7
+pyraclostrobin,465,plug,control,two,4.9
+pyraclostrobin,465,paper,fungicide,one,2.55
+pyraclostrobin,465,paper,fungicide,one,2.6
+pyraclostrobin,465,paper,fungicide,one,2.6
+pyraclostrobin,465,paper,fungicide,one,2.55
+pyraclostrobin,465,paper,fungicide,two,2.7
+pyraclostrobin,465,paper,fungicide,two,2.7
+pyraclostrobin,465,paper,fungicide,two,2.9
+pyraclostrobin,465,paper,fungicide,two,2.7
+pyraclostrobin,465,paper,control,one,3.2
+pyraclostrobin,465,paper,control,one,3.8
+pyraclostrobin,465,paper,control,one,3.95
+pyraclostrobin,465,paper,control,one,3.8
+pyraclostrobin,465,paper,control,two,4
+pyraclostrobin,465,paper,control,two,4.25
+pyraclostrobin,465,paper,control,two,4.4
+pyraclostrobin,465,paper,control,two,4.5
+pyraclostrobin,560,plug,fungicide,one,2.9
+pyraclostrobin,560,plug,fungicide,one,3.1
+pyraclostrobin,560,plug,fungicide,one,3.1
+pyraclostrobin,560,plug,fungicide,one,3.2
+pyraclostrobin,560,plug,fungicide,two,1.5
+pyraclostrobin,560,plug,fungicide,two,1.3
+pyraclostrobin,560,plug,fungicide,two,0
+pyraclostrobin,560,plug,fungicide,two,0.44
+pyraclostrobin,560,plug,control,one,6.1
+pyraclostrobin,560,plug,control,one,6
+pyraclostrobin,560,plug,control,one,5.95
+pyraclostrobin,560,plug,control,one,5.85
+pyraclostrobin,560,plug,control,two,4.3
+pyraclostrobin,560,plug,control,two,4.65
+pyraclostrobin,560,plug,control,two,4.65
+pyraclostrobin,560,plug,control,two,4.95
+pyraclostrobin,560,paper,fungicide,one,2.35
+pyraclostrobin,560,paper,fungicide,one,1.9
+pyraclostrobin,560,paper,fungicide,one,1.8
+pyraclostrobin,560,paper,fungicide,one,2.3
+pyraclostrobin,560,paper,fungicide,two,2.2
+pyraclostrobin,560,paper,fungicide,two,2.25
+pyraclostrobin,560,paper,fungicide,two,2.25
+pyraclostrobin,560,paper,fungicide,two,2.25
+pyraclostrobin,560,paper,control,one,3.1
+pyraclostrobin,560,paper,control,one,4.05
+pyraclostrobin,560,paper,control,one,3.35
+pyraclostrobin,560,paper,control,one,3.6
+pyraclostrobin,560,paper,control,two,4.5
+pyraclostrobin,560,paper,control,two,4.5
+pyraclostrobin,560,paper,control,two,4.5
+pyraclostrobin,560,paper,control,two,4.4
+pyraclostrobin,601,plug,fungicide,one,3.5
+pyraclostrobin,601,plug,fungicide,one,3.4
+pyraclostrobin,601,plug,fungicide,one,3.5
+pyraclostrobin,601,plug,fungicide,one,3.45
+pyraclostrobin,601,plug,fungicide,two,1.1
+pyraclostrobin,601,plug,fungicide,two,0
+pyraclostrobin,601,plug,fungicide,two,1.8
+pyraclostrobin,601,plug,fungicide,two,0.8
+pyraclostrobin,601,plug,control,one,5.7
+pyraclostrobin,601,plug,control,one,5.65
+pyraclostrobin,601,plug,control,one,5.45
+pyraclostrobin,601,plug,control,one,5.6
+pyraclostrobin,601,plug,control,two,4.6
+pyraclostrobin,601,plug,control,two,4.7
+pyraclostrobin,601,plug,control,two,5.1
+pyraclostrobin,601,plug,control,two,4.9
+pyraclostrobin,601,paper,fungicide,one,2.35
+pyraclostrobin,601,paper,fungicide,one,2.45
+pyraclostrobin,601,paper,fungicide,one,2.45
+pyraclostrobin,601,paper,fungicide,one,2.55
+pyraclostrobin,601,paper,fungicide,two,2.95
+pyraclostrobin,601,paper,fungicide,two,3
+pyraclostrobin,601,paper,fungicide,two,3.1
+pyraclostrobin,601,paper,fungicide,two,3.05
+pyraclostrobin,601,paper,control,one,4.5
+pyraclostrobin,601,paper,control,one,4.25
+pyraclostrobin,601,paper,control,one,4
+pyraclostrobin,601,paper,control,one,4
+pyraclostrobin,601,paper,control,two,4.6
+pyraclostrobin,601,paper,control,two,4.4
+pyraclostrobin,601,paper,control,two,4.5
+pyraclostrobin,601,paper,control,two,4.4
+pyraclostrobin,771,plug,fungicide,one,3.45
+pyraclostrobin,771,plug,fungicide,one,3.75
+pyraclostrobin,771,plug,fungicide,one,3.85
+pyraclostrobin,771,plug,fungicide,one,3.7
+pyraclostrobin,771,plug,fungicide,two,2
+pyraclostrobin,771,plug,fungicide,two,1
+pyraclostrobin,771,plug,fungicide,two,2.35
+pyraclostrobin,771,plug,fungicide,two,2.5
+pyraclostrobin,771,plug,control,one,6.3
+pyraclostrobin,771,plug,control,one,6.4
+pyraclostrobin,771,plug,control,one,6.4
+pyraclostrobin,771,plug,control,one,6.45
+pyraclostrobin,771,plug,control,two,5.4
+pyraclostrobin,771,plug,control,two,5.3
+pyraclostrobin,771,plug,control,two,5.55
+pyraclostrobin,771,plug,control,two,5.35
+pyraclostrobin,771,paper,fungicide,one,2.5
+pyraclostrobin,771,paper,fungicide,one,2.3
+pyraclostrobin,771,paper,fungicide,one,2.65
+pyraclostrobin,771,paper,fungicide,one,2.45
+pyraclostrobin,771,paper,fungicide,two,3.1
+pyraclostrobin,771,paper,fungicide,two,3.1
+pyraclostrobin,771,paper,fungicide,two,2.9
+pyraclostrobin,771,paper,fungicide,two,3.1
+pyraclostrobin,771,paper,control,one,4.25
+pyraclostrobin,771,paper,control,one,4.4
+pyraclostrobin,771,paper,control,one,4.15
+pyraclostrobin,771,paper,control,one,4.1
+pyraclostrobin,771,paper,control,two,4.7
+pyraclostrobin,771,paper,control,two,4.8
+pyraclostrobin,771,paper,control,two,5.1
+pyraclostrobin,771,paper,control,two,5
+pyraclostrobin,801,plug,fungicide,one,3.25
+pyraclostrobin,801,plug,fungicide,one,3.2
+pyraclostrobin,801,plug,fungicide,one,3.4
+pyraclostrobin,801,plug,fungicide,one,3.2
+pyraclostrobin,801,plug,fungicide,two,1.5
+pyraclostrobin,801,plug,fungicide,two,0
+pyraclostrobin,801,plug,fungicide,two,1.3
+pyraclostrobin,801,plug,fungicide,two,0.5
+pyraclostrobin,801,plug,control,one,6.1
+pyraclostrobin,801,plug,control,one,6
+pyraclostrobin,801,plug,control,one,5.8
+pyraclostrobin,801,plug,control,one,5.8
+pyraclostrobin,801,plug,control,two,3.7
+pyraclostrobin,801,plug,control,two,4.6
+pyraclostrobin,801,plug,control,two,4.9
+pyraclostrobin,801,plug,control,two,5.6
+pyraclostrobin,801,paper,fungicide,one,2.4
+pyraclostrobin,801,paper,fungicide,one,2.8
+pyraclostrobin,801,paper,fungicide,one,2.4
+pyraclostrobin,801,paper,fungicide,one,2.9
+pyraclostrobin,801,paper,fungicide,two,2.65
+pyraclostrobin,801,paper,fungicide,two,2.5
+pyraclostrobin,801,paper,fungicide,two,2.4
+pyraclostrobin,801,paper,fungicide,two,2.45
+pyraclostrobin,801,paper,control,one,4.4
+pyraclostrobin,801,paper,control,one,4.45
+pyraclostrobin,801,paper,control,one,4.35
+pyraclostrobin,801,paper,control,one,4.5
+pyraclostrobin,801,paper,control,two,4.45
+pyraclostrobin,801,paper,control,two,4.5
+pyraclostrobin,801,paper,control,two,4.5
+pyraclostrobin,801,paper,control,two,4.6
+pyraclostrobin,851,plug,fungicide,one,2.7
+pyraclostrobin,851,plug,fungicide,one,3.35
+pyraclostrobin,851,plug,fungicide,one,3.3
+pyraclostrobin,851,plug,fungicide,one,3.45
+pyraclostrobin,851,plug,fungicide,two,0.1
+pyraclostrobin,851,plug,fungicide,two,0
+pyraclostrobin,851,plug,fungicide,two,1.95
+pyraclostrobin,851,plug,fungicide,two,1.7
+pyraclostrobin,851,plug,control,one,5.8
+pyraclostrobin,851,plug,control,one,5.7
+pyraclostrobin,851,plug,control,one,5.9
+pyraclostrobin,851,plug,control,one,5.9
+pyraclostrobin,851,plug,control,two,5.05
+pyraclostrobin,851,plug,control,two,5.2
+pyraclostrobin,851,plug,control,two,5
+pyraclostrobin,851,plug,control,two,4.9
+pyraclostrobin,851,paper,fungicide,one,2.4
+pyraclostrobin,851,paper,fungicide,one,2.7
+pyraclostrobin,851,paper,fungicide,one,2.5
+pyraclostrobin,851,paper,fungicide,one,2.65
+pyraclostrobin,851,paper,fungicide,two,3
+pyraclostrobin,851,paper,fungicide,two,3
+pyraclostrobin,851,paper,fungicide,two,2.8
+pyraclostrobin,851,paper,fungicide,two,2.75
+pyraclostrobin,851,paper,control,one,3.9
+pyraclostrobin,851,paper,control,one,3.6
+pyraclostrobin,851,paper,control,one,3.7
+pyraclostrobin,851,paper,control,one,3.9
+pyraclostrobin,851,paper,control,two,3.9
+pyraclostrobin,851,paper,control,two,4
+pyraclostrobin,851,paper,control,two,4.15
+pyraclostrobin,851,paper,control,two,4.2
+pyraclostrobin,859,plug,fungicide,one,3
+pyraclostrobin,859,plug,fungicide,one,2.9
+pyraclostrobin,859,plug,fungicide,one,2.9
+pyraclostrobin,859,plug,fungicide,one,2.8
+pyraclostrobin,859,plug,fungicide,two,0
+pyraclostrobin,859,plug,fungicide,two,0.4
+pyraclostrobin,859,plug,fungicide,two,0.6
+pyraclostrobin,859,plug,fungicide,two,1.2
+pyraclostrobin,859,plug,control,one,6.3
+pyraclostrobin,859,plug,control,one,6.25
+pyraclostrobin,859,plug,control,one,6.2
+pyraclostrobin,859,plug,control,one,6.2
+pyraclostrobin,859,plug,control,two,5.54
+pyraclostrobin,859,plug,control,two,5.45
+pyraclostrobin,859,plug,control,two,5.75
+pyraclostrobin,859,plug,control,two,5.5
+pyraclostrobin,859,paper,fungicide,one,2.15
+pyraclostrobin,859,paper,fungicide,one,1.6
+pyraclostrobin,859,paper,fungicide,one,2.15
+pyraclostrobin,859,paper,fungicide,one,2.2
+pyraclostrobin,859,paper,fungicide,two,2.45
+pyraclostrobin,859,paper,fungicide,two,2.3
+pyraclostrobin,859,paper,fungicide,two,2.4
+pyraclostrobin,859,paper,fungicide,two,2.5
+pyraclostrobin,859,paper,control,one,3.3
+pyraclostrobin,859,paper,control,one,3.45
+pyraclostrobin,859,paper,control,one,3
+pyraclostrobin,859,paper,control,one,3.25
+pyraclostrobin,859,paper,control,two,5.05
+pyraclostrobin,859,paper,control,two,5.1
+pyraclostrobin,859,paper,control,two,5.05
+pyraclostrobin,859,paper,control,two,5
+pyraclostrobin,861,plug,fungicide,one,3
+pyraclostrobin,861,plug,fungicide,one,3.1
+pyraclostrobin,861,plug,fungicide,one,3
+pyraclostrobin,861,plug,fungicide,one,3.15
+pyraclostrobin,861,plug,fungicide,two,1.4
+pyraclostrobin,861,plug,fungicide,two,1.6
+pyraclostrobin,861,plug,fungicide,two,0.15
+pyraclostrobin,861,plug,fungicide,two,0
+pyraclostrobin,861,plug,control,one,6.25
+pyraclostrobin,861,plug,control,one,6.4
+pyraclostrobin,861,plug,control,one,6.45
+pyraclostrobin,861,plug,control,one,6.4
+pyraclostrobin,861,plug,control,two,5.65
+pyraclostrobin,861,plug,control,two,5.9
+pyraclostrobin,861,plug,control,two,6
+pyraclostrobin,861,plug,control,two,5.95
+pyraclostrobin,861,paper,fungicide,one,1.95
+pyraclostrobin,861,paper,fungicide,one,2.55
+pyraclostrobin,861,paper,fungicide,one,2.4
+pyraclostrobin,861,paper,fungicide,one,2
+pyraclostrobin,861,paper,fungicide,two,2.5
+pyraclostrobin,861,paper,fungicide,two,2.61
+pyraclostrobin,861,paper,fungicide,two,2.55
+pyraclostrobin,861,paper,fungicide,two,2.7
+pyraclostrobin,861,paper,control,one,3.5
+pyraclostrobin,861,paper,control,one,3.75
+pyraclostrobin,861,paper,control,one,3.6
+pyraclostrobin,861,paper,control,one,4.1
+pyraclostrobin,861,paper,control,two,5.225
+pyraclostrobin,861,paper,control,two,5.2
+pyraclostrobin,861,paper,control,two,5.2
+pyraclostrobin,861,paper,control,two,5.3
+pyraclostrobin,902,plug,fungicide,one,3.1
+pyraclostrobin,902,plug,fungicide,one,3.2
+pyraclostrobin,902,plug,fungicide,one,3.3
+pyraclostrobin,902,plug,fungicide,one,3.2
+pyraclostrobin,902,plug,fungicide,two,1.75
+pyraclostrobin,902,plug,fungicide,two,0
+pyraclostrobin,902,plug,fungicide,two,0
+pyraclostrobin,902,plug,fungicide,two,0
+pyraclostrobin,902,plug,control,one,5.95
+pyraclostrobin,902,plug,control,one,5.8
+pyraclostrobin,902,plug,control,one,5.75
+pyraclostrobin,902,plug,control,one,5.7
+pyraclostrobin,902,plug,control,two,4.8
+pyraclostrobin,902,plug,control,two,5.45
+pyraclostrobin,902,plug,control,two,5.15
+pyraclostrobin,902,plug,control,two,5.25
+pyraclostrobin,902,paper,fungicide,one,1.8
+pyraclostrobin,902,paper,fungicide,one,1.8
+pyraclostrobin,902,paper,fungicide,one,2
+pyraclostrobin,902,paper,fungicide,one,2.65
+pyraclostrobin,902,paper,fungicide,two,2.7
+pyraclostrobin,902,paper,fungicide,two,2.7
+pyraclostrobin,902,paper,fungicide,two,2.75
+pyraclostrobin,902,paper,fungicide,two,2.8
+pyraclostrobin,902,paper,control,one,3.7
+pyraclostrobin,902,paper,control,one,3.7
+pyraclostrobin,902,paper,control,one,4
+pyraclostrobin,902,paper,control,one,4.05
+pyraclostrobin,902,paper,control,two,4.25
+pyraclostrobin,902,paper,control,two,4.05
+pyraclostrobin,902,paper,control,two,4.2
+pyraclostrobin,902,paper,control,two,4.1
