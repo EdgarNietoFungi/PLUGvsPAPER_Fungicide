@@ -1,0 +1,442 @@
+---
+title: "NRES803"
+author: "Nieto_Lopez"
+date: "5/7/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r set packages}
+#Hi alll l
+
+packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools" )
+lapply( packages, require, character.only = TRUE)
+
+
+plug.discs <- read.csv("data/Paper_discs_vs_PLUG.csv", stringsAsFactors = TRUE, na.strings = TRUE)
+plug.discs$Fungicide <- str_squish(plug.discs$Fungicide)
+stopifnot(nrow(plug.discs) == 7*11*2*2*2*4)
+#Y <- read.csv("data/Paper_discs_vs_PLUG.csv", stringsAsFactors = TRUE, na.strings = TRUE)
+
+#stopifnot(nrow(plugdiscs)== 7*11*2*2*2*4)
+plug.discs <- plug.discs %>% 
+mutate(inoculum= as.character(inoculum)) %>% 
+rename(ID= inoculum, 
+      experimental_replicate = experimental_repetition) %>%
+  select(Fungicide, ID, experiment, experimental_replicate, treatment, growth) %>% 
+     group_by(Fungicide, ID,experiment, experimental_replicate, treatment) %>% mutate(rep= 1:4) %>% spread( treatment, growth ) %>% 
+  ungroup()
+ # group_by(ID, experiment, experimental_repeatlicate)
+   #spread( treatment )
+#Function
+get_range <- function(mynumber) {
+  bb <- boxplot.stats(mynumber)
+  cc <- bb$stats
+  dd <- max(cc)
+  ee <- min(cc)
+  return(data.frame(upper = dd, lower = ee))
+}
+
+# by fungicide
+#Boscalid
+boscalid.plug.discs <-  plug.discs %>% filter(Fungicide== "boscalid") %>% 
+rename(response=fungicide) %>% 
+  select(-Fungicide)
+   
+boscalid.plug.discs.filtered <-  boscalid.plug.discs%>%
+  group_by(ID, experiment) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  mutate(control_range = list(get_range(control))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower,
+         control <= upper1 & control >= lower1) %>%
+  ungroup() %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+# Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100*((control - response)/control)) %>%
+  #taking again outliers based on inhibition
+group_by(ID, experiment) %>%
+  mutate(inhibition_range = list(get_range(inhibition))) %>%
+  unnest() %>%
+  filter(inhibition <= upper &
+           inhibition >= lower) %>%
+  ungroup()
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+boscalid.plug.discs.filtered %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition))) 
+
+# transforming to log 
+boscalid.plug.discs.filtered.2 <-  boscalid.plug.discs.filtered %>% 
+  mutate(log.inhibition= log(inhibition))
+###
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+boscalid.plug.discs.filtered.2 %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$log.inhibition)))
+
+
+#non parametric between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
+boscalid.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experimental_replicate, 
+    data = .) 
+
+
+boscalid.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experiment, 
+    data = .) 
+
+# Now Dunn test
+
+ boscalid.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+#P VALUE 0.000016 *** plug-paper
+
+
+##########
+
+#Fluazinam
+fluazinam.plug.discs <-  plug.discs %>% filter(Fungicide== "fluazinam") %>% 
+rename(response=fungicide) %>% 
+  select(-Fungicide)
+   
+fluazinam.plug.discs.filtered <-  fluazinam.plug.discs%>%
+  group_by(ID, experiment) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  mutate(control_range = list(get_range(control))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower,
+         control <= upper1 & control >= lower1) %>%
+  ungroup() %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+# Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100*((control - response)/control)) %>%
+  #taking again outliers based on inhibition
+group_by(ID, experiment) %>%
+  mutate(inhibition_range = list(get_range(inhibition))) %>%
+  unnest() %>%
+  filter(inhibition <= upper &
+           inhibition >= lower) %>%
+  ungroup()
+## shapiro test for normality between groups of experimental replicates. There is normality between experimental replicates
+fluazinam.plug.discs.filtered %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition))) 
+
+#ANOVA between experimental repeatlicates and experiment, there is difference between experiment and experimental replicates, so I cant join data from experimental replicates
+
+fluazinam.plug.discs.filtered  %>% 
+  aov(inhibition ~ experiment  + experimental_replicate, 
+    data = .) %>% 
+  summary()
+
+##
+#Iprodione
+iprodione.plug.discs <-  plug.discs %>% filter(Fungicide== "iprodione") %>% 
+rename(response=fungicide) %>% 
+  select(-Fungicide)
+   
+iprodione.plug.discs.filtered <-  iprodione.plug.discs%>%
+  group_by(ID, experiment) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  mutate(control_range = list(get_range(control))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower,
+         control <= upper1 & control >= lower1) %>%
+  ungroup() %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+# Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100*((control - response)/control)) %>%
+  #taking again outliers based on inhibition
+group_by(ID, experiment) %>%
+  mutate(inhibition_range = list(get_range(inhibition))) %>%
+  unnest() %>%
+  filter(inhibition <= upper &
+           inhibition >= lower) %>%
+  ungroup()
+## shapiro test for normality between groups of experimental replicates. There is normality in one exp replicate but not in the other one
+iprodione.plug.discs.filtered %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition))) 
+
+
+# transforming to log 
+iprodione.plug.discs.filtered.2 <-  iprodione.plug.discs.filtered %>% 
+  mutate(log.inhibition= log(inhibition))
+###
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+iprodione.plug.discs.filtered.2 %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$log.inhibition)))
+
+
+#non parametric test between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
+
+iprodione.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experimental_replicate, 
+    data = .) 
+
+
+iprodione.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experiment, 
+    data = .) 
+
+# Now Dunn test
+
+ iprodione.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+#P VALUE 0.0258 *plug-paper
+
+#####
+
+
+#Procymidone
+procymidone.plug.discs <-  plug.discs %>% filter(Fungicide== "procymidone") %>% 
+rename(response=fungicide) %>% 
+  select(-Fungicide)
+   
+procymidone.plug.discs.filtered <-  procymidone.plug.discs%>%
+  group_by(ID, experiment) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  mutate(control_range = list(get_range(control))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower,
+         control <= upper1 & control >= lower1) %>%
+  ungroup() %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+# Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100*((control - response)/control)) %>%
+  #taking again outliers based on inhibition
+group_by(ID, experiment) %>%
+  mutate(inhibition_range = list(get_range(inhibition))) %>%
+  unnest() %>%
+  filter(inhibition <= upper &
+           inhibition >= lower) %>%
+  ungroup()
+## shapiro test for normality between groups of experimental replicates. There is normality in one experimental replicate but not in the other one
+procymidone.plug.discs.filtered %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition))) 
+
+# transforming to square
+procymidone.plug.discs.filtered.2 <-  procymidone.plug.discs.filtered %>% 
+  mutate(square.inhibition= inhibition^2)
+###
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+procymidone.plug.discs.filtered.2 %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$square.inhibition)))
+
+
+# non parametric test between experimental repeatlicates and experiment, there is differenc between  experimental replicates (so I cant join data from experimental) but not  between experiments
+
+procymidone.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experimental_replicate, 
+    data = .) 
+
+
+procymidone.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experiment, 
+    data = .)  
+#p value = 0.09274
+
+
+####
+#Prothioconazole
+prothioconazole.plug.discs <-  plug.discs %>% filter(Fungicide== "prothioconazole") %>% 
+rename(response=fungicide) %>% 
+  select(-Fungicide)
+   
+prothioconazole.plug.discs.filtered <-  prothioconazole.plug.discs%>%
+  group_by(ID, experiment) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  mutate(control_range = list(get_range(control))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower,
+         control <= upper1 & control >= lower1) %>%
+  ungroup() %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+# Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100*((control - response)/control)) %>%
+  #taking again outliers based on inhibition
+group_by(ID, experiment) %>%
+  mutate(inhibition_range = list(get_range(inhibition))) %>%
+  unnest() %>%
+  filter(inhibition <= upper &
+           inhibition >= lower) %>%
+  ungroup()
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+prothioconazole.plug.discs.filtered %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition))) 
+
+# transforming to log 
+prothioconazole.plug.discs.filtered.2 <-  prothioconazole.plug.discs.filtered %>% 
+  mutate(log.inhibition= log(inhibition))
+###
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+prothioconazole.plug.discs.filtered.2 %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$log.inhibition)))
+
+
+# non parametric test between experimental repeatlicates and experiment, there is no difference between experiment and  experimental replicates, so I can join data from experimental replicates
+
+prothioconazole.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experimental_replicate, 
+    data = .) 
+
+
+prothioconazole.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experiment, 
+    data = .) 
+
+
+######
+#Pyraclostrobin
+pyraclostrobin.plug.discs <-  plug.discs %>% filter(Fungicide== "pyraclostrobin") %>% 
+rename(response=fungicide) %>% 
+  select(-Fungicide)
+   
+pyraclostrobin.plug.discs.filtered <-  pyraclostrobin.plug.discs%>%
+  group_by(ID, experiment) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  mutate(control_range = list(get_range(control))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower,
+         control <= upper1 & control >= lower1) %>%
+  ungroup() %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+# Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100*((control - response)/control)) %>%
+  #taking again outliers based on inhibition
+group_by(ID, experiment) %>%
+  mutate(inhibition_range = list(get_range(inhibition))) %>%
+  unnest() %>%
+  filter(inhibition <= upper &
+           inhibition >= lower) %>%
+  ungroup()
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+pyraclostrobin.plug.discs.filtered %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition))) 
+
+# transforming to log 
+pyraclostrobin.plug.discs.filtered.2 <-  pyraclostrobin.plug.discs.filtered %>% 
+  mutate(log.inhibition= log(inhibition))
+###
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+pyraclostrobin.plug.discs.filtered.2 %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$log.inhibition)))
+
+
+# no parametric test between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
+
+pyraclostrobin.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experimental_replicate, 
+    data = .) 
+
+
+pyraclostrobin.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experiment, 
+    data = .) 
+
+# Now Dunn test
+
+ pyraclostrobin.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+#P VALUE 0.000000000000079 *** plug-paper
+
+
+####
+#Thiophanate_methyl
+
+TM.plug.discs <-  plug.discs %>% filter(Fungicide== "thiophanate_methyl") %>% 
+rename(response=fungicide) %>% 
+  select(-Fungicide)
+   
+TM.plug.discs.filtered <-  TM.plug.discs%>%
+  group_by(ID, experiment) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  mutate(control_range = list(get_range(control))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower,
+         control <= upper1 & control >= lower1) %>%
+  ungroup() %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+# Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100*((control - response)/control)) %>%
+  #taking again outliers based on inhibition
+group_by(ID, experiment) %>%
+  mutate(inhibition_range = list(get_range(inhibition))) %>%
+  unnest() %>%
+  filter(inhibition <= upper &
+           inhibition >= lower) %>%
+  ungroup()
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+TM.plug.discs.filtered %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition))) 
+
+# transforming to square
+TM.plug.discs.filtered.2 <-  TM.plug.discs.filtered %>% 
+  mutate(square.inhibition= inhibition^2)
+###
+## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+TM.plug.discs.filtered.2 %>% 
+group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$square.inhibition)))
+
+
+# non parametric test between experimental repeatlicates and experiment, there is differenc between experiment and no between experimental replicates, so I can join data from experimental replicates
+
+TM.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experimental_replicate, 
+    data = .) 
+
+
+TM.plug.discs.filtered  %>% 
+ kruskal.test(inhibition ~ experiment, 
+    data = .) 
+
+# Now Dunn test
+
+ TM.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+#P VALUE 0.0456 * plug-paper
+
+
+
+
+
+
+
+
+
+
+
+
+```
+

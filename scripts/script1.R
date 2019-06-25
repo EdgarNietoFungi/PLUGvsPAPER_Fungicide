@@ -65,3 +65,24 @@ head(m)
 
 plugdiscs %>% ggplot(aes(y = growth, x= Fungicide, fill = experiment)) + geom_boxplot() + facet_wrap(~treatment)
 plugdiscs %>% group_by(Fungicide, treatment, experiment) %>% do(tidy(shapiro.test(.$growth))) #missing levene test
+
+
+#to mAKE SURE THERES INO DIFFERENCE BETWEEN EXPERIMENTAL REPEATS
+aov(growth ~ experimental_repetition + Fungicide + inoculum + experiment + treatment,
+data = plugdiscs) %>% summary
+
+#Trying to take outliers from the inhibition dataframe
+
+inhibition <- plugdiscs %>%
+spread(treatment, growth ) %>%
+mutate(inhibition = 100*((control - fungicide)/control))
+
+#to mAKE SURE THERES INO DIFFERENCE BETWEEN EXPERIMENTAL REPEATS
+
+aov(inhibition ~ experimental_repeatition + Fungicide + inoculum + experiment, 
+    data = inhibition) %>% summary
+
+
+echo hello
+
+
