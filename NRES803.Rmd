@@ -6,11 +6,11 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = F)
 ```
+## Setting the packages and wrangling
 
-
-```{r set packages}
+```{r set packages, echo=FALSE}
 #Hi alll l
 
 packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools" )
@@ -32,6 +32,9 @@ rename(ID= inoculum,
   ungroup()
  # group_by(ID, experiment, experimental_repeatlicate)
    #spread( treatment )
+```
+
+```{r}
 #Function
 get_range <- function(mynumber) {
   bb <- boxplot.stats(mynumber)
@@ -41,7 +44,11 @@ get_range <- function(mynumber) {
   return(data.frame(upper = dd, lower = ee))
 }
 
-# by fungicide
+```
+##  By fungicide
+## Boscalid
+```{r Boscalid}
+
 #Boscalid
 boscalid.plug.discs <-  plug.discs %>% filter(Fungicide== "boscalid") %>% 
 rename(response=fungicide) %>% 
@@ -99,8 +106,9 @@ boscalid.plug.discs.filtered  %>%
 #P VALUE 0.000016 *** plug-paper
 
 
-##########
-
+```
+## Fluazinam
+```{r Fluazinam}
 #Fluazinam
 fluazinam.plug.discs <-  plug.discs %>% filter(Fungicide== "fluazinam") %>% 
 rename(response=fungicide) %>% 
@@ -139,8 +147,10 @@ fluazinam.plug.discs.filtered  %>%
     data = .) %>% 
   summary()
 
-##
-#Iprodione
+```
+## Iprodione
+```{r Iprodione}
+
 iprodione.plug.discs <-  plug.discs %>% filter(Fungicide== "iprodione") %>% 
 rename(response=fungicide) %>% 
   select(-Fungicide)
@@ -198,10 +208,11 @@ iprodione.plug.discs.filtered  %>%
  iprodione.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
 #P VALUE 0.0258 *plug-paper
 
-#####
 
+```
+## Procymidone
+```{r Procymidone}
 
-#Procymidone
 procymidone.plug.discs <-  plug.discs %>% filter(Fungicide== "procymidone") %>% 
 rename(response=fungicide) %>% 
   select(-Fungicide)
@@ -255,8 +266,11 @@ procymidone.plug.discs.filtered  %>%
 #p value = 0.09274
 
 
-####
-#Prothioconazole
+```
+
+## Prothioconazole
+```{r Prothioconazole}
+## Prothioconazole
 prothioconazole.plug.discs <-  plug.discs %>% filter(Fungicide== "prothioconazole") %>% 
 rename(response=fungicide) %>% 
   select(-Fungicide)
@@ -309,8 +323,10 @@ prothioconazole.plug.discs.filtered  %>%
     data = .) 
 
 
-######
-#Pyraclostrobin
+```
+## Pyraclostrobin
+```{r Pyraclostrobin}
+## Pyraclostrobin
 pyraclostrobin.plug.discs <-  plug.discs %>% filter(Fungicide== "pyraclostrobin") %>% 
 rename(response=fungicide) %>% 
   select(-Fungicide)
@@ -368,8 +384,11 @@ pyraclostrobin.plug.discs.filtered  %>%
 #P VALUE 0.000000000000079 *** plug-paper
 
 
-####
-#Thiophanate_methyl
+
+
+```
+## Thiophanate_methyl
+```{r Thiophanate_methyl}
 
 TM.plug.discs <-  plug.discs %>% filter(Fungicide== "thiophanate_methyl") %>% 
 rename(response=fungicide) %>% 
@@ -426,16 +445,6 @@ TM.plug.discs.filtered  %>%
 
  TM.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
 #P VALUE 0.0456 * plug-paper
-
-
-
-
-
-
-
-
-
-
 
 
 ```
