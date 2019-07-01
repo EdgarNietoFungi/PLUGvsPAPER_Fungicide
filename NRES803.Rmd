@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = F)
 ```{r set packages, echo=FALSE}
 #Hi alll l
 
-packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools" )
+packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools","ezec")
 lapply( packages, require, character.only = TRUE)
 
 #####boscalid
@@ -51,7 +51,45 @@ boscalid.data <-
     mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
     
 
-###Fluazinam
+  boscalid.SG <-
+  read.csv("data/1_Day_SG/Boscalid.csv")
+  
+  boscalid.SG <- boscalid.SG %>% 
+    rename(ID= Isolate)
+  
+  boscalid.SG$ID <- as.character(boscalid.SG$ID)
+  # renaming ID for the current names
+ boscalid.SG$ID[ boscalid.SG$ID =="541B"]  <- "541" 
+
+ boscalid.SG$ID[ boscalid.SG$ID =="293E"]  <- "293" 
+ boscalid.SG$ID[ boscalid.SG$ID =="973B"]  <- "973" 
+ boscalid.SG$ID[ boscalid.SG$ID =="973C"]  <- "973" 
+  boscalid.SG$ID[ boscalid.SG$ID =="973D"]  <- "973" 
+ boscalid.SG$ID[ boscalid.SG$ID =="974A"]  <- "974" 
+ boscalid.SG$ID[ boscalid.SG$ID =="974B"]  <- "974" 
+ boscalid.SG$ID[ boscalid.SG$ID =="974C"]  <- "974" 
+ boscalid.SG$ID[ boscalid.SG$ID =="974D"]  <- "974" 
+ boscalid.SG$ID[ boscalid.SG$ID =="975C"]  <- "975" 
+ boscalid.SG$ID[ boscalid.SG$ID =="975D"]  <- "975" 
+ boscalid.SG$ID[ boscalid.SG$ID =="975E"]  <- "975" 
+ boscalid.SG$ID[ boscalid.SG$ID =="976B"]  <- "976"
+ boscalid.SG$ID[ boscalid.SG$ID =="976C"]  <- "976"
+ boscalid.SG$ID[ boscalid.SG$ID =="977B"]  <- "977"
+ boscalid.SG$ID[ boscalid.SG$ID =="978B"]  <- "978"
+
+ str_squish(boscalid.SG$ID)
+  ####Transforming to $ID to numeric
+ boscalid.SG$ID <- as.numeric(boscalid.SG$ID)
+  # Filter out 
+  boscalid.SG <- boscalid.SG %>%
+    group_by(ID) %>%  
+    mutate(Average=mean(EC50)) %>% 
+    select(- EC50) %>% 
+    rename(EC50_SG= Average) %>% 
+    unique() %>% 
+    ungroup()
+  
+  ###Fluazinam
   
 fluazinam.data <-
   read.csv("data/fluazinam.csv")
@@ -84,7 +122,50 @@ fluazinam.data <-
   fluazinam.data <- fluazinam.data %>%
      #filter(!dose ==  0.4 & !ID == 800) %>%
     mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
-  #######Iprodione
+ 
+  #
+  
+  fluazinam.SG <-
+  read.csv("data/1_Day_SG/Fluazinam.csv")
+  
+  fluazinam.SG <- fluazinam.SG %>% 
+    rename(ID= Isolate)
+  
+  fluazinam.SG$ID <- as.character(fluazinam.SG$ID)
+  # renaming ID for the current names
+ fluazinam.SG$ID[ fluazinam.SG$ID =="541B"]  <- "541" 
+
+ fluazinam.SG$ID[ fluazinam.SG$ID =="293E"]  <- "293" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="973B"]  <- "973" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="973C"]  <- "973" 
+  fluazinam.SG$ID[ fluazinam.SG$ID =="973D"]  <- "973" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="974A"]  <- "974" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="974B"]  <- "974" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="974C"]  <- "974" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="974D"]  <- "974" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="975C"]  <- "975" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="975D"]  <- "975" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="975E"]  <- "975" 
+ fluazinam.SG$ID[ fluazinam.SG$ID =="976B"]  <- "976"
+ fluazinam.SG$ID[ fluazinam.SG$ID =="976C"]  <- "976"
+ fluazinam.SG$ID[ fluazinam.SG$ID =="977B"]  <- "977"
+ fluazinam.SG$ID[ fluazinam.SG$ID =="978B"]  <- "978"
+
+ str_squish(fluazinam.SG$ID)
+  ####Transforming to $ID to numeric
+ fluazinam.SG$ID <- as.numeric(fluazinam.SG$ID)
+  # Filter out 
+  fluazinam.SG <- fluazinam.SG %>%
+    group_by(ID) %>%  
+    mutate(Average=mean(EC50)) %>% 
+    select(- EC50) %>% 
+    rename(EC50_SG= Average) %>% 
+    unique() %>% 
+    ungroup()
+
+
+  
+   #######Iprodione
   
   iprodione.data <-
   read.csv("data/iprodione.csv")
@@ -117,6 +198,46 @@ fluazinam.data <-
   iprodione.data <- iprodione.data %>%
          mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
     
+iprodione.SG <-
+  read.csv("data/1_Day_SG/Iprodione.csv")
+  
+  iprodione.SG <- iprodione.SG %>% 
+    rename(ID= Isolate)
+  
+  iprodione.SG$ID <- as.character(iprodione.SG$ID)
+  # renaming ID for the current names
+ iprodione.SG$ID[ iprodione.SG$ID =="541B"]  <- "541" 
+
+ iprodione.SG$ID[ iprodione.SG$ID =="293E"]  <- "293" 
+ iprodione.SG$ID[ iprodione.SG$ID =="973B"]  <- "973" 
+ iprodione.SG$ID[ iprodione.SG$ID =="973C"]  <- "973" 
+  iprodione.SG$ID[ iprodione.SG$ID =="973D"]  <- "973" 
+ iprodione.SG$ID[ iprodione.SG$ID =="974A"]  <- "974" 
+ iprodione.SG$ID[ iprodione.SG$ID =="974B"]  <- "974" 
+ iprodione.SG$ID[ iprodione.SG$ID =="974C"]  <- "974" 
+ iprodione.SG$ID[ iprodione.SG$ID =="974D"]  <- "974" 
+ iprodione.SG$ID[ iprodione.SG$ID =="975C"]  <- "975" 
+ iprodione.SG$ID[ iprodione.SG$ID =="975D"]  <- "975" 
+ iprodione.SG$ID[ iprodione.SG$ID =="975E"]  <- "975" 
+ iprodione.SG$ID[ iprodione.SG$ID =="976B"]  <- "976"
+ iprodione.SG$ID[ iprodione.SG$ID =="976C"]  <- "976"
+ iprodione.SG$ID[ iprodione.SG$ID =="977B"]  <- "977"
+ iprodione.SG$ID[ iprodione.SG$ID =="978B"]  <- "978"
+
+ str_squish(iprodione.SG$ID)
+  ####Transforming to $ID to numeric
+ iprodione.SG$ID <- as.numeric(iprodione.SG$ID)
+  # Filter out 
+  iprodione.SG <- iprodione.SG %>%
+    group_by(ID) %>%  
+    mutate(Average=mean(EC50)) %>% 
+    select(- EC50) %>% 
+    rename(EC50_SG= Average) %>% 
+    unique() %>% 
+    ungroup()
+  
+    
+  
 ###Procymidone
   
 procymidone.data <-
@@ -150,7 +271,47 @@ procymidone.data <-
   procymidone.data <- procymidone.data %>%
      #filter(!dose ==  0.4 & !ID == 800) %>%
     mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
-    ###Prothioconazole
+  
+  procymidone.SG <-
+  read.csv("data/1_Day_SG/Procymidone.csv")
+  
+  procymidone.SG <- procymidone.SG %>% 
+    rename(ID= Isolate)
+  
+  procymidone.SG$ID <- as.character(procymidone.SG$ID)
+  # renaming ID for the current names
+ procymidone.SG$ID[ procymidone.SG$ID =="541B"]  <- "541" 
+
+ procymidone.SG$ID[ procymidone.SG$ID =="293E"]  <- "293" 
+ procymidone.SG$ID[ procymidone.SG$ID =="973B"]  <- "973" 
+ procymidone.SG$ID[ procymidone.SG$ID =="973C"]  <- "973" 
+  procymidone.SG$ID[ procymidone.SG$ID =="973D"]  <- "973" 
+ procymidone.SG$ID[ procymidone.SG$ID =="974A"]  <- "974" 
+ procymidone.SG$ID[ procymidone.SG$ID =="974B"]  <- "974" 
+ procymidone.SG$ID[ procymidone.SG$ID =="974C"]  <- "974" 
+ procymidone.SG$ID[ procymidone.SG$ID =="974D"]  <- "974" 
+ procymidone.SG$ID[ procymidone.SG$ID =="975C"]  <- "975" 
+ procymidone.SG$ID[ procymidone.SG$ID =="975D"]  <- "975" 
+ procymidone.SG$ID[ procymidone.SG$ID =="975E"]  <- "975" 
+ procymidone.SG$ID[ procymidone.SG$ID =="976B"]  <- "976"
+ procymidone.SG$ID[ procymidone.SG$ID =="976C"]  <- "976"
+ procymidone.SG$ID[ procymidone.SG$ID =="977B"]  <- "977"
+ procymidone.SG$ID[ procymidone.SG$ID =="978B"]  <- "978"
+
+ str_squish(procymidone.SG$ID)
+  ####Transforming to $ID to numeric
+ procymidone.SG$ID <- as.numeric(procymidone.SG$ID)
+  # Filter out 
+  procymidone.SG <- procymidone.SG %>%
+    group_by(ID) %>%  
+    mutate(Average=mean(EC50)) %>% 
+    select(- EC50) %>% 
+    rename(EC50_SG= Average) %>% 
+    unique() %>% 
+    ungroup()
+    
+  
+  ###Prothioconazole
   prothioconazole.data <-
   read.csv("data/prothioconazole.csv")
   
@@ -183,6 +344,45 @@ procymidone.data <-
      #filter(!dose ==  0.4 & !ID == 800) %>%
     mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
     
+  prothioconazole.SG <-
+  read.csv("data/1_Day_SG/Prothioconazole.csv")
+  
+  prothioconazole.SG <- prothioconazole.SG %>% 
+    rename(ID= Isolate)
+  
+  prothioconazole.SG$ID <- as.character(prothioconazole.SG$ID)
+  # renaming ID for the current names
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="541B"]  <- "541" 
+
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="293E"]  <- "293" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="973B"]  <- "973" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="973C"]  <- "973" 
+  prothioconazole.SG$ID[ prothioconazole.SG$ID =="973D"]  <- "973" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="974A"]  <- "974" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="974B"]  <- "974" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="974C"]  <- "974" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="974D"]  <- "974" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="975C"]  <- "975" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="975D"]  <- "975" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="975E"]  <- "975" 
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="976B"]  <- "976"
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="976C"]  <- "976"
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="977B"]  <- "977"
+ prothioconazole.SG$ID[ prothioconazole.SG$ID =="978B"]  <- "978"
+
+ str_squish(prothioconazole.SG$ID)
+  ####Transforming to $ID to numeric
+ prothioconazole.SG$ID <- as.numeric(prothioconazole.SG$ID)
+  # Filter out 
+  prothioconazole.SG <- prothioconazole.SG %>%
+    group_by(ID) %>%  
+    mutate(Average=mean(EC50)) %>% 
+    select(- EC50) %>% 
+    rename(EC50_SG= Average) %>% 
+    unique() %>% 
+    ungroup()
+  
+  
 ##pyraclostrobin
   pyraclostrobin.data <-
   read.csv("data/pyraclostrobin.csv")
@@ -216,6 +416,45 @@ procymidone.data <-
      #filter(!dose ==  0.4 & !ID == 800) %>%
     mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
   
+  pyraclostrobin.SG <-
+  read.csv("data/1_Day_SG/Pyraclostrobin.csv")
+  
+  pyraclostrobin.SG <- pyraclostrobin.SG %>% 
+    rename(ID= Isolate)
+  
+  pyraclostrobin.SG$ID <- as.character(pyraclostrobin.SG$ID)
+  # renaming ID for the current names
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="541B"]  <- "541" 
+
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="293E"]  <- "293" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="973B"]  <- "973" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="973C"]  <- "973" 
+  pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="973D"]  <- "973" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974A"]  <- "974" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974B"]  <- "974" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974C"]  <- "974" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974D"]  <- "974" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="975C"]  <- "975" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="975D"]  <- "975" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="975E"]  <- "975" 
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="976B"]  <- "976"
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="976C"]  <- "976"
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="977B"]  <- "977"
+ pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="978B"]  <- "978"
+
+ str_squish(pyraclostrobin.SG$ID)
+  ####Transforming to $ID to numeric
+ pyraclostrobin.SG$ID <- as.numeric(pyraclostrobin.SG$ID)
+  # Filter out 
+  pyraclostrobin.SG <- pyraclostrobin.SG %>%
+    group_by(ID) %>%  
+    mutate(Average=mean(EC50)) %>% 
+    select(- EC50) %>% 
+    rename(EC50_SG= Average) %>% 
+    unique() %>% 
+    ungroup()
+  
+  
   #thiophanate_methyl
   
   thiophanate_methyl.data <-
@@ -246,11 +485,48 @@ procymidone.data <-
   ####Transforming to $ID to numeric
  thiophanate_methyl.data$ID <- as.numeric(thiophanate_methyl.data$ID)
   # Filter out 
-  thiophanate_methyl.data <- thiophanate_methyl.data %>%
+  #thiophanate_methyl.data <- thiophanate_methyl.data %>%
      
-    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+   # mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
     
+ thiophanate_methyl.SG <-
+  read.csv("data/1_Day_SG/Thiophanate_methyl.csv",  na.strings = TRUE)
+  
+  thiophanate_methyl.SG <- thiophanate_methyl.SG %>% 
+    rename(ID= Isolate)
+  
+  thiophanate_methyl.SG$ID <- as.character(thiophanate_methyl.SG$ID)
+  # renaming ID for the current names
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="541B"]  <- "541" 
 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="293E"]  <- "293" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="973B"]  <- "973" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="973C"]  <- "973" 
+  thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="973D"]  <- "973" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974A"]  <- "974" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974B"]  <- "974" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974C"]  <- "974" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974D"]  <- "974" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="975C"]  <- "975" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="975D"]  <- "975" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="975E"]  <- "975" 
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="976B"]  <- "976"
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="976C"]  <- "976"
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="977B"]  <- "977"
+ thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="978B"]  <- "978"
+
+ str_squish(thiophanate_methyl.SG$ID)
+  ####Transforming to $ID to numeric
+ thiophanate_methyl.SG$ID <- as.numeric(thiophanate_methyl.SG$ID)
+  # Filter out 
+  thiophanate_methyl.SG <- thiophanate_methyl.SG %>%
+    group_by(ID) %>%  
+    mutate(Average=mean(EC50)) %>% 
+    select(- EC50) %>% 
+    rename(EC50_SG= Average) %>% 
+    unique() %>% 
+    ungroup()
+ 
   
   
 
@@ -266,7 +542,7 @@ procymidone.data <-
 }
   
  
- boscalid.filtered.survey <- boscalid.data %>%
+ boscalid.filtered <- boscalid.data %>%
   group_by(ID, dose) %>%
   mutate(response_range = list(get_range(response))) %>%
   unnest() %>%
@@ -275,7 +551,132 @@ procymidone.data <-
   ungroup() %>%
   select(c(ID, dose, response, repeats))
    
-  
+ aa <- EC_table(boscalid.filtered, form = response ~ dose)
+
+boscalid.PD <-
+  aa %>% rename(ID = sample ) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>% 
+  select(ID, EC50_PD)
+ 
+ boscalid.final <- boscalid.PD %>% 
+    left_join(boscalid.SG)
+
+ ##
+ fluazinam.filtered <- fluazinam.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+   
+ bb <- EC_table(fluazinam.filtered, form = response ~ dose)
+
+fluazinam.PD <-
+  bb %>% rename(ID = sample ) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>% 
+  select(ID, EC50_PD)
+ 
+ fluazinam.final <- fluazinam.PD %>% 
+    left_join(fluazinam.SG)
+#
+ iprodione.filtered <- iprodione.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+   
+ cc <- EC_table(iprodione.filtered, form = response ~ dose)
+
+iprodione.PD <-
+  cc %>% rename(ID = sample ) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>% 
+  select(ID, EC50_PD)
+ 
+ iprodione.final <- iprodione.PD %>% 
+    left_join(iprodione.SG)
+##
+ procymidone.filtered <- procymidone.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+   
+ dd <- EC_table(procymidone.filtered, form = response ~ dose)
+
+procymidone.PD <-
+  dd %>% rename(ID = sample ) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>% 
+  select(ID, EC50_PD)
+ 
+ procymidone.final <- procymidone.PD %>% 
+    left_join(procymidone.SG)
+#
+ prothioconazole.filtered <- prothioconazole.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+   
+ ee <- EC_table(prothioconazole.filtered, form = response ~ dose)
+
+prothioconazole.PD <-
+  ee %>% rename(ID = sample ) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>% 
+  select(ID, EC50_PD)
+ 
+ prothioconazole.final <- prothioconazole.PD %>% 
+    left_join(prothioconazole.SG)
+#
+ pyraclostrobin.filtered <- pyraclostrobin.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+   
+ ff <- EC_table(pyraclostrobin.filtered, form = response ~ dose)
+
+pyraclostrobin.PD <-
+  ff %>% rename(ID = sample ) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>% 
+  select(ID, EC50_PD)
+ 
+ pyraclostrobin.final <- pyraclostrobin.PD %>% 
+    left_join(pyraclostrobin.SG)
+#
+ thiophanate_methyl.filtered <- thiophanate_methyl.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+   
+ gg <- EC_table(thiophanate_methyl.filtered, form = response ~ dose)
+
+thiophanate_methyl.PD <-
+  gg %>% rename(ID = sample ) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>% 
+  select(ID, EC50_PD)
+ 
+ thiophanate_methyl.final <- thiophanate_methyl.PD %>% 
+    left_join(thiophanate_methyl.SG)
+
+####
 plug.discs <- read.csv("data/Paper_discs_vs_PLUG.csv", stringsAsFactors = TRUE, na.strings = TRUE)
 plug.discs$Fungicide <- str_squish(plug.discs$Fungicide)
 stopifnot(nrow(plug.discs) == 7*11*2*2*2*4)
