@@ -16,7 +16,266 @@ knitr::opts_chunk$set(echo = F)
 packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools" )
 lapply( packages, require, character.only = TRUE)
 
+#####boscalid
 
+boscalid.data <-
+  read.csv("data/boscalid.csv")
+  
+  boscalid.data$repeats <- rep_len(1:4, length.out = nrow(boscalid.data))
+  boscalid.data$ID <- as.character(boscalid.data$ID)
+  # renaming ID for the current names
+ boscalid.data$ID[ boscalid.data$ID =="541B"]  <- "541" 
+
+ boscalid.data$ID[ boscalid.data$ID =="293E"]  <- "293" 
+ boscalid.data$ID[ boscalid.data$ID =="973B"]  <- "973" 
+ boscalid.data$ID[ boscalid.data$ID =="973C"]  <- "973" 
+  boscalid.data$ID[ boscalid.data$ID =="973D"]  <- "973" 
+ boscalid.data$ID[ boscalid.data$ID =="974A"]  <- "974" 
+ boscalid.data$ID[ boscalid.data$ID =="974B"]  <- "974" 
+ boscalid.data$ID[ boscalid.data$ID =="974C"]  <- "974" 
+ boscalid.data$ID[ boscalid.data$ID =="974D"]  <- "974" 
+ boscalid.data$ID[ boscalid.data$ID =="975C"]  <- "975" 
+ boscalid.data$ID[ boscalid.data$ID =="975D"]  <- "975" 
+ boscalid.data$ID[ boscalid.data$ID =="975E"]  <- "975" 
+ boscalid.data$ID[ boscalid.data$ID =="976B"]  <- "976"
+ boscalid.data$ID[ boscalid.data$ID =="976C"]  <- "976"
+ boscalid.data$ID[ boscalid.data$ID =="977B"]  <- "977"
+ boscalid.data$ID[ boscalid.data$ID =="978B"]  <- "978"
+
+ str_squish(boscalid.data$ID)
+  ####Transforming to $ID to numeric
+ boscalid.data$ID <- as.numeric(boscalid.data$ID)
+  # Filter out 
+  boscalid.data <- boscalid.data %>%
+     #filter(!dose ==  0.4 & !ID == 800) %>%
+    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+    
+
+###Fluazinam
+  
+fluazinam.data <-
+  read.csv("data/fluazinam.csv")
+  
+  fluazinam.data$repeats <- rep_len(1:4, length.out = nrow(fluazinam.data))
+  fluazinam.data$ID <- as.character(fluazinam.data$ID)
+  # renaming ID for the current names
+ fluazinam.data$ID[ fluazinam.data$ID =="541B"]  <- "541" 
+
+ fluazinam.data$ID[ fluazinam.data$ID =="293E"]  <- "293" 
+ fluazinam.data$ID[ fluazinam.data$ID =="973B"]  <- "973" 
+ fluazinam.data$ID[ fluazinam.data$ID =="973C"]  <- "973" 
+  fluazinam.data$ID[ fluazinam.data$ID =="973D"]  <- "973"
+ fluazinam.data$ID[ fluazinam.data$ID =="974A"]  <- "974" 
+ fluazinam.data$ID[ fluazinam.data$ID =="974B"]  <- "974" 
+ fluazinam.data$ID[ fluazinam.data$ID =="974C"]  <- "974" 
+ fluazinam.data$ID[ fluazinam.data$ID =="974D"]  <- "974" 
+ fluazinam.data$ID[ fluazinam.data$ID =="975C"]  <- "975" 
+ fluazinam.data$ID[ fluazinam.data$ID =="975D"]  <- "975" 
+ fluazinam.data$ID[ fluazinam.data$ID =="975E"]  <- "975" 
+ fluazinam.data$ID[ fluazinam.data$ID =="976B"]  <- "976"
+ fluazinam.data$ID[ fluazinam.data$ID =="976C"]  <- "976"
+ fluazinam.data$ID[ fluazinam.data$ID =="977B"]  <- "977"
+ fluazinam.data$ID[ fluazinam.data$ID =="978B"]  <- "978"
+
+ str_squish(fluazinam.data$ID)
+  ####Transforming to $ID to numeric
+ fluazinam.data$ID <- as.numeric(fluazinam.data$ID)
+  # Filter out 
+  fluazinam.data <- fluazinam.data %>%
+     #filter(!dose ==  0.4 & !ID == 800) %>%
+    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+  #######Iprodione
+  
+  iprodione.data <-
+  read.csv("data/iprodione.csv")
+  
+  iprodione.data$repeats <- rep_len(1:4, length.out = nrow(iprodione.data))
+  iprodione.data$ID <- as.character(iprodione.data$ID)
+  # renaming ID for the current names
+ iprodione.data$ID[ iprodione.data$ID =="541B"]  <- "541" 
+
+ iprodione.data$ID[ iprodione.data$ID =="293E"]  <- "293" 
+ iprodione.data$ID[ iprodione.data$ID =="973B"]  <- "973" 
+ iprodione.data$ID[ iprodione.data$ID =="973C"]  <- "973" 
+ iprodione.data$ID[ iprodione.data$ID =="973D"]  <- "973"
+ iprodione.data$ID[ iprodione.data$ID =="974A"]  <- "974" 
+ iprodione.data$ID[ iprodione.data$ID =="974B"]  <- "974" 
+ iprodione.data$ID[ iprodione.data$ID =="974C"]  <- "974" 
+ iprodione.data$ID[ iprodione.data$ID =="974D"]  <- "974" 
+ iprodione.data$ID[ iprodione.data$ID =="975C"]  <- "975" 
+ iprodione.data$ID[ iprodione.data$ID =="975D"]  <- "975" 
+ iprodione.data$ID[ iprodione.data$ID =="975E"]  <- "975" 
+ iprodione.data$ID[ iprodione.data$ID =="976B"]  <- "976"
+ iprodione.data$ID[ iprodione.data$ID =="976C"]  <- "976"
+ iprodione.data$ID[ iprodione.data$ID =="977B"]  <- "977"
+ iprodione.data$ID[ iprodione.data$ID =="978B"]  <- "978"
+
+ str_squish(iprodione.data$ID)
+  ####Transforming to $ID to numeric
+ iprodione.data$ID <- as.numeric(iprodione.data$ID)
+  # Filter out 
+  iprodione.data <- iprodione.data %>%
+         mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+    
+###Procymidone
+  
+procymidone.data <-
+  read.csv("data/procymidone.csv")
+  
+  procymidone.data$repeats <- rep_len(1:4, length.out = nrow(procymidone.data))
+  procymidone.data$ID <- as.character(procymidone.data$ID)
+  # renaming ID for the current names
+ procymidone.data$ID[ procymidone.data$ID =="541B"]  <- "541" 
+
+ procymidone.data$ID[ procymidone.data$ID =="293E"]  <- "293" 
+ procymidone.data$ID[ procymidone.data$ID =="973B"]  <- "973" 
+ procymidone.data$ID[ procymidone.data$ID =="973C"]  <- "973" 
+  procymidone.data$ID[ procymidone.data$ID =="973D"]  <- "973" 
+ procymidone.data$ID[ procymidone.data$ID =="974A"]  <- "974" 
+ procymidone.data$ID[ procymidone.data$ID =="974B"]  <- "974" 
+ procymidone.data$ID[ procymidone.data$ID =="974C"]  <- "974" 
+ procymidone.data$ID[ procymidone.data$ID =="974D"]  <- "974" 
+ procymidone.data$ID[ procymidone.data$ID =="975C"]  <- "975" 
+ procymidone.data$ID[ procymidone.data$ID =="975D"]  <- "975" 
+ procymidone.data$ID[ procymidone.data$ID =="975E"]  <- "975" 
+ procymidone.data$ID[ procymidone.data$ID =="976B"]  <- "976"
+ procymidone.data$ID[ procymidone.data$ID =="976C"]  <- "976"
+ procymidone.data$ID[ procymidone.data$ID =="977B"]  <- "977"
+ procymidone.data$ID[ procymidone.data$ID =="978B"]  <- "978"
+
+ str_squish(procymidone.data$ID)
+  ####Transforming to $ID to numeric
+ procymidone.data$ID <- as.numeric(procymidone.data$ID)
+  # Filter out 
+  procymidone.data <- procymidone.data %>%
+     #filter(!dose ==  0.4 & !ID == 800) %>%
+    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+    ###Prothioconazole
+  prothioconazole.data <-
+  read.csv("data/prothioconazole.csv")
+  
+  prothioconazole.data$repeats <- rep_len(1:4, length.out = nrow(prothioconazole.data))
+  prothioconazole.data$ID <- as.character(prothioconazole.data$ID)
+  # renaming ID for the current names
+ prothioconazole.data$ID[ prothioconazole.data$ID =="541B"]  <- "541" 
+
+ prothioconazole.data$ID[ prothioconazole.data$ID =="293E"]  <- "293" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="973B"]  <- "973" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="973C"]  <- "973"
+ prothioconazole.data$ID[ prothioconazole.data$ID =="973D"]  <- "973"
+ prothioconazole.data$ID[ prothioconazole.data$ID =="974A"]  <- "974" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="974B"]  <- "974" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="974C"]  <- "974" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="974D"]  <- "974" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="975C"]  <- "975" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="975D"]  <- "975" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="975E"]  <- "975" 
+ prothioconazole.data$ID[ prothioconazole.data$ID =="976B"]  <- "976"
+ prothioconazole.data$ID[ prothioconazole.data$ID =="976C"]  <- "976"
+ prothioconazole.data$ID[ prothioconazole.data$ID =="977B"]  <- "977"
+ prothioconazole.data$ID[ prothioconazole.data$ID =="978B"]  <- "978"
+
+ str_squish(prothioconazole.data$ID)
+  ####Transforming to $ID to numeric
+ prothioconazole.data$ID <- as.numeric(prothioconazole.data$ID)
+  # Filter out 
+  prothioconazole.data <- prothioconazole.data %>%
+     #filter(!dose ==  0.4 & !ID == 800) %>%
+    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+    
+##pyraclostrobin
+  pyraclostrobin.data <-
+  read.csv("data/pyraclostrobin.csv")
+  
+  pyraclostrobin.data$repeats <- rep_len(1:4, length.out = nrow(pyraclostrobin.data))
+  pyraclostrobin.data$ID <- as.character(pyraclostrobin.data$ID)
+  # renaming ID for the current names
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="541B"]  <- "541" 
+
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="293E"]  <- "293" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="973B"]  <- "973" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="973C"]  <- "973"
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="973D"]  <- "973"
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974A"]  <- "974" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974B"]  <- "974" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974C"]  <- "974" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974D"]  <- "974" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="975C"]  <- "975" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="975D"]  <- "975" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="975E"]  <- "975" 
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="976B"]  <- "976"
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="976C"]  <- "976"
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="977B"]  <- "977"
+ pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="978B"]  <- "978"
+
+ str_squish(pyraclostrobin.data$ID)
+  ####Transforming to $ID to numeric
+ pyraclostrobin.data$ID <- as.numeric(pyraclostrobin.data$ID)
+  # Filter out 
+  pyraclostrobin.data <- pyraclostrobin.data %>%
+     #filter(!dose ==  0.4 & !ID == 800) %>%
+    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+  
+  #thiophanate_methyl
+  
+  thiophanate_methyl.data <-
+  read.csv("data/thiophanate_methyl.csv")
+  
+  thiophanate_methyl.data$repeats <- rep_len(1:4, length.out = nrow(thiophanate_methyl.data))
+  thiophanate_methyl.data$ID <- as.character(thiophanate_methyl.data$ID)
+  # renaming ID for the current names
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="541B"]  <- "541" 
+
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="293E"]  <- "293" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="973B"]  <- "973" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="973C"]  <- "973" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="973D"]  <- "973" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974A"]  <- "974" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974B"]  <- "974" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974C"]  <- "974" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974D"]  <- "974" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="975C"]  <- "975" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="975D"]  <- "975" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="975E"]  <- "975" 
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="976B"]  <- "976"
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="976C"]  <- "976"
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="977B"]  <- "977"
+ thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="978B"]  <- "978"
+
+ str_squish(thiophanate_methyl.data$ID)
+  ####Transforming to $ID to numeric
+ thiophanate_methyl.data$ID <- as.numeric(thiophanate_methyl.data$ID)
+  # Filter out 
+  thiophanate_methyl.data <- thiophanate_methyl.data %>%
+     
+    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+    
+
+  
+  
+
+  
+  #Function
+
+ get_range <- function(mynumber) {
+  bb <- boxplot.stats(mynumber)
+  cc <- bb$stats
+  dd <- max(cc)
+  ee <- min(cc)
+  return(data.frame(upper = dd, lower = ee))
+}
+  
+ 
+ boscalid.filtered.survey <- boscalid.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+           response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+   
+  
 plug.discs <- read.csv("data/Paper_discs_vs_PLUG.csv", stringsAsFactors = TRUE, na.strings = TRUE)
 plug.discs$Fungicide <- str_squish(plug.discs$Fungicide)
 stopifnot(nrow(plug.discs) == 7*11*2*2*2*4)
@@ -46,15 +305,15 @@ get_range <- function(mynumber) {
 
 ```
 ##  By fungicide
-## Boscalid
-```{r Boscalid}
+## prothioconazole
+```{r prothioconazole}
 
-#Boscalid
-boscalid.plug.discs <-  plug.discs %>% filter(Fungicide== "boscalid") %>% 
+#prothioconazole
+prothioconazole.plug.discs <-  plug.discs %>% filter(Fungicide== "prothioconazole") %>% 
 rename(response=fungicide) %>% 
   select(-Fungicide)
    
-boscalid.plug.discs.filtered <-  boscalid.plug.discs%>%
+prothioconazole.plug.discs.filtered <-  prothioconazole.plug.discs%>%
   group_by(ID, experiment) %>%
   mutate(response_range = list(get_range(response))) %>%
   unnest() %>%
@@ -76,33 +335,35 @@ group_by(ID, experiment) %>%
            inhibition >= lower) %>%
   ungroup()
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-boscalid.plug.discs.filtered %>% 
+prothioconazole.plug.discs.filtered %>% 
 group_by(experimental_replicate) %>%
   do(tidy(shapiro.test(.$inhibition))) 
 
 # transforming to log 
-boscalid.plug.discs.filtered.2 <-  boscalid.plug.discs.filtered %>% 
+prothioconazole.plug.discs.filtered.2 <-  prothioconazole.plug.discs.filtered %>% 
   mutate(log.inhibition= log(inhibition))
 ###
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-boscalid.plug.discs.filtered.2 %>% 
+prothioconazole.plug.discs.filtered.2 %>% 
 group_by(experimental_replicate) %>%
   do(tidy(shapiro.test(.$log.inhibition)))
 
 
+prothioconazole.1 <- lm()
+
 #non parametric between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
-boscalid.plug.discs.filtered  %>% 
+prothioconazole.plug.discs.filtered  %>% 
  kruskal.test(inhibition ~ experimental_replicate, 
     data = .) 
 
 
-boscalid.plug.discs.filtered  %>% 
+prothioconazole.plug.discs.filtered  %>% 
  kruskal.test(inhibition ~ experiment, 
     data = .) 
 
 # Now Dunn test
 
- boscalid.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+ prothioconazole.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
 #P VALUE 0.000016 *** plug-paper
 
 
