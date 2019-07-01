@@ -11,281 +11,283 @@ knitr::opts_chunk$set(echo = F)
 ## Setting the packages and wrangling
 
 ```{r set packages, echo=FALSE}
-#Hi alll l
 
-packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools","ezec")
+packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools","ezec", "lmodel2")
 lapply( packages, require, character.only = TRUE)
 
-#####boscalid
+  
+```
+
+```{r reading data}
+#####boscalid  Plate dilution
 
 boscalid.data <-
-  read.csv("data/boscalid.csv")
+read.csv("data/boscalid.csv")
   
-  boscalid.data$repeats <- rep_len(1:4, length.out = nrow(boscalid.data))
-  boscalid.data$ID <- as.character(boscalid.data$ID)
+boscalid.data$repeats <- rep_len(1:4, length.out = nrow(boscalid.data))
+boscalid.data$ID <- as.character(boscalid.data$ID)
   # renaming ID for the current names
- boscalid.data$ID[ boscalid.data$ID =="541B"]  <- "541" 
+boscalid.data$ID[ boscalid.data$ID =="541B"]  <- "541" 
 
- boscalid.data$ID[ boscalid.data$ID =="293E"]  <- "293" 
- boscalid.data$ID[ boscalid.data$ID =="973B"]  <- "973" 
- boscalid.data$ID[ boscalid.data$ID =="973C"]  <- "973" 
-  boscalid.data$ID[ boscalid.data$ID =="973D"]  <- "973" 
- boscalid.data$ID[ boscalid.data$ID =="974A"]  <- "974" 
- boscalid.data$ID[ boscalid.data$ID =="974B"]  <- "974" 
- boscalid.data$ID[ boscalid.data$ID =="974C"]  <- "974" 
- boscalid.data$ID[ boscalid.data$ID =="974D"]  <- "974" 
- boscalid.data$ID[ boscalid.data$ID =="975C"]  <- "975" 
- boscalid.data$ID[ boscalid.data$ID =="975D"]  <- "975" 
- boscalid.data$ID[ boscalid.data$ID =="975E"]  <- "975" 
- boscalid.data$ID[ boscalid.data$ID =="976B"]  <- "976"
- boscalid.data$ID[ boscalid.data$ID =="976C"]  <- "976"
- boscalid.data$ID[ boscalid.data$ID =="977B"]  <- "977"
- boscalid.data$ID[ boscalid.data$ID =="978B"]  <- "978"
+boscalid.data$ID[ boscalid.data$ID =="293E"]  <- "293" 
+boscalid.data$ID[ boscalid.data$ID =="973B"]  <- "973" 
+boscalid.data$ID[ boscalid.data$ID =="973C"]  <- "973" 
+boscalid.data$ID[ boscalid.data$ID =="973D"]  <- "973" 
+boscalid.data$ID[ boscalid.data$ID =="974A"]  <- "974" 
+boscalid.data$ID[ boscalid.data$ID =="974B"]  <- "974" 
+boscalid.data$ID[ boscalid.data$ID =="974C"]  <- "974" 
+boscalid.data$ID[ boscalid.data$ID =="974D"]  <- "974" 
+boscalid.data$ID[ boscalid.data$ID =="975C"]  <- "975" 
+boscalid.data$ID[ boscalid.data$ID =="975D"]  <- "975" 
+boscalid.data$ID[ boscalid.data$ID =="975E"]  <- "975" 
+boscalid.data$ID[ boscalid.data$ID =="976B"]  <- "976"
+boscalid.data$ID[ boscalid.data$ID =="976C"]  <- "976"
+boscalid.data$ID[ boscalid.data$ID =="977B"]  <- "977"
+boscalid.data$ID[ boscalid.data$ID =="978B"]  <- "978"
 
- str_squish(boscalid.data$ID)
   ####Transforming to $ID to numeric
- boscalid.data$ID <- as.numeric(boscalid.data$ID)
+boscalid.data$ID <- as.numeric(boscalid.data$ID)
   # Filter out 
-  boscalid.data <- boscalid.data %>%
+boscalid.data <- boscalid.data %>%
      #filter(!dose ==  0.4 & !ID == 800) %>%
-    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
     
-
-  boscalid.SG <-
-  read.csv("data/1_Day_SG/Boscalid.csv")
+#####boscalid  Spiral gradient
+boscalid.SG <-
+read.csv("data/1_Day_SG/Boscalid.csv")
   
-  boscalid.SG <- boscalid.SG %>% 
-    rename(ID= Isolate)
+boscalid.SG <- boscalid.SG %>% 
+rename(ID= Isolate)
   
-  boscalid.SG$ID <- as.character(boscalid.SG$ID)
-  # renaming ID for the current names
- boscalid.SG$ID[ boscalid.SG$ID =="541B"]  <- "541" 
+boscalid.SG$ID <- as.character(boscalid.SG$ID)
+# renaming ID for the current names
+boscalid.SG$ID[ boscalid.SG$ID =="541B"]  <- "541" 
 
- boscalid.SG$ID[ boscalid.SG$ID =="293E"]  <- "293" 
- boscalid.SG$ID[ boscalid.SG$ID =="973B"]  <- "973" 
- boscalid.SG$ID[ boscalid.SG$ID =="973C"]  <- "973" 
-  boscalid.SG$ID[ boscalid.SG$ID =="973D"]  <- "973" 
- boscalid.SG$ID[ boscalid.SG$ID =="974A"]  <- "974" 
- boscalid.SG$ID[ boscalid.SG$ID =="974B"]  <- "974" 
- boscalid.SG$ID[ boscalid.SG$ID =="974C"]  <- "974" 
- boscalid.SG$ID[ boscalid.SG$ID =="974D"]  <- "974" 
- boscalid.SG$ID[ boscalid.SG$ID =="975C"]  <- "975" 
- boscalid.SG$ID[ boscalid.SG$ID =="975D"]  <- "975" 
- boscalid.SG$ID[ boscalid.SG$ID =="975E"]  <- "975" 
- boscalid.SG$ID[ boscalid.SG$ID =="976B"]  <- "976"
- boscalid.SG$ID[ boscalid.SG$ID =="976C"]  <- "976"
- boscalid.SG$ID[ boscalid.SG$ID =="977B"]  <- "977"
- boscalid.SG$ID[ boscalid.SG$ID =="978B"]  <- "978"
+boscalid.SG$ID[ boscalid.SG$ID =="293E"]  <- "293" 
+boscalid.SG$ID[ boscalid.SG$ID =="973B"]  <- "973" 
+boscalid.SG$ID[ boscalid.SG$ID =="973C"]  <- "973" 
+boscalid.SG$ID[ boscalid.SG$ID =="973D"]  <- "973" 
+boscalid.SG$ID[ boscalid.SG$ID =="974A"]  <- "974" 
+boscalid.SG$ID[ boscalid.SG$ID =="974B"]  <- "974" 
+boscalid.SG$ID[ boscalid.SG$ID =="974C"]  <- "974" 
+boscalid.SG$ID[ boscalid.SG$ID =="974D"]  <- "974" 
+boscalid.SG$ID[ boscalid.SG$ID =="975C"]  <- "975" 
+boscalid.SG$ID[ boscalid.SG$ID =="975D"]  <- "975" 
+boscalid.SG$ID[ boscalid.SG$ID =="975E"]  <- "975" 
+boscalid.SG$ID[ boscalid.SG$ID =="976B"]  <- "976"
+boscalid.SG$ID[ boscalid.SG$ID =="976C"]  <- "976"
+boscalid.SG$ID[ boscalid.SG$ID =="977B"]  <- "977"
+boscalid.SG$ID[ boscalid.SG$ID =="978B"]  <- "978"
 
- str_squish(boscalid.SG$ID)
-  ####Transforming to $ID to numeric
- boscalid.SG$ID <- as.numeric(boscalid.SG$ID)
-  # Filter out 
-  boscalid.SG <- boscalid.SG %>%
-    group_by(ID) %>%  
-    mutate(Average=mean(EC50)) %>% 
-    select(- EC50) %>% 
-    rename(EC50_SG= Average) %>% 
-    unique() %>% 
-    ungroup()
+####Transforming to $ID to numeric
+boscalid.SG$ID <- as.numeric(boscalid.SG$ID)
+# Filter out 
+boscalid.SG <- boscalid.SG %>%
+group_by(ID) %>%  
+mutate(Average=mean(EC50)) %>% 
+select(- EC50) %>% 
+rename(EC50_SG= Average) %>% 
+unique() %>% 
+ungroup()
   
-  ###Fluazinam
+###Fluazinam Plate dilution
   
 fluazinam.data <-
   read.csv("data/fluazinam.csv")
   
-  fluazinam.data$repeats <- rep_len(1:4, length.out = nrow(fluazinam.data))
-  fluazinam.data$ID <- as.character(fluazinam.data$ID)
+fluazinam.data$repeats <- rep_len(1:4, length.out = nrow(fluazinam.data))
+fluazinam.data$ID <- as.character(fluazinam.data$ID)
   # renaming ID for the current names
- fluazinam.data$ID[ fluazinam.data$ID =="541B"]  <- "541" 
+fluazinam.data$ID[ fluazinam.data$ID =="541B"]  <- "541" 
 
- fluazinam.data$ID[ fluazinam.data$ID =="293E"]  <- "293" 
- fluazinam.data$ID[ fluazinam.data$ID =="973B"]  <- "973" 
- fluazinam.data$ID[ fluazinam.data$ID =="973C"]  <- "973" 
-  fluazinam.data$ID[ fluazinam.data$ID =="973D"]  <- "973"
- fluazinam.data$ID[ fluazinam.data$ID =="974A"]  <- "974" 
- fluazinam.data$ID[ fluazinam.data$ID =="974B"]  <- "974" 
- fluazinam.data$ID[ fluazinam.data$ID =="974C"]  <- "974" 
- fluazinam.data$ID[ fluazinam.data$ID =="974D"]  <- "974" 
- fluazinam.data$ID[ fluazinam.data$ID =="975C"]  <- "975" 
- fluazinam.data$ID[ fluazinam.data$ID =="975D"]  <- "975" 
- fluazinam.data$ID[ fluazinam.data$ID =="975E"]  <- "975" 
- fluazinam.data$ID[ fluazinam.data$ID =="976B"]  <- "976"
- fluazinam.data$ID[ fluazinam.data$ID =="976C"]  <- "976"
- fluazinam.data$ID[ fluazinam.data$ID =="977B"]  <- "977"
- fluazinam.data$ID[ fluazinam.data$ID =="978B"]  <- "978"
+fluazinam.data$ID[ fluazinam.data$ID =="293E"]  <- "293" 
+fluazinam.data$ID[ fluazinam.data$ID =="973B"]  <- "973" 
+fluazinam.data$ID[ fluazinam.data$ID =="973C"]  <- "973" 
+fluazinam.data$ID[ fluazinam.data$ID =="973D"]  <- "973"
+fluazinam.data$ID[ fluazinam.data$ID =="974A"]  <- "974" 
+fluazinam.data$ID[ fluazinam.data$ID =="974B"]  <- "974" 
+fluazinam.data$ID[ fluazinam.data$ID =="974C"]  <- "974" 
+fluazinam.data$ID[ fluazinam.data$ID =="974D"]  <- "974" 
+fluazinam.data$ID[ fluazinam.data$ID =="975C"]  <- "975" 
+fluazinam.data$ID[ fluazinam.data$ID =="975D"]  <- "975" 
+fluazinam.data$ID[ fluazinam.data$ID =="975E"]  <- "975" 
+fluazinam.data$ID[ fluazinam.data$ID =="976B"]  <- "976"
+fluazinam.data$ID[ fluazinam.data$ID =="976C"]  <- "976"
+fluazinam.data$ID[ fluazinam.data$ID =="977B"]  <- "977"
+fluazinam.data$ID[ fluazinam.data$ID =="978B"]  <- "978"
 
- str_squish(fluazinam.data$ID)
-  ####Transforming to $ID to numeric
- fluazinam.data$ID <- as.numeric(fluazinam.data$ID)
-  # Filter out 
-  fluazinam.data <- fluazinam.data %>%
-     #filter(!dose ==  0.4 & !ID == 800) %>%
-    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
  
-  #
-  
-  fluazinam.SG <-
-  read.csv("data/1_Day_SG/Fluazinam.csv")
-  
-  fluazinam.SG <- fluazinam.SG %>% 
-    rename(ID= Isolate)
-  
-  fluazinam.SG$ID <- as.character(fluazinam.SG$ID)
-  # renaming ID for the current names
- fluazinam.SG$ID[ fluazinam.SG$ID =="541B"]  <- "541" 
+####Transforming to $ID to numeric
+fluazinam.data$ID <- as.numeric(fluazinam.data$ID)
+# Filter out 
+fluazinam.data <- fluazinam.data %>%
+mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+ 
 
- fluazinam.SG$ID[ fluazinam.SG$ID =="293E"]  <- "293" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="973B"]  <- "973" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="973C"]  <- "973" 
-  fluazinam.SG$ID[ fluazinam.SG$ID =="973D"]  <- "973" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="974A"]  <- "974" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="974B"]  <- "974" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="974C"]  <- "974" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="974D"]  <- "974" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="975C"]  <- "975" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="975D"]  <- "975" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="975E"]  <- "975" 
- fluazinam.SG$ID[ fluazinam.SG$ID =="976B"]  <- "976"
- fluazinam.SG$ID[ fluazinam.SG$ID =="976C"]  <- "976"
- fluazinam.SG$ID[ fluazinam.SG$ID =="977B"]  <- "977"
- fluazinam.SG$ID[ fluazinam.SG$ID =="978B"]  <- "978"
+  ###Fluazinam Spiral Gradient
+fluazinam.SG <-
+read.csv("data/1_Day_SG/Fluazinam.csv")
+  
+fluazinam.SG <- fluazinam.SG %>% 
+rename(ID= Isolate)
+  
+fluazinam.SG$ID <- as.character(fluazinam.SG$ID)
+# renaming ID for the current names
+fluazinam.SG$ID[ fluazinam.SG$ID =="541B"]  <- "541" 
 
- str_squish(fluazinam.SG$ID)
-  ####Transforming to $ID to numeric
- fluazinam.SG$ID <- as.numeric(fluazinam.SG$ID)
-  # Filter out 
-  fluazinam.SG <- fluazinam.SG %>%
-    group_by(ID) %>%  
-    mutate(Average=mean(EC50)) %>% 
-    select(- EC50) %>% 
-    rename(EC50_SG= Average) %>% 
-    unique() %>% 
-    ungroup()
+fluazinam.SG$ID[ fluazinam.SG$ID =="293E"]  <- "293" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="973B"]  <- "973" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="973C"]  <- "973" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="973D"]  <- "973" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="974A"]  <- "974" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="974B"]  <- "974" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="974C"]  <- "974" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="974D"]  <- "974" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="975C"]  <- "975" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="975D"]  <- "975" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="975E"]  <- "975" 
+fluazinam.SG$ID[ fluazinam.SG$ID =="976B"]  <- "976"
+fluazinam.SG$ID[ fluazinam.SG$ID =="976C"]  <- "976"
+fluazinam.SG$ID[ fluazinam.SG$ID =="977B"]  <- "977"
+fluazinam.SG$ID[ fluazinam.SG$ID =="978B"]  <- "978"
+
+ 
+####Transforming to $ID to numeric
+fluazinam.SG$ID <- as.numeric(fluazinam.SG$ID)
+# Filter out 
+fluazinam.SG <- fluazinam.SG %>%
+group_by(ID) %>%  
+mutate(Average=mean(EC50)) %>% 
+select(- EC50) %>% 
+rename(EC50_SG= Average) %>% 
+unique() %>% 
+ungroup()
 
 
   
-   #######Iprodione
-  
-  iprodione.data <-
-  read.csv("data/iprodione.csv")
-  
-  iprodione.data$repeats <- rep_len(1:4, length.out = nrow(iprodione.data))
-  iprodione.data$ID <- as.character(iprodione.data$ID)
-  # renaming ID for the current names
- iprodione.data$ID[ iprodione.data$ID =="541B"]  <- "541" 
+#######Iprodione Plate dilution
 
- iprodione.data$ID[ iprodione.data$ID =="293E"]  <- "293" 
- iprodione.data$ID[ iprodione.data$ID =="973B"]  <- "973" 
- iprodione.data$ID[ iprodione.data$ID =="973C"]  <- "973" 
- iprodione.data$ID[ iprodione.data$ID =="973D"]  <- "973"
- iprodione.data$ID[ iprodione.data$ID =="974A"]  <- "974" 
- iprodione.data$ID[ iprodione.data$ID =="974B"]  <- "974" 
- iprodione.data$ID[ iprodione.data$ID =="974C"]  <- "974" 
- iprodione.data$ID[ iprodione.data$ID =="974D"]  <- "974" 
- iprodione.data$ID[ iprodione.data$ID =="975C"]  <- "975" 
- iprodione.data$ID[ iprodione.data$ID =="975D"]  <- "975" 
- iprodione.data$ID[ iprodione.data$ID =="975E"]  <- "975" 
- iprodione.data$ID[ iprodione.data$ID =="976B"]  <- "976"
- iprodione.data$ID[ iprodione.data$ID =="976C"]  <- "976"
- iprodione.data$ID[ iprodione.data$ID =="977B"]  <- "977"
- iprodione.data$ID[ iprodione.data$ID =="978B"]  <- "978"
+iprodione.data <-
+read.csv("data/iprodione.csv")
+  
+iprodione.data$repeats <- rep_len(1:4, length.out = nrow(iprodione.data))
+iprodione.data$ID <- as.character(iprodione.data$ID)
+# renaming ID for the current names
+iprodione.data$ID[ iprodione.data$ID =="541B"]  <- "541" 
 
- str_squish(iprodione.data$ID)
-  ####Transforming to $ID to numeric
- iprodione.data$ID <- as.numeric(iprodione.data$ID)
-  # Filter out 
-  iprodione.data <- iprodione.data %>%
-         mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+iprodione.data$ID[ iprodione.data$ID =="293E"]  <- "293" 
+iprodione.data$ID[ iprodione.data$ID =="973B"]  <- "973" 
+iprodione.data$ID[ iprodione.data$ID =="973C"]  <- "973" 
+iprodione.data$ID[ iprodione.data$ID =="973D"]  <- "973"
+iprodione.data$ID[ iprodione.data$ID =="974A"]  <- "974" 
+iprodione.data$ID[ iprodione.data$ID =="974B"]  <- "974" 
+iprodione.data$ID[ iprodione.data$ID =="974C"]  <- "974" 
+iprodione.data$ID[ iprodione.data$ID =="974D"]  <- "974" 
+iprodione.data$ID[ iprodione.data$ID =="975C"]  <- "975" 
+iprodione.data$ID[ iprodione.data$ID =="975D"]  <- "975" 
+iprodione.data$ID[ iprodione.data$ID =="975E"]  <- "975" 
+iprodione.data$ID[ iprodione.data$ID =="976B"]  <- "976"
+iprodione.data$ID[ iprodione.data$ID =="976C"]  <- "976"
+iprodione.data$ID[ iprodione.data$ID =="977B"]  <- "977"
+iprodione.data$ID[ iprodione.data$ID =="978B"]  <- "978"
+
+ 
+####Transforming to $ID to numeric
+iprodione.data$ID <- as.numeric(iprodione.data$ID)
+# Filter out 
+iprodione.data <- iprodione.data %>%
+mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
     
+ ###Iprodione Spiral Gradient
 iprodione.SG <-
-  read.csv("data/1_Day_SG/Iprodione.csv")
+read.csv("data/1_Day_SG/Iprodione.csv")
   
-  iprodione.SG <- iprodione.SG %>% 
-    rename(ID= Isolate)
+iprodione.SG <- iprodione.SG %>% 
+rename(ID= Isolate)
   
-  iprodione.SG$ID <- as.character(iprodione.SG$ID)
-  # renaming ID for the current names
- iprodione.SG$ID[ iprodione.SG$ID =="541B"]  <- "541" 
+iprodione.SG$ID <- as.character(iprodione.SG$ID)
+# renaming ID for the current names
+iprodione.SG$ID[ iprodione.SG$ID =="541B"]  <- "541" 
 
- iprodione.SG$ID[ iprodione.SG$ID =="293E"]  <- "293" 
- iprodione.SG$ID[ iprodione.SG$ID =="973B"]  <- "973" 
- iprodione.SG$ID[ iprodione.SG$ID =="973C"]  <- "973" 
-  iprodione.SG$ID[ iprodione.SG$ID =="973D"]  <- "973" 
- iprodione.SG$ID[ iprodione.SG$ID =="974A"]  <- "974" 
- iprodione.SG$ID[ iprodione.SG$ID =="974B"]  <- "974" 
- iprodione.SG$ID[ iprodione.SG$ID =="974C"]  <- "974" 
- iprodione.SG$ID[ iprodione.SG$ID =="974D"]  <- "974" 
- iprodione.SG$ID[ iprodione.SG$ID =="975C"]  <- "975" 
- iprodione.SG$ID[ iprodione.SG$ID =="975D"]  <- "975" 
- iprodione.SG$ID[ iprodione.SG$ID =="975E"]  <- "975" 
- iprodione.SG$ID[ iprodione.SG$ID =="976B"]  <- "976"
- iprodione.SG$ID[ iprodione.SG$ID =="976C"]  <- "976"
- iprodione.SG$ID[ iprodione.SG$ID =="977B"]  <- "977"
- iprodione.SG$ID[ iprodione.SG$ID =="978B"]  <- "978"
+iprodione.SG$ID[ iprodione.SG$ID =="293E"]  <- "293" 
+iprodione.SG$ID[ iprodione.SG$ID =="973B"]  <- "973" 
+iprodione.SG$ID[ iprodione.SG$ID =="973C"]  <- "973" 
+iprodione.SG$ID[ iprodione.SG$ID =="973D"]  <- "973" 
+iprodione.SG$ID[ iprodione.SG$ID =="974A"]  <- "974" 
+iprodione.SG$ID[ iprodione.SG$ID =="974B"]  <- "974" 
+iprodione.SG$ID[ iprodione.SG$ID =="974C"]  <- "974" 
+iprodione.SG$ID[ iprodione.SG$ID =="974D"]  <- "974" 
+iprodione.SG$ID[ iprodione.SG$ID =="975C"]  <- "975" 
+iprodione.SG$ID[ iprodione.SG$ID =="975D"]  <- "975" 
+iprodione.SG$ID[ iprodione.SG$ID =="975E"]  <- "975" 
+iprodione.SG$ID[ iprodione.SG$ID =="976B"]  <- "976"
+iprodione.SG$ID[ iprodione.SG$ID =="976C"]  <- "976"
+iprodione.SG$ID[ iprodione.SG$ID =="977B"]  <- "977"
+iprodione.SG$ID[ iprodione.SG$ID =="978B"]  <- "978"
 
- str_squish(iprodione.SG$ID)
-  ####Transforming to $ID to numeric
+ 
+ ####Transforming to $ID to numeric
  iprodione.SG$ID <- as.numeric(iprodione.SG$ID)
-  # Filter out 
-  iprodione.SG <- iprodione.SG %>%
-    group_by(ID) %>%  
-    mutate(Average=mean(EC50)) %>% 
-    select(- EC50) %>% 
-    rename(EC50_SG= Average) %>% 
-    unique() %>% 
-    ungroup()
+ # Filter out 
+ iprodione.SG <- iprodione.SG %>%
+ group_by(ID) %>%  
+ mutate(Average=mean(EC50)) %>% 
+ select(- EC50) %>% 
+ rename(EC50_SG= Average) %>% 
+ unique() %>% 
+ungroup()
   
     
   
-###Procymidone
+###Procymidone Plate dilution
   
 procymidone.data <-
-  read.csv("data/procymidone.csv")
+read.csv("data/procymidone.csv")
   
-  procymidone.data$repeats <- rep_len(1:4, length.out = nrow(procymidone.data))
-  procymidone.data$ID <- as.character(procymidone.data$ID)
+procymidone.data$repeats <- rep_len(1:4, length.out = nrow(procymidone.data))
+procymidone.data$ID <- as.character(procymidone.data$ID)
   # renaming ID for the current names
- procymidone.data$ID[ procymidone.data$ID =="541B"]  <- "541" 
+procymidone.data$ID[ procymidone.data$ID =="541B"]  <- "541" 
 
- procymidone.data$ID[ procymidone.data$ID =="293E"]  <- "293" 
- procymidone.data$ID[ procymidone.data$ID =="973B"]  <- "973" 
- procymidone.data$ID[ procymidone.data$ID =="973C"]  <- "973" 
-  procymidone.data$ID[ procymidone.data$ID =="973D"]  <- "973" 
- procymidone.data$ID[ procymidone.data$ID =="974A"]  <- "974" 
- procymidone.data$ID[ procymidone.data$ID =="974B"]  <- "974" 
- procymidone.data$ID[ procymidone.data$ID =="974C"]  <- "974" 
- procymidone.data$ID[ procymidone.data$ID =="974D"]  <- "974" 
- procymidone.data$ID[ procymidone.data$ID =="975C"]  <- "975" 
- procymidone.data$ID[ procymidone.data$ID =="975D"]  <- "975" 
- procymidone.data$ID[ procymidone.data$ID =="975E"]  <- "975" 
- procymidone.data$ID[ procymidone.data$ID =="976B"]  <- "976"
- procymidone.data$ID[ procymidone.data$ID =="976C"]  <- "976"
- procymidone.data$ID[ procymidone.data$ID =="977B"]  <- "977"
- procymidone.data$ID[ procymidone.data$ID =="978B"]  <- "978"
+procymidone.data$ID[ procymidone.data$ID =="293E"]  <- "293" 
+procymidone.data$ID[ procymidone.data$ID =="973B"]  <- "973" 
+procymidone.data$ID[ procymidone.data$ID =="973C"]  <- "973" 
+procymidone.data$ID[ procymidone.data$ID =="973D"]  <- "973" 
+procymidone.data$ID[ procymidone.data$ID =="974A"]  <- "974" 
+procymidone.data$ID[ procymidone.data$ID =="974B"]  <- "974" 
+procymidone.data$ID[ procymidone.data$ID =="974C"]  <- "974" 
+procymidone.data$ID[ procymidone.data$ID =="974D"]  <- "974" 
+procymidone.data$ID[ procymidone.data$ID =="975C"]  <- "975" 
+procymidone.data$ID[ procymidone.data$ID =="975D"]  <- "975" 
+procymidone.data$ID[ procymidone.data$ID =="975E"]  <- "975" 
+procymidone.data$ID[ procymidone.data$ID =="976B"]  <- "976"
+procymidone.data$ID[ procymidone.data$ID =="976C"]  <- "976"
+procymidone.data$ID[ procymidone.data$ID =="977B"]  <- "977"
+procymidone.data$ID[ procymidone.data$ID =="978B"]  <- "978"
 
- str_squish(procymidone.data$ID)
-  ####Transforming to $ID to numeric
+
+ ####Transforming to $ID to numeric
  procymidone.data$ID <- as.numeric(procymidone.data$ID)
-  # Filter out 
-  procymidone.data <- procymidone.data %>%
-     #filter(!dose ==  0.4 & !ID == 800) %>%
-    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+ # Filter out 
+ procymidone.data <- procymidone.data %>%
+ #filter(!dose ==  0.4 & !ID == 800) %>%
+ mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
   
-  procymidone.SG <-
-  read.csv("data/1_Day_SG/Procymidone.csv")
+  ###Procymidone Spiral Gradient
+ procymidone.SG <-
+ read.csv("data/1_Day_SG/Procymidone.csv")
   
-  procymidone.SG <- procymidone.SG %>% 
-    rename(ID= Isolate)
+ procymidone.SG <- procymidone.SG %>% 
+ rename(ID= Isolate)
   
-  procymidone.SG$ID <- as.character(procymidone.SG$ID)
-  # renaming ID for the current names
+ procymidone.SG$ID <- as.character(procymidone.SG$ID)
+ # renaming ID for the current names
  procymidone.SG$ID[ procymidone.SG$ID =="541B"]  <- "541" 
 
  procymidone.SG$ID[ procymidone.SG$ID =="293E"]  <- "293" 
  procymidone.SG$ID[ procymidone.SG$ID =="973B"]  <- "973" 
  procymidone.SG$ID[ procymidone.SG$ID =="973C"]  <- "973" 
-  procymidone.SG$ID[ procymidone.SG$ID =="973D"]  <- "973" 
+ procymidone.SG$ID[ procymidone.SG$ID =="973D"]  <- "973" 
  procymidone.SG$ID[ procymidone.SG$ID =="974A"]  <- "974" 
  procymidone.SG$ID[ procymidone.SG$ID =="974B"]  <- "974" 
  procymidone.SG$ID[ procymidone.SG$ID =="974C"]  <- "974" 
@@ -298,29 +300,29 @@ procymidone.data <-
  procymidone.SG$ID[ procymidone.SG$ID =="977B"]  <- "977"
  procymidone.SG$ID[ procymidone.SG$ID =="978B"]  <- "978"
 
- str_squish(procymidone.SG$ID)
-  ####Transforming to $ID to numeric
+ 
+ ####Transforming to $ID to numeric
  procymidone.SG$ID <- as.numeric(procymidone.SG$ID)
   # Filter out 
-  procymidone.SG <- procymidone.SG %>%
-    group_by(ID) %>%  
-    mutate(Average=mean(EC50)) %>% 
-    select(- EC50) %>% 
-    rename(EC50_SG= Average) %>% 
-    unique() %>% 
-    ungroup()
+ procymidone.SG <- procymidone.SG %>%
+ group_by(ID) %>%  
+ mutate(Average=mean(EC50)) %>% 
+ select(- EC50) %>% 
+ rename(EC50_SG= Average) %>% 
+ unique() %>% 
+ ungroup()
     
   
-  ###Prothioconazole
+  ###Prothioconazole Plate dilution
   prothioconazole.data <-
   read.csv("data/prothioconazole.csv")
   
-  prothioconazole.data$repeats <- rep_len(1:4, length.out = nrow(prothioconazole.data))
-  prothioconazole.data$ID <- as.character(prothioconazole.data$ID)
-  # renaming ID for the current names
- prothioconazole.data$ID[ prothioconazole.data$ID =="541B"]  <- "541" 
+prothioconazole.data$repeats <- rep_len(1:4, length.out = nrow(prothioconazole.data))
+prothioconazole.data$ID <- as.character(prothioconazole.data$ID)
+# renaming ID for the current names
+prothioconazole.data$ID[ prothioconazole.data$ID =="541B"]  <- "541" 
 
- prothioconazole.data$ID[ prothioconazole.data$ID =="293E"]  <- "293" 
+prothioconazole.data$ID[ prothioconazole.data$ID =="293E"]  <- "293" 
  prothioconazole.data$ID[ prothioconazole.data$ID =="973B"]  <- "973" 
  prothioconazole.data$ID[ prothioconazole.data$ID =="973C"]  <- "973"
  prothioconazole.data$ID[ prothioconazole.data$ID =="973D"]  <- "973"
@@ -336,366 +338,237 @@ procymidone.data <-
  prothioconazole.data$ID[ prothioconazole.data$ID =="977B"]  <- "977"
  prothioconazole.data$ID[ prothioconazole.data$ID =="978B"]  <- "978"
 
- str_squish(prothioconazole.data$ID)
-  ####Transforming to $ID to numeric
- prothioconazole.data$ID <- as.numeric(prothioconazole.data$ID)
-  # Filter out 
-  prothioconazole.data <- prothioconazole.data %>%
-     #filter(!dose ==  0.4 & !ID == 800) %>%
+ 
+####Transforming to $ID to numeric
+prothioconazole.data$ID <- as.numeric(prothioconazole.data$ID)
+# Filter out 
+prothioconazole.data <- prothioconazole.data %>%
+
     mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
     
-  prothioconazole.SG <-
-  read.csv("data/1_Day_SG/Prothioconazole.csv")
+###Prothioconazole Spiral Gradient
+prothioconazole.SG <-
+read.csv("data/1_Day_SG/Prothioconazole.csv")
   
-  prothioconazole.SG <- prothioconazole.SG %>% 
-    rename(ID= Isolate)
+prothioconazole.SG <- prothioconazole.SG %>% 
+rename(ID= Isolate)
   
-  prothioconazole.SG$ID <- as.character(prothioconazole.SG$ID)
-  # renaming ID for the current names
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="541B"]  <- "541" 
+prothioconazole.SG$ID <- as.character(prothioconazole.SG$ID)
+# renaming ID for the current names
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="541B"]  <- "541" 
 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="293E"]  <- "293" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="973B"]  <- "973" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="973C"]  <- "973" 
-  prothioconazole.SG$ID[ prothioconazole.SG$ID =="973D"]  <- "973" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="974A"]  <- "974" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="974B"]  <- "974" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="974C"]  <- "974" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="974D"]  <- "974" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="975C"]  <- "975" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="975D"]  <- "975" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="975E"]  <- "975" 
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="976B"]  <- "976"
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="976C"]  <- "976"
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="977B"]  <- "977"
- prothioconazole.SG$ID[ prothioconazole.SG$ID =="978B"]  <- "978"
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="293E"]  <- "293" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="973B"]  <- "973" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="973C"]  <- "973" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="973D"]  <- "973" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="974A"]  <- "974" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="974B"]  <- "974" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="974C"]  <- "974" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="974D"]  <- "974" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="975C"]  <- "975" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="975D"]  <- "975" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="975E"]  <- "975" 
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="976B"]  <- "976"
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="976C"]  <- "976"
+prothioconazole.SG$ID[ prothioconazole.SG$ID =="977B"]  <- "977"
+prothioconazole.SG$ID[prothioconazole.SG$ID == "978B"]  <- "978"
 
- str_squish(prothioconazole.SG$ID)
-  ####Transforming to $ID to numeric
- prothioconazole.SG$ID <- as.numeric(prothioconazole.SG$ID)
-  # Filter out 
-  prothioconazole.SG <- prothioconazole.SG %>%
-    group_by(ID) %>%  
-    mutate(Average=mean(EC50)) %>% 
-    select(- EC50) %>% 
-    rename(EC50_SG= Average) %>% 
-    unique() %>% 
-    ungroup()
-  
-  
-##pyraclostrobin
-  pyraclostrobin.data <-
-  read.csv("data/pyraclostrobin.csv")
-  
-  pyraclostrobin.data$repeats <- rep_len(1:4, length.out = nrow(pyraclostrobin.data))
-  pyraclostrobin.data$ID <- as.character(pyraclostrobin.data$ID)
-  # renaming ID for the current names
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="541B"]  <- "541" 
+ 
+####Transforming to $ID to numeric
+prothioconazole.SG$ID <- as.numeric(prothioconazole.SG$ID)
+# Filter out
+prothioconazole.SG <- prothioconazole.SG %>%
+group_by(ID) %>%
+mutate(Average = mean(EC50)) %>%
+select(-EC50) %>%
+rename(EC50_SG = Average) %>%
+unique() %>%
+ungroup()
 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="293E"]  <- "293" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="973B"]  <- "973" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="973C"]  <- "973"
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="973D"]  <- "973"
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974A"]  <- "974" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974B"]  <- "974" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974C"]  <- "974" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="974D"]  <- "974" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="975C"]  <- "975" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="975D"]  <- "975" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="975E"]  <- "975" 
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="976B"]  <- "976"
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="976C"]  <- "976"
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="977B"]  <- "977"
- pyraclostrobin.data$ID[ pyraclostrobin.data$ID =="978B"]  <- "978"
+##pyraclostrobin Plate dilution
+pyraclostrobin.data <-
+read.csv("data/pyraclostrobin.csv")
 
- str_squish(pyraclostrobin.data$ID)
-  ####Transforming to $ID to numeric
- pyraclostrobin.data$ID <- as.numeric(pyraclostrobin.data$ID)
-  # Filter out 
-  pyraclostrobin.data <- pyraclostrobin.data %>%
-     #filter(!dose ==  0.4 & !ID == 800) %>%
-    mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
-  
-  pyraclostrobin.SG <-
-  read.csv("data/1_Day_SG/Pyraclostrobin.csv")
-  
-  pyraclostrobin.SG <- pyraclostrobin.SG %>% 
-    rename(ID= Isolate)
-  
-  pyraclostrobin.SG$ID <- as.character(pyraclostrobin.SG$ID)
-  # renaming ID for the current names
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="541B"]  <- "541" 
+pyraclostrobin.data$repeats <-
+rep_len(1:4, length.out = nrow(pyraclostrobin.data))
+pyraclostrobin.data$ID <- as.character(pyraclostrobin.data$ID)
+# renaming ID for the current names
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "541B"]  <- "541"
 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="293E"]  <- "293" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="973B"]  <- "973" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="973C"]  <- "973" 
-  pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="973D"]  <- "973" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974A"]  <- "974" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974B"]  <- "974" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974C"]  <- "974" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="974D"]  <- "974" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="975C"]  <- "975" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="975D"]  <- "975" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="975E"]  <- "975" 
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="976B"]  <- "976"
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="976C"]  <- "976"
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="977B"]  <- "977"
- pyraclostrobin.SG$ID[ pyraclostrobin.SG$ID =="978B"]  <- "978"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "293E"]  <- "293"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "973B"]  <- "973"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "973C"]  <- "973"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "973D"]  <- "973"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "974A"]  <- "974"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "974B"]  <- "974"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "974C"]  <- "974"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "974D"]  <- "974"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "975C"]  <- "975"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "975D"]  <- "975"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "975E"]  <- "975"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "976B"]  <- "976"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "976C"]  <- "976"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "977B"]  <- "977"
+pyraclostrobin.data$ID[pyraclostrobin.data$ID == "978B"]  <- "978"
+####Transforming to $ID to numeric
+pyraclostrobin.data$ID <- as.numeric(pyraclostrobin.data$ID)
+# Filter out
+pyraclostrobin.data <- pyraclostrobin.data %>%
+#filter(!dose ==  0.4 & !ID == 800) %>%
+mutate(response = replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
 
- str_squish(pyraclostrobin.SG$ID)
-  ####Transforming to $ID to numeric
- pyraclostrobin.SG$ID <- as.numeric(pyraclostrobin.SG$ID)
-  # Filter out 
-  pyraclostrobin.SG <- pyraclostrobin.SG %>%
-    group_by(ID) %>%  
-    mutate(Average=mean(EC50)) %>% 
-    select(- EC50) %>% 
-    rename(EC50_SG= Average) %>% 
-    unique() %>% 
-    ungroup()
+
+#Pyraclostrobin Serial dilution
+pyraclostrobin.SG <-
+read.csv("data/1_Day_SG/Pyraclostrobin.csv")
+
+##Pyraclostrobin Spiral Gradient
+pyraclostrobin.SG <- pyraclostrobin.SG %>%
+rename(ID = Isolate)
+
+pyraclostrobin.SG$ID <- as.character(pyraclostrobin.SG$ID)
+# renaming ID for the current names
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "541B"]  <- "541"
+
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "293E"]  <- "293"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "973B"]  <- "973"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "973C"]  <- "973"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "973D"]  <- "973"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "974A"]  <- "974"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "974B"]  <- "974"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "974C"]  <- "974"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "974D"]  <- "974"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "975C"]  <- "975"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "975D"]  <- "975"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "975E"]  <- "975"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "976B"]  <- "976"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "976C"]  <- "976"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "977B"]  <- "977"
+pyraclostrobin.SG$ID[pyraclostrobin.SG$ID == "978B"]  <- "978"
+
+
+####Transforming to $ID to numeric
+pyraclostrobin.SG$ID <- as.numeric(pyraclostrobin.SG$ID)
+# Filter out
+pyraclostrobin.SG <- pyraclostrobin.SG %>%
+group_by(ID) %>%
+mutate(Average = mean(EC50)) %>%
+select(-EC50) %>%
+rename(EC50_SG = Average) %>%
+unique() %>%
+ungroup()
+
+#thiophanate_methyl Plate dilution
   
-  
-  #thiophanate_methyl
-  
-  thiophanate_methyl.data <-
+thiophanate_methyl.data <-
   read.csv("data/thiophanate_methyl.csv")
   
-  thiophanate_methyl.data$repeats <- rep_len(1:4, length.out = nrow(thiophanate_methyl.data))
-  thiophanate_methyl.data$ID <- as.character(thiophanate_methyl.data$ID)
+  thiophanate_methyl.data$repeats <-
+  rep_len(1:4, length.out = nrow(thiophanate_methyl.data))
+  thiophanate_methyl.data$ID <-
+  as.character(thiophanate_methyl.data$ID)
   # renaming ID for the current names
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="541B"]  <- "541" 
-
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="293E"]  <- "293" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="973B"]  <- "973" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="973C"]  <- "973" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="973D"]  <- "973" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974A"]  <- "974" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974B"]  <- "974" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974C"]  <- "974" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="974D"]  <- "974" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="975C"]  <- "975" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="975D"]  <- "975" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="975E"]  <- "975" 
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="976B"]  <- "976"
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="976C"]  <- "976"
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="977B"]  <- "977"
- thiophanate_methyl.data$ID[ thiophanate_methyl.data$ID =="978B"]  <- "978"
-
- str_squish(thiophanate_methyl.data$ID)
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "541B"]  <-
+  "541"
+  
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "293E"]  <-
+  "293"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "973B"]  <-
+  "973"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "973C"]  <-
+  "973"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "973D"]  <-
+  "973"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "974A"]  <-
+  "974"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "974B"]  <-
+  "974"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "974C"]  <-
+  "974"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "974D"]  <-
+  "974"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "975C"]  <-
+  "975"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "975D"]  <-
+  "975"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "975E"]  <-
+  "975"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "976B"]  <-
+  "976"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "976C"]  <-
+  "976"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "977B"]  <-
+  "977"
+  thiophanate_methyl.data$ID[thiophanate_methyl.data$ID == "978B"]  <-
+  "978"
+  
   ####Transforming to $ID to numeric
- thiophanate_methyl.data$ID <- as.numeric(thiophanate_methyl.data$ID)
-  # Filter out 
+  thiophanate_methyl.data$ID <- as.numeric(thiophanate_methyl.data$ID)
+  # Filter out
   #thiophanate_methyl.data <- thiophanate_methyl.data %>%
-     
-   # mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
-    
- thiophanate_methyl.SG <-
+  
+  # mutate(response= replace(response, response == 0, 0.6))  #replacing 0 cm growth for the size of plug that is 0.6
+  
+  ##Thiophanate_methyl Spiral Gradient
+  thiophanate_methyl.SG <-
   read.csv("data/1_Day_SG/Thiophanate_methyl.csv",  na.strings = TRUE)
   
-  thiophanate_methyl.SG <- thiophanate_methyl.SG %>% 
-    rename(ID= Isolate)
+  thiophanate_methyl.SG <- thiophanate_methyl.SG %>%
+  rename(ID = Isolate)
   
   thiophanate_methyl.SG$ID <- as.character(thiophanate_methyl.SG$ID)
   # renaming ID for the current names
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="541B"]  <- "541" 
-
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="293E"]  <- "293" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="973B"]  <- "973" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="973C"]  <- "973" 
-  thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="973D"]  <- "973" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974A"]  <- "974" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974B"]  <- "974" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974C"]  <- "974" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="974D"]  <- "974" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="975C"]  <- "975" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="975D"]  <- "975" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="975E"]  <- "975" 
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="976B"]  <- "976"
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="976C"]  <- "976"
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="977B"]  <- "977"
- thiophanate_methyl.SG$ID[ thiophanate_methyl.SG$ID =="978B"]  <- "978"
-
- str_squish(thiophanate_methyl.SG$ID)
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "541B"]  <-
+  "541"
+  
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "293E"]  <-
+  "293"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "973B"]  <-
+  "973"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "973C"]  <-
+  "973"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "973D"]  <-
+  "973"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "974A"]  <-
+  "974"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "974B"]  <-
+  "974"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "974C"]  <-
+  "974"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "974D"]  <-
+  "974"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "975C"]  <-
+  "975"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "975D"]  <-
+  "975"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "975E"]  <-
+  "975"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "976B"]  <-
+  "976"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "976C"]  <-
+  "976"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "977B"]  <-
+  "977"
+  thiophanate_methyl.SG$ID[thiophanate_methyl.SG$ID == "978B"]  <-
+  "978"
+  
+  
   ####Transforming to $ID to numeric
- thiophanate_methyl.SG$ID <- as.numeric(thiophanate_methyl.SG$ID)
-  # Filter out 
+  thiophanate_methyl.SG$ID <- as.numeric(thiophanate_methyl.SG$ID)
+  # Filter out
   thiophanate_methyl.SG <- thiophanate_methyl.SG %>%
-    group_by(ID) %>%  
-    mutate(Average=mean(EC50)) %>% 
-    select(- EC50) %>% 
-    rename(EC50_SG= Average) %>% 
-    unique() %>% 
-    ungroup()
- 
-  
-  
-
-  
-  #Function
-
- get_range <- function(mynumber) {
-  bb <- boxplot.stats(mynumber)
-  cc <- bb$stats
-  dd <- max(cc)
-  ee <- min(cc)
-  return(data.frame(upper = dd, lower = ee))
-}
-  
- 
- boscalid.filtered <- boscalid.data %>%
-  group_by(ID, dose) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower) %>%
-  ungroup() %>%
-  select(c(ID, dose, response, repeats))
-   
- aa <- EC_table(boscalid.filtered, form = response ~ dose)
-
-boscalid.PD <-
-  aa %>% rename(ID = sample ) %>% # renaming
-  rename(EC50_PD = Estimate.50) %>% 
-  select(ID, EC50_PD)
- 
- boscalid.final <- boscalid.PD %>% 
-    left_join(boscalid.SG)
-
- ##
- fluazinam.filtered <- fluazinam.data %>%
-  group_by(ID, dose) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower) %>%
-  ungroup() %>%
-  select(c(ID, dose, response, repeats))
-   
- bb <- EC_table(fluazinam.filtered, form = response ~ dose)
-
-fluazinam.PD <-
-  bb %>% rename(ID = sample ) %>% # renaming
-  rename(EC50_PD = Estimate.50) %>% 
-  select(ID, EC50_PD)
- 
- fluazinam.final <- fluazinam.PD %>% 
-    left_join(fluazinam.SG)
-#
- iprodione.filtered <- iprodione.data %>%
-  group_by(ID, dose) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower) %>%
-  ungroup() %>%
-  select(c(ID, dose, response, repeats))
-   
- cc <- EC_table(iprodione.filtered, form = response ~ dose)
-
-iprodione.PD <-
-  cc %>% rename(ID = sample ) %>% # renaming
-  rename(EC50_PD = Estimate.50) %>% 
-  select(ID, EC50_PD)
- 
- iprodione.final <- iprodione.PD %>% 
-    left_join(iprodione.SG)
-##
- procymidone.filtered <- procymidone.data %>%
-  group_by(ID, dose) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower) %>%
-  ungroup() %>%
-  select(c(ID, dose, response, repeats))
-   
- dd <- EC_table(procymidone.filtered, form = response ~ dose)
-
-procymidone.PD <-
-  dd %>% rename(ID = sample ) %>% # renaming
-  rename(EC50_PD = Estimate.50) %>% 
-  select(ID, EC50_PD)
- 
- procymidone.final <- procymidone.PD %>% 
-    left_join(procymidone.SG)
-#
- prothioconazole.filtered <- prothioconazole.data %>%
-  group_by(ID, dose) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower) %>%
-  ungroup() %>%
-  select(c(ID, dose, response, repeats))
-   
- ee <- EC_table(prothioconazole.filtered, form = response ~ dose)
-
-prothioconazole.PD <-
-  ee %>% rename(ID = sample ) %>% # renaming
-  rename(EC50_PD = Estimate.50) %>% 
-  select(ID, EC50_PD)
- 
- prothioconazole.final <- prothioconazole.PD %>% 
-    left_join(prothioconazole.SG)
-#
- pyraclostrobin.filtered <- pyraclostrobin.data %>%
-  group_by(ID, dose) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower) %>%
-  ungroup() %>%
-  select(c(ID, dose, response, repeats))
-   
- ff <- EC_table(pyraclostrobin.filtered, form = response ~ dose)
-
-pyraclostrobin.PD <-
-  ff %>% rename(ID = sample ) %>% # renaming
-  rename(EC50_PD = Estimate.50) %>% 
-  select(ID, EC50_PD)
- 
- pyraclostrobin.final <- pyraclostrobin.PD %>% 
-    left_join(pyraclostrobin.SG)
-#
- thiophanate_methyl.filtered <- thiophanate_methyl.data %>%
-  group_by(ID, dose) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower) %>%
-  ungroup() %>%
-  select(c(ID, dose, response, repeats))
-   
- gg <- EC_table(thiophanate_methyl.filtered, form = response ~ dose)
-
-thiophanate_methyl.PD <-
-  gg %>% rename(ID = sample ) %>% # renaming
-  rename(EC50_PD = Estimate.50) %>% 
-  select(ID, EC50_PD)
- 
- thiophanate_methyl.final <- thiophanate_methyl.PD %>% 
-    left_join(thiophanate_methyl.SG)
-
-####
-plug.discs <- read.csv("data/Paper_discs_vs_PLUG.csv", stringsAsFactors = TRUE, na.strings = TRUE)
-plug.discs$Fungicide <- str_squish(plug.discs$Fungicide)
-stopifnot(nrow(plug.discs) == 7*11*2*2*2*4)
-#Y <- read.csv("data/Paper_discs_vs_PLUG.csv", stringsAsFactors = TRUE, na.strings = TRUE)
-
-#stopifnot(nrow(plugdiscs)== 7*11*2*2*2*4)
-plug.discs <- plug.discs %>% 
-mutate(inoculum= as.character(inoculum)) %>% 
-rename(ID= inoculum, 
-      experimental_replicate = experimental_repetition) %>%
-  select(Fungicide, ID, experiment, experimental_replicate, treatment, growth) %>% 
-     group_by(Fungicide, ID,experiment, experimental_replicate, treatment) %>% mutate(rep= 1:4) %>% spread( treatment, growth ) %>% 
+  group_by(ID) %>%
+  mutate(Average = mean(EC50)) %>%
+  select(-EC50) %>%
+  rename(EC50_SG = Average) %>%
+  unique() %>%
   ungroup()
- # group_by(ID, experiment, experimental_repeatlicate)
-   #spread( treatment )
+  
 ```
 
 ```{r}
-#Function
+#Function to detect ouliers among observations within same isolate and dose and take them away
+
 get_range <- function(mynumber) {
   bb <- boxplot.stats(mynumber)
   cc <- bb$stats
@@ -703,228 +576,591 @@ get_range <- function(mynumber) {
   ee <- min(cc)
   return(data.frame(upper = dd, lower = ee))
 }
+```
+# Determination of EC50 by Dose-response curve by package "ezec" using ) using the “LL.3” model implemented in the R “drc” package 
+```{r}
+#Boscalid
+boscalid.filtered <- boscalid.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+  response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+  
+  aa <- EC_table(boscalid.filtered, form = response ~ dose)
+  
+  boscalid.PD <-
+  aa %>% rename(ID = sample) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>%
+  select(ID, EC50_PD)
+  #Unfortunately Spiral gradient just release the EC50 average per isolate and no any model is provided
+  boscalid.final <- boscalid.PD %>%
+  left_join(boscalid.SG)
+  
+  #Fluazinam
+  fluazinam.filtered <- fluazinam.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+  response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+  
+  bb <- EC_table(fluazinam.filtered, form = response ~ dose)
+  
+  fluazinam.PD <-
+  bb %>% rename(ID = sample) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>%
+  select(ID, EC50_PD)
+  #Unfortunately Spiral gradient just release the EC50 average per isolate and no any model is provided
+  fluazinam.final <- fluazinam.PD %>%
+  left_join(fluazinam.SG)
+  
+  #Iprodione
+  iprodione.filtered <- iprodione.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+  response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+  
+  cc <- EC_table(iprodione.filtered, form = response ~ dose)
+  
+  iprodione.PD <-
+  cc %>% rename(ID = sample) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>%
+  select(ID, EC50_PD)
+  #Unfortunately Spiral gradient just release the EC50 average per isolate and no any model is provided
+  iprodione.final <- iprodione.PD %>%
+  left_join(iprodione.SG)
+  #Procymidone
+  procymidone.filtered <- procymidone.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+  response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+  
+  dd <- EC_table(procymidone.filtered, form = response ~ dose)
+  
+  procymidone.PD <-
+  dd %>% rename(ID = sample) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>%
+  select(ID, EC50_PD)
+  #Unfortunately Spiral gradient just release the EC50 average per isolate and no any model is provided
+  procymidone.final <- procymidone.PD %>%
+  left_join(procymidone.SG)
+  #Prothioonazole
+  prothioconazole.filtered <- prothioconazole.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+  response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+  
+  ee <- EC_table(prothioconazole.filtered, form = response ~ dose)
+  
+  prothioconazole.PD <-
+  ee %>% rename(ID = sample) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>%
+  select(ID, EC50_PD)
+  #Unfortunately Spiral gradient just release the EC50 average per isolate and no any model is provided
+  prothioconazole.final <- prothioconazole.PD %>%
+  left_join(prothioconazole.SG)
+  
+  #Pyraclostrobin
+    pyraclostrobin.filtered <- pyraclostrobin.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+  response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+  
+  ff <- EC_table(pyraclostrobin.filtered, form = response ~ dose)
+  
+  pyraclostrobin.PD <-
+  ff %>% rename(ID = sample) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>%
+  select(ID, EC50_PD)
+  #Unfortunately Spiral gradient just release the EC50 average per isolate and no any model is provided
+  pyraclostrobin.final <- pyraclostrobin.PD %>%
+  left_join(pyraclostrobin.SG)
+  
+  #Thiophanate methyl
+  thiophanate_methyl.filtered <- thiophanate_methyl.data %>%
+  group_by(ID, dose) %>%
+  mutate(response_range = list(get_range(response))) %>%
+  unnest() %>%
+  filter(response <= upper &
+  response >= lower) %>%
+  ungroup() %>%
+  select(c(ID, dose, response, repeats))
+  
+  gg <- EC_table(thiophanate_methyl.filtered, form = response ~ dose)
+  
+  thiophanate_methyl.PD <-
+  gg %>% rename(ID = sample) %>% # renaming
+  rename(EC50_PD = Estimate.50) %>%
+  select(ID, EC50_PD)
+  
+  #Unfortunately Spiral gradient just release the EC50 average per isolate and no any model is provided
+  thiophanate_methyl.final <- thiophanate_methyl.PD %>%
+  left_join(thiophanate_methyl.SG)
+  
+```
+
+It was suggested by Dr Drew Tyre, follow two possible choices:
+-Type II regression model
+-Fit a single dose response model to all the data,including the type of assay as a covariate on one or more of the parameters in the model. However, the spiral plater inject the fungicide in the petri plate as spiral way from the highest concentration (center) to the lowest (edges) and then we set should set the growth in comparison with a control,  in a special software (spiral plater software) and it delivers the EC50, so the measurements in cm (growth) are completely different from SG and AD. So then I am lack of more covariates.
+
+For that reason I will go for the Type II regression model which of the main difference with the type I is that X variable is the INDEPENDENT  and Y is the DEPENDENT variable. It assumes little or no error in X and all regression error is attributed to measurement or other error in Y. Meanwhile, Type II regression model which of neither X nor Y is an INDEPENDENT variable but both are assumed to be DEPENDENT on some other parameter which is often unknown. So, then both include some error.
+
+Anyways I will try first the linear model regression type I
+```{r}
+# Boscalid
+boscalid.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data =  boscalid.final)
+summary(boscalid.model.1)
+
+boscalid.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data =  boscalid.final[-c(19, 21, 22), ])
+  summary(boscalid.model.1)
+  
+  
+  tidy(boscalid.model.1, conf.int = TRUE)
+  old.par = par(mfrow = c(2, 2))
+  plot(boscalid.model.1)
+  # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
+  
+  boscalid.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data =  boscalid.final[-c(19, 21, 22), ])
+  summary(boscalid.model.1)
+  
+  tidy(boscalid.model.1, conf.int = TRUE)
+  old.par = par(mfrow = c(2, 2))
+  plot(boscalid.model.1)
+  
+  # According to the R2, the proportion of the variation of  Y explained by  x is 0.27 or 27% which is low  
+  
+  ##Fluazinam
+  fluazinam.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = fluazinam.final)
+  summary(fluazinam.model.1)
+  
+  tidy( fluazinam.model.1, conf.int = TRUE)
+  old.par = par(mfrow = c(2, 2))
+  plot(fluazinam.model.1)
+  
+  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.0185 or 1.8% which is too low! 
+  
+  ##Iprodione
+  iprodione.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = iprodione.final)
+  summary(iprodione.model.1)
+  
+  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.03367 or 3.3% which is very low!
+   tidy(iprodione.model.1, conf.int = TRUE)
+  old.par = par(mfrow = c(2, 2))
+  plot(iprodione.model.1)
+  
+  ##Procymidone
+  procymidone.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = procymidone.final)
+  summary(procymidone.model.1)
+  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.00175 or 1.7.% which is very low!
+   tidy(procymidone.model.1, conf.int = TRUE)
+  old.par = par(mfrow = c(2, 2))
+  plot(procymidone.model.1)
+  
+  ##Prothioconazole
+  prothioconazole.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = prothioconazole.final)
+  summary(prothioconazole.model.1)
+  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.4792 or 47.92% which is low! There are 2 observations which have high impact in the residuals. It would be right to take them out.
+  tidy(prothioconazole.model.1, conf.int = TRUE)
+  old.par = par(mfrow = c(2, 2))
+  plot(prothioconazole.model.1)
+  
+  
+  prothioconazole.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = prothioconazole.final[-c(6, 10), ])
+  summary(prothioconazole.model.1)
+  plot(prothioconazole.model.1)
+  
+ # Now   and according to the R2, the proportion of the variation of  Y explained by  x is 0.5827 or 58.27% which is somewhat low
+ 
+   ##Pyraclostrobin
+  pyraclostrobin.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = pyraclostrobin.final)
+  summary(pyraclostrobin.model.1)
+  
+  tidy( pyraclostrobin.model.1, conf.int = TRUE)
+  old.par = par(mfrow = c(2, 2))
+  plot(pyraclostrobin.model.1)
+  
+  # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
+  pyraclostrobin.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = pyraclostrobin.final[-c(15, 21, 23), ])
+  summary(pyraclostrobin.model.1)
+  
+  # Even though the R2, the proportion of the variation of  Y explained by  x is 0.1633 or 16.33% which is very low
+  
+  #Thiophanate_methyl
+  thiophanate_methyl.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data = thiophanate_methyl.final)
+  summary(thiophanate_methyl.model.1)
+  
+  tidy(  thiophanate_methyl.model.1, conf.int = TRUE)
+  
+  old.par = par(mfrow = c(2, 2))
+  plot(thiophanate_methyl.model.1)
+  # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals. It would be right to take them out. Even though the R2, the proportion of the variation of  Y explained by  x is 0.1672 or 16.72% which is very low
+  
+   thiophanate_methyl.model.1 <-
+  lm(log(EC50_PD) ~ log(EC50_SG), data =  thiophanate_methyl.final[-c(5, 21, 25), ])
+   summary(thiophanate_methyl.model.1)
+```
+
+```{r}
+#Boscalid
+boscalid.model.2 <-
+  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  data = boscalid.final, range.y = "interval", range.x = "interval",nperm = 99)
+  summary(boscalid.model.2)
+plot(boscalid.model.2)
+plot(boscalid.model.2,"RMA")
+plot(boscalid.model.2,"OLS")
+plot(boscalid.model.2,"SMA")
+
+#Fluazinam
+fluazinam.model.2 <-
+  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  data = fluazinam.final, range.y = "interval", range.x = "interval",nperm = 99)
+  summary(fluazinam.model.2)
+plot(fluazinam.model.2)
+plot(fluazinam.model.2,"RMA")
+plot(fluazinam.model.2,"OLS")
+plot(fluazinam.model.2,"SMA")
+
+#Iprodione
+iprodione.model.2 <-
+  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  data = iprodione.final, range.y = "interval", range.x = "interval",nperm = 99)
+  summary(iprodione.model.2)
+plot(iprodione.model.2)
+plot(iprodione.model.2,"RMA")
+plot(iprodione.model.2,"OLS")
+plot(iprodione.model.2,"SMA")
+#Procymidone
+procymidone.model.2 <-
+  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  data = procymidone.final, range.y = "interval", range.x = "interval",nperm = 99)
+  summary(procymidone.model.2)
+plot(procymidone.model.2)
+plot(procymidone.model.2,"RMA")
+plot(procymidone.model.2,"OLS")
+plot(procymidone.model.2,"SMA")
+#Prothioconazole
+prothioconazole.model.2 <-
+  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  data = prothioconazole.final, range.y = "interval", range.x = "interval",nperm = 99)
+  summary(prothioconazole.model.2)
+plot(prothioconazole.model.2)
+plot(prothioconazole.model.2,"RMA")
+plot(prothioconazole.model.2,"OLS")
+plot(prothioconazole.model.2,"SMA")
+#Pyraclostrobin
+pyraclostrobin.model.2 <-
+  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  data = pyraclostrobin.final, range.y = "interval", range.x = "interval",nperm = 99)
+  summary(pyraclostrobin.model.2)
+plot(pyraclostrobin.model.2)
+plot(pyraclostrobin.model.2,"RMA")
+plot(pyraclostrobin.model.2,"OLS")
+plot(pyraclostrobin.model.2,"SMA")
+#Thiophanate_methyl
+thiophanate_methyl.model.2 <-
+  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  data = thiophanate_methyl.final, range.y = "interval", range.x = "interval",nperm = 99)
+  summary(thiophanate_methyl.model.2)
+plot(thiophanate_methyl.model.2)
+plot(thiophanate_methyl.model.2,"RMA")
+plot(thiophanate_methyl.model.2,"OLS")
+plot(thiophanate_methyl.model.2,"SMA")
+
 
 ```
+
+
+
+```{r}
+####
+plug.discs <-
+  read.csv(
+  "data/Paper_discs_vs_PLUG.csv",
+  stringsAsFactors = TRUE,
+  na.strings = TRUE
+  )
+  plug.discs$Fungicide <- str_squish(plug.discs$Fungicide)
+  stopifnot(nrow(plug.discs) == 7 * 11 * 2 * 2 * 2 * 4)
+  #Y <- read.csv("data/Paper_discs_vs_PLUG.csv", stringsAsFactors = TRUE, na.strings = TRUE)
+  
+  #stopifnot(nrow(plugdiscs)== 7*11*2*2*2*4)
+  plug.discs <- plug.discs %>%
+  mutate(inoculum = as.character(inoculum)) %>%
+  rename(ID = inoculum,
+  experimental_replicate = experimental_repetition) %>%
+  select(Fungicide,
+  ID,
+  experiment,
+  experimental_replicate,
+  treatment,
+  growth) %>%
+  group_by(Fungicide, ID, experiment, experimental_replicate, treatment) %>% mutate(rep = 1:4) %>% spread(treatment, growth) %>%
+  ungroup()
+  # group_by(ID, experiment, experimental_repeatlicate)
+  #spread( treatment )
+```
+
 ##  By fungicide
 ## prothioconazole
 ```{r prothioconazole}
 
 #prothioconazole
-prothioconazole.plug.discs <-  plug.discs %>% filter(Fungicide== "prothioconazole") %>% 
-rename(response=fungicide) %>% 
-  select(-Fungicide)
-   
-prothioconazole.plug.discs.filtered <-  prothioconazole.plug.discs%>%
-  group_by(ID, experiment) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  mutate(control_range = list(get_range(control))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower,
-         control <= upper1 & control >= lower1) %>%
-  ungroup() %>%
-  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+prothioconazole.plug.discs <-
+plug.discs %>% filter(Fungicide == "prothioconazole") %>%
+rename(response = fungicide) %>%
+select(-Fungicide)
+
+prothioconazole.plug.discs.filtered <-
+prothioconazole.plug.discs %>%
+group_by(ID, experiment) %>%
+mutate(response_range = list(get_range(response))) %>%
+unnest() %>%
+mutate(control_range = list(get_range(control))) %>%
+unnest() %>%
+filter(response <= upper &
+response >= lower,
+control <= upper1 & control >= lower1) %>%
+ungroup() %>%
+select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
 
 # Percent inhibition is (control - funcide) / (control)
-  mutate(inhibition = 100*((control - response)/control)) %>%
-  #taking again outliers based on inhibition
+mutate(inhibition = 100 * ((control - response) / control)) %>%
+#taking again outliers based on inhibition
 group_by(ID, experiment) %>%
-  mutate(inhibition_range = list(get_range(inhibition))) %>%
-  unnest() %>%
-  filter(inhibition <= upper &
-           inhibition >= lower) %>%
-  ungroup()
+mutate(inhibition_range = list(get_range(inhibition))) %>%
+unnest() %>%
+filter(inhibition <= upper &
+inhibition >= lower) %>%
+ungroup()
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-prothioconazole.plug.discs.filtered %>% 
+prothioconazole.plug.discs.filtered %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$inhibition))) 
+do(tidy(shapiro.test(.$inhibition)))
 
-# transforming to log 
-prothioconazole.plug.discs.filtered.2 <-  prothioconazole.plug.discs.filtered %>% 
-  mutate(log.inhibition= log(inhibition))
+# transforming to log
+prothioconazole.plug.discs.filtered.2 <-
+prothioconazole.plug.discs.filtered %>%
+mutate(log.inhibition = log(inhibition))
 ###
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-prothioconazole.plug.discs.filtered.2 %>% 
+prothioconazole.plug.discs.filtered.2 %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$log.inhibition)))
+do(tidy(shapiro.test(.$log.inhibition)))
 
 
 prothioconazole.1 <- lm()
 
 #non parametric between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
-prothioconazole.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experimental_replicate, 
-    data = .) 
+prothioconazole.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experimental_replicate,
+data = .)
 
 
-prothioconazole.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experiment, 
-    data = .) 
+prothioconazole.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experiment,
+data = .)
 
 # Now Dunn test
 
- prothioconazole.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+prothioconazole.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.000016 *** plug-paper
-
 
 ```
 ## Fluazinam
 ```{r Fluazinam}
 #Fluazinam
-fluazinam.plug.discs <-  plug.discs %>% filter(Fungicide== "fluazinam") %>% 
-rename(response=fungicide) %>% 
-  select(-Fungicide)
-   
-fluazinam.plug.discs.filtered <-  fluazinam.plug.discs%>%
-  group_by(ID, experiment) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  mutate(control_range = list(get_range(control))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower,
-         control <= upper1 & control >= lower1) %>%
-  ungroup() %>%
-  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+fluazinam.plug.discs <-
+plug.discs %>% filter(Fungicide == "fluazinam") %>%
+rename(response = fungicide) %>%
+select(-Fungicide)
+
+fluazinam.plug.discs.filtered <-  fluazinam.plug.discs %>%
+group_by(ID, experiment) %>%
+mutate(response_range = list(get_range(response))) %>%
+unnest() %>%
+mutate(control_range = list(get_range(control))) %>%
+unnest() %>%
+filter(response <= upper &
+response >= lower,
+control <= upper1 & control >= lower1) %>%
+ungroup() %>%
+select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
 
 # Percent inhibition is (control - funcide) / (control)
-  mutate(inhibition = 100*((control - response)/control)) %>%
-  #taking again outliers based on inhibition
+mutate(inhibition = 100 * ((control - response) / control)) %>%
+#taking again outliers based on inhibition
 group_by(ID, experiment) %>%
-  mutate(inhibition_range = list(get_range(inhibition))) %>%
-  unnest() %>%
-  filter(inhibition <= upper &
-           inhibition >= lower) %>%
-  ungroup()
+mutate(inhibition_range = list(get_range(inhibition))) %>%
+unnest() %>%
+filter(inhibition <= upper &
+inhibition >= lower) %>%
+ungroup()
 ## shapiro test for normality between groups of experimental replicates. There is normality between experimental replicates
-fluazinam.plug.discs.filtered %>% 
+fluazinam.plug.discs.filtered %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$inhibition))) 
+do(tidy(shapiro.test(.$inhibition)))
 
 #ANOVA between experimental repeatlicates and experiment, there is difference between experiment and experimental replicates, so I cant join data from experimental replicates
 
-fluazinam.plug.discs.filtered  %>% 
-  aov(inhibition ~ experiment  + experimental_replicate, 
-    data = .) %>% 
-  summary()
+fluazinam.plug.discs.filtered  %>%
+aov(inhibition ~ experiment  + experimental_replicate,
+data = .) %>%
+summary()
 
 ```
 ## Iprodione
 ```{r Iprodione}
 
-iprodione.plug.discs <-  plug.discs %>% filter(Fungicide== "iprodione") %>% 
-rename(response=fungicide) %>% 
-  select(-Fungicide)
-   
-iprodione.plug.discs.filtered <-  iprodione.plug.discs%>%
-  group_by(ID, experiment) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  mutate(control_range = list(get_range(control))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower,
-         control <= upper1 & control >= lower1) %>%
-  ungroup() %>%
-  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+iprodione.plug.discs <-
+plug.discs %>% filter(Fungicide == "iprodione") %>%
+rename(response = fungicide) %>%
+select(-Fungicide)
+
+iprodione.plug.discs.filtered <-  iprodione.plug.discs %>%
+group_by(ID, experiment) %>%
+mutate(response_range = list(get_range(response))) %>%
+unnest() %>%
+mutate(control_range = list(get_range(control))) %>%
+unnest() %>%
+filter(response <= upper &
+response >= lower,
+control <= upper1 & control >= lower1) %>%
+ungroup() %>%
+select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
 
 # Percent inhibition is (control - funcide) / (control)
-  mutate(inhibition = 100*((control - response)/control)) %>%
-  #taking again outliers based on inhibition
+mutate(inhibition = 100 * ((control - response) / control)) %>%
+#taking again outliers based on inhibition
 group_by(ID, experiment) %>%
-  mutate(inhibition_range = list(get_range(inhibition))) %>%
-  unnest() %>%
-  filter(inhibition <= upper &
-           inhibition >= lower) %>%
-  ungroup()
+mutate(inhibition_range = list(get_range(inhibition))) %>%
+unnest() %>%
+filter(inhibition <= upper &
+inhibition >= lower) %>%
+ungroup()
 ## shapiro test for normality between groups of experimental replicates. There is normality in one exp replicate but not in the other one
-iprodione.plug.discs.filtered %>% 
+iprodione.plug.discs.filtered %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$inhibition))) 
+do(tidy(shapiro.test(.$inhibition)))
 
 
-# transforming to log 
-iprodione.plug.discs.filtered.2 <-  iprodione.plug.discs.filtered %>% 
-  mutate(log.inhibition= log(inhibition))
+# transforming to log
+iprodione.plug.discs.filtered.2 <-
+iprodione.plug.discs.filtered %>%
+mutate(log.inhibition = log(inhibition))
 ###
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-iprodione.plug.discs.filtered.2 %>% 
+iprodione.plug.discs.filtered.2 %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$log.inhibition)))
+do(tidy(shapiro.test(.$log.inhibition)))
 
 
 #non parametric test between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
 
-iprodione.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experimental_replicate, 
-    data = .) 
+iprodione.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experimental_replicate,
+data = .)
 
 
-iprodione.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experiment, 
-    data = .) 
+iprodione.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experiment,
+data = .)
 
 # Now Dunn test
 
- iprodione.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+iprodione.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.0258 *plug-paper
-
 
 ```
 ## Procymidone
 ```{r Procymidone}
 
-procymidone.plug.discs <-  plug.discs %>% filter(Fungicide== "procymidone") %>% 
-rename(response=fungicide) %>% 
-  select(-Fungicide)
-   
-procymidone.plug.discs.filtered <-  procymidone.plug.discs%>%
-  group_by(ID, experiment) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  mutate(control_range = list(get_range(control))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower,
-         control <= upper1 & control >= lower1) %>%
-  ungroup() %>%
-  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+
+procymidone.plug.discs <-
+plug.discs %>% filter(Fungicide == "procymidone") %>%
+rename(response = fungicide) %>%
+select(-Fungicide)
+
+procymidone.plug.discs.filtered <-  procymidone.plug.discs %>%
+group_by(ID, experiment) %>%
+mutate(response_range = list(get_range(response))) %>%
+unnest() %>%
+mutate(control_range = list(get_range(control))) %>%
+unnest() %>%
+filter(response <= upper &
+response >= lower,
+control <= upper1 & control >= lower1) %>%
+ungroup() %>%
+select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
 
 # Percent inhibition is (control - funcide) / (control)
-  mutate(inhibition = 100*((control - response)/control)) %>%
-  #taking again outliers based on inhibition
+mutate(inhibition = 100 * ((control - response) / control)) %>%
+#taking again outliers based on inhibition
 group_by(ID, experiment) %>%
-  mutate(inhibition_range = list(get_range(inhibition))) %>%
-  unnest() %>%
-  filter(inhibition <= upper &
-           inhibition >= lower) %>%
-  ungroup()
+mutate(inhibition_range = list(get_range(inhibition))) %>%
+unnest() %>%
+filter(inhibition <= upper &
+inhibition >= lower) %>%
+ungroup()
 ## shapiro test for normality between groups of experimental replicates. There is normality in one experimental replicate but not in the other one
-procymidone.plug.discs.filtered %>% 
+procymidone.plug.discs.filtered %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$inhibition))) 
+do(tidy(shapiro.test(.$inhibition)))
 
 # transforming to square
-procymidone.plug.discs.filtered.2 <-  procymidone.plug.discs.filtered %>% 
-  mutate(square.inhibition= inhibition^2)
+procymidone.plug.discs.filtered.2 <-
+procymidone.plug.discs.filtered %>%
+mutate(square.inhibition = inhibition ^ 2)
 ###
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-procymidone.plug.discs.filtered.2 %>% 
+procymidone.plug.discs.filtered.2 %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$square.inhibition)))
+do(tidy(shapiro.test(.$square.inhibition)))
 
 
 # non parametric test between experimental repeatlicates and experiment, there is differenc between  experimental replicates (so I cant join data from experimental) but not  between experiments
 
-procymidone.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experimental_replicate, 
-    data = .) 
+procymidone.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experimental_replicate,
+data = .)
 
 
-procymidone.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experiment, 
-    data = .)  
+procymidone.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experiment,
+data = .)
 #p value = 0.09274
 
 
@@ -933,181 +1169,183 @@ procymidone.plug.discs.filtered  %>%
 ## Prothioconazole
 ```{r Prothioconazole}
 ## Prothioconazole
-prothioconazole.plug.discs <-  plug.discs %>% filter(Fungicide== "prothioconazole") %>% 
-rename(response=fungicide) %>% 
-  select(-Fungicide)
-   
-prothioconazole.plug.discs.filtered <-  prothioconazole.plug.discs%>%
-  group_by(ID, experiment) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  mutate(control_range = list(get_range(control))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower,
-         control <= upper1 & control >= lower1) %>%
-  ungroup() %>%
-  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+prothioconazole.plug.discs <-
+plug.discs %>% filter(Fungicide == "prothioconazole") %>%
+rename(response = fungicide) %>%
+select(-Fungicide)
+
+prothioconazole.plug.discs.filtered <-
+prothioconazole.plug.discs %>%
+group_by(ID, experiment) %>%
+mutate(response_range = list(get_range(response))) %>%
+unnest() %>%
+mutate(control_range = list(get_range(control))) %>%
+unnest() %>%
+filter(response <= upper &
+response >= lower,
+control <= upper1 & control >= lower1) %>%
+ungroup() %>%
+select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
 
 # Percent inhibition is (control - funcide) / (control)
-  mutate(inhibition = 100*((control - response)/control)) %>%
-  #taking again outliers based on inhibition
+mutate(inhibition = 100 * ((control - response) / control)) %>%
+#taking again outliers based on inhibition
 group_by(ID, experiment) %>%
-  mutate(inhibition_range = list(get_range(inhibition))) %>%
-  unnest() %>%
-  filter(inhibition <= upper &
-           inhibition >= lower) %>%
-  ungroup()
+mutate(inhibition_range = list(get_range(inhibition))) %>%
+unnest() %>%
+filter(inhibition <= upper &
+inhibition >= lower) %>%
+ungroup()
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-prothioconazole.plug.discs.filtered %>% 
+prothioconazole.plug.discs.filtered %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$inhibition))) 
+do(tidy(shapiro.test(.$inhibition)))
 
-# transforming to log 
-prothioconazole.plug.discs.filtered.2 <-  prothioconazole.plug.discs.filtered %>% 
-  mutate(log.inhibition= log(inhibition))
+# transforming to log
+prothioconazole.plug.discs.filtered.2 <-
+prothioconazole.plug.discs.filtered %>%
+mutate(log.inhibition = log(inhibition))
 ###
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-prothioconazole.plug.discs.filtered.2 %>% 
+prothioconazole.plug.discs.filtered.2 %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$log.inhibition)))
+do(tidy(shapiro.test(.$log.inhibition)))
 
 
 # non parametric test between experimental repeatlicates and experiment, there is no difference between experiment and  experimental replicates, so I can join data from experimental replicates
 
-prothioconazole.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experimental_replicate, 
-    data = .) 
+prothioconazole.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experimental_replicate,
+data = .)
 
 
-prothioconazole.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experiment, 
-    data = .) 
-
+prothioconazole.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experiment,
+data = .)
 
 ```
 ## Pyraclostrobin
 ```{r Pyraclostrobin}
 ## Pyraclostrobin
-pyraclostrobin.plug.discs <-  plug.discs %>% filter(Fungicide== "pyraclostrobin") %>% 
-rename(response=fungicide) %>% 
-  select(-Fungicide)
-   
-pyraclostrobin.plug.discs.filtered <-  pyraclostrobin.plug.discs%>%
-  group_by(ID, experiment) %>%
-  mutate(response_range = list(get_range(response))) %>%
-  unnest() %>%
-  mutate(control_range = list(get_range(control))) %>%
-  unnest() %>%
-  filter(response <= upper &
-           response >= lower,
-         control <= upper1 & control >= lower1) %>%
-  ungroup() %>%
-  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
+pyraclostrobin.plug.discs <-
+plug.discs %>% filter(Fungicide == "pyraclostrobin") %>%
+rename(response = fungicide) %>%
+select(-Fungicide)
+
+pyraclostrobin.plug.discs.filtered <-  pyraclostrobin.plug.discs %>%
+group_by(ID, experiment) %>%
+mutate(response_range = list(get_range(response))) %>%
+unnest() %>%
+mutate(control_range = list(get_range(control))) %>%
+unnest() %>%
+filter(response <= upper &
+response >= lower,
+control <= upper1 & control >= lower1) %>%
+ungroup() %>%
+select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
 
 # Percent inhibition is (control - funcide) / (control)
-  mutate(inhibition = 100*((control - response)/control)) %>%
-  #taking again outliers based on inhibition
+mutate(inhibition = 100 * ((control - response) / control)) %>%
+#taking again outliers based on inhibition
 group_by(ID, experiment) %>%
-  mutate(inhibition_range = list(get_range(inhibition))) %>%
-  unnest() %>%
-  filter(inhibition <= upper &
-           inhibition >= lower) %>%
-  ungroup()
+mutate(inhibition_range = list(get_range(inhibition))) %>%
+unnest() %>%
+filter(inhibition <= upper &
+inhibition >= lower) %>%
+ungroup()
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-pyraclostrobin.plug.discs.filtered %>% 
+pyraclostrobin.plug.discs.filtered %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$inhibition))) 
+do(tidy(shapiro.test(.$inhibition)))
 
-# transforming to log 
-pyraclostrobin.plug.discs.filtered.2 <-  pyraclostrobin.plug.discs.filtered %>% 
-  mutate(log.inhibition= log(inhibition))
+# transforming to log
+pyraclostrobin.plug.discs.filtered.2 <-
+pyraclostrobin.plug.discs.filtered %>%
+mutate(log.inhibition = log(inhibition))
 ###
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-pyraclostrobin.plug.discs.filtered.2 %>% 
+pyraclostrobin.plug.discs.filtered.2 %>%
 group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$log.inhibition)))
+do(tidy(shapiro.test(.$log.inhibition)))
 
 
 # no parametric test between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
 
-pyraclostrobin.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experimental_replicate, 
-    data = .) 
+pyraclostrobin.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experimental_replicate,
+data = .)
 
 
-pyraclostrobin.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experiment, 
-    data = .) 
+pyraclostrobin.plug.discs.filtered  %>%
+kruskal.test(inhibition ~ experiment,
+data = .)
 
 # Now Dunn test
 
- pyraclostrobin.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
+pyraclostrobin.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.000000000000079 *** plug-paper
-
-
-
 
 ```
 ## Thiophanate_methyl
 ```{r Thiophanate_methyl}
 
-TM.plug.discs <-  plug.discs %>% filter(Fungicide== "thiophanate_methyl") %>% 
-rename(response=fungicide) %>% 
+TM.plug.discs <-
+  plug.discs %>% filter(Fungicide == "thiophanate_methyl") %>%
+  rename(response = fungicide) %>%
   select(-Fungicide)
-   
-TM.plug.discs.filtered <-  TM.plug.discs%>%
+  
+  TM.plug.discs.filtered <-  TM.plug.discs %>%
   group_by(ID, experiment) %>%
   mutate(response_range = list(get_range(response))) %>%
   unnest() %>%
   mutate(control_range = list(get_range(control))) %>%
   unnest() %>%
   filter(response <= upper &
-           response >= lower,
-         control <= upper1 & control >= lower1) %>%
+  response >= lower,
+  control <= upper1 & control >= lower1) %>%
   ungroup() %>%
-  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
-
-# Percent inhibition is (control - funcide) / (control)
-  mutate(inhibition = 100*((control - response)/control)) %>%
+  select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
+  
+  # Percent inhibition is (control - funcide) / (control)
+  mutate(inhibition = 100 * ((control - response) / control)) %>%
   #taking again outliers based on inhibition
-group_by(ID, experiment) %>%
+  group_by(ID, experiment) %>%
   mutate(inhibition_range = list(get_range(inhibition))) %>%
   unnest() %>%
   filter(inhibition <= upper &
-           inhibition >= lower) %>%
+  inhibition >= lower) %>%
   ungroup()
-## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-TM.plug.discs.filtered %>% 
-group_by(experimental_replicate) %>%
-  do(tidy(shapiro.test(.$inhibition))) 
-
-# transforming to square
-TM.plug.discs.filtered.2 <-  TM.plug.discs.filtered %>% 
-  mutate(square.inhibition= inhibition^2)
-###
-## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-TM.plug.discs.filtered.2 %>% 
-group_by(experimental_replicate) %>%
+  ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+  TM.plug.discs.filtered %>%
+  group_by(experimental_replicate) %>%
+  do(tidy(shapiro.test(.$inhibition)))
+  
+  # transforming to square
+  TM.plug.discs.filtered.2 <-  TM.plug.discs.filtered %>%
+  mutate(square.inhibition = inhibition ^ 2)
+  ###
+  ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
+  TM.plug.discs.filtered.2 %>%
+  group_by(experimental_replicate) %>%
   do(tidy(shapiro.test(.$square.inhibition)))
-
-
-# non parametric test between experimental repeatlicates and experiment, there is differenc between experiment and no between experimental replicates, so I can join data from experimental replicates
-
-TM.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experimental_replicate, 
-    data = .) 
-
-
-TM.plug.discs.filtered  %>% 
- kruskal.test(inhibition ~ experiment, 
-    data = .) 
-
-# Now Dunn test
-
- TM.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment,data = ., method = "bonferroni")
-#P VALUE 0.0456 * plug-paper
-
-
+  
+  
+  # non parametric test between experimental repeatlicates and experiment, there is differenc between experiment and no between experimental replicates, so I can join data from experimental replicates
+  
+  TM.plug.discs.filtered  %>%
+  kruskal.test(inhibition ~ experimental_replicate,
+  data = .)
+  
+  
+  TM.plug.discs.filtered  %>%
+  kruskal.test(inhibition ~ experiment,
+  data = .)
+  
+  # Now Dunn test
+  
+  TM.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
+  #P VALUE 0.0456 * plug-paper
+  
 ```
+
 
