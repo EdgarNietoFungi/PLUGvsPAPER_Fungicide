@@ -730,79 +730,75 @@ Anyways I will try first the linear model regression type I
 ```{r}
 # Boscalid
 boscalid.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data =  boscalid.final)
+  lm(log(EC50_PD) ~ log(EC50_SG) +ID, data =  boscalid.final)
 summary(boscalid.model.1)
 
-boscalid.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data =  boscalid.final[-c(19, 21, 22), ])
-  summary(boscalid.model.1)
-  
-  
+
   tidy(boscalid.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(boscalid.model.1)
   # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
   
   boscalid.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data =  boscalid.final[-c(19, 21, 22), ])
+  lm(log(EC50_PD) ~ log(EC50_SG) +ID , data =  boscalid.final[-c(19, 21, 22), ])
   summary(boscalid.model.1)
   
   tidy(boscalid.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(boscalid.model.1)
   
-  # According to the R2, the proportion of the variation of  Y explained by  x is 0.27 or 27% which is low  
+  # According to the R2, the proportion of the variation of  Y explained by  x is 0.24 or 24% which is low  
   
   ##Fluazinam
   fluazinam.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = fluazinam.final)
+  lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = fluazinam.final)
   summary(fluazinam.model.1)
   
   tidy( fluazinam.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(fluazinam.model.1)
   
-  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.0185 or 1.8% which is too low! 
+  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 05226 or 5.2% which is too low! 
   
   ##Iprodione
   iprodione.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = iprodione.final)
+  lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = iprodione.final)
   summary(iprodione.model.1)
   
-  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.03367 or 3.3% which is very low!
+  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.2963 or 29.63% which is very low!
    tidy(iprodione.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(iprodione.model.1)
   
   ##Procymidone
   procymidone.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = procymidone.final)
+  lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = procymidone.final)
   summary(procymidone.model.1)
-  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.00175 or 1.7.% which is very low!
+  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.07238 or 7.2.% which is very low!
    tidy(procymidone.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(procymidone.model.1)
   
   ##Prothioconazole
   prothioconazole.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = prothioconazole.final)
+  lm(log(EC50_PD) ~ log(EC50_SG)+ID, data = prothioconazole.final)
   summary(prothioconazole.model.1)
-  # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.4792 or 47.92% which is low! There are 2 observations which have high impact in the residuals. It would be right to take them out.
+  # the standarized residuals seem to be normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.5537 or 55.37% which is low! There are 2 observations which have high impact in the residuals. It would be right to take them out.
   tidy(prothioconazole.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(prothioconazole.model.1)
   
   
   prothioconazole.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = prothioconazole.final[-c(6, 10), ])
+  lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = prothioconazole.final[-c(6, 10), ])
   summary(prothioconazole.model.1)
   plot(prothioconazole.model.1)
   
- # Now   and according to the R2, the proportion of the variation of  Y explained by  x is 0.5827 or 58.27% which is somewhat low
- 
+ # Now   and according to the R2, the proportion of the variation of  Y explained by  x is 0.7129 or 71.29% whic is good in comparsions with the others
+
    ##Pyraclostrobin
   pyraclostrobin.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = pyraclostrobin.final)
+  lm(log(EC50_PD) ~ log(EC50_SG) + ID, data = pyraclostrobin.final)
   summary(pyraclostrobin.model.1)
   
   tidy( pyraclostrobin.model.1, conf.int = TRUE)
@@ -811,31 +807,31 @@ boscalid.model.1 <-
   
   # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
   pyraclostrobin.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = pyraclostrobin.final[-c(15, 21, 23), ])
+  lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = pyraclostrobin.final[-c(15, 21, 23), ])
   summary(pyraclostrobin.model.1)
   
-  # Even though the R2, the proportion of the variation of  Y explained by  x is 0.1633 or 16.33% which is very low
+  # Even though the R2, the proportion of the variation of  Y explained by  x is 0.1368 or 13.68% which is very low
   
   #Thiophanate_methyl
   thiophanate_methyl.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data = thiophanate_methyl.final)
+  lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = thiophanate_methyl.final)
   summary(thiophanate_methyl.model.1)
   
   tidy(  thiophanate_methyl.model.1, conf.int = TRUE)
   
   old.par = par(mfrow = c(2, 2))
   plot(thiophanate_methyl.model.1)
-  # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals. It would be right to take them out. Even though the R2, the proportion of the variation of  Y explained by  x is 0.1672 or 16.72% which is very low
+  # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals. It would be right to take them out. Even though the R2, the proportion of the variation of  Y explained by  x is 0.03629 or 3.62 % which is very low
   
    thiophanate_methyl.model.1 <-
-  lm(log(EC50_PD) ~ log(EC50_SG), data =  thiophanate_methyl.final[-c(5, 21, 25), ])
+  lm(log(EC50_PD) ~ log(EC50_SG) +ID, data =  thiophanate_methyl.final[-c(5, 21, 25), ])
    summary(thiophanate_methyl.model.1)
 ```
 
 ```{r}
 #Boscalid
 boscalid.model.2 <-
-  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = boscalid.final, range.y = "interval", range.x = "interval",nperm = 99)
   summary(boscalid.model.2)
 plot(boscalid.model.2)
@@ -845,7 +841,7 @@ plot(boscalid.model.2,"SMA")
 
 #Fluazinam
 fluazinam.model.2 <-
-  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  lmodel2(log(EC50_PD) ~ log(EC50_SG) +ID,
   data = fluazinam.final, range.y = "interval", range.x = "interval",nperm = 99)
   summary(fluazinam.model.2)
 plot(fluazinam.model.2)
@@ -855,7 +851,7 @@ plot(fluazinam.model.2,"SMA")
 
 #Iprodione
 iprodione.model.2 <-
-  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  lmodel2(log(EC50_PD) ~ log(EC50_SG) + ID,
   data = iprodione.final, range.y = "interval", range.x = "interval",nperm = 99)
   summary(iprodione.model.2)
 plot(iprodione.model.2)
@@ -864,7 +860,7 @@ plot(iprodione.model.2,"OLS")
 plot(iprodione.model.2,"SMA")
 #Procymidone
 procymidone.model.2 <-
-  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = procymidone.final, range.y = "interval", range.x = "interval",nperm = 99)
   summary(procymidone.model.2)
 plot(procymidone.model.2)
@@ -873,7 +869,7 @@ plot(procymidone.model.2,"OLS")
 plot(procymidone.model.2,"SMA")
 #Prothioconazole
 prothioconazole.model.2 <-
-  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = prothioconazole.final, range.y = "interval", range.x = "interval",nperm = 99)
   summary(prothioconazole.model.2)
 plot(prothioconazole.model.2)
@@ -882,7 +878,7 @@ plot(prothioconazole.model.2,"OLS")
 plot(prothioconazole.model.2,"SMA")
 #Pyraclostrobin
 pyraclostrobin.model.2 <-
-  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = pyraclostrobin.final, range.y = "interval", range.x = "interval",nperm = 99)
   summary(pyraclostrobin.model.2)
 plot(pyraclostrobin.model.2)
@@ -891,7 +887,7 @@ plot(pyraclostrobin.model.2,"OLS")
 plot(pyraclostrobin.model.2,"SMA")
 #Thiophanate_methyl
 thiophanate_methyl.model.2 <-
-  lmodel2(log(EC50_PD) ~ log(EC50_SG),
+  lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = thiophanate_methyl.final, range.y = "interval", range.x = "interval",nperm = 99)
   summary(thiophanate_methyl.model.2)
 plot(thiophanate_methyl.model.2)
@@ -921,6 +917,8 @@ plug.discs <-
   mutate(inoculum = as.character(inoculum)) %>%
   rename(ID = inoculum,
   experimental_replicate = experimental_repetition) %>%
+      mutate(growth= growth - 0.6) %>%  #subtracting the growth of the size of plug that is 0.6 cm
+    
   select(Fungicide,
   ID,
   experiment,
@@ -934,17 +932,17 @@ plug.discs <-
 ```
 
 ##  By fungicide
-## prothioconazole
+## Boscalid
 ```{r prothioconazole}
 
-#prothioconazole
-prothioconazole.plug.discs <-
-plug.discs %>% filter(Fungicide == "prothioconazole") %>%
+#boscalid
+boscalid.plug.discs <-
+plug.discs %>% filter(Fungicide == "boscalid") %>%
 rename(response = fungicide) %>%
 select(-Fungicide)
 
-prothioconazole.plug.discs.filtered <-
-prothioconazole.plug.discs %>%
+boscalid.plug.discs.filtered <-
+boscalid.plug.discs %>%
 group_by(ID, experiment) %>%
 mutate(response_range = list(get_range(response))) %>%
 unnest() %>%
@@ -954,8 +952,7 @@ filter(response <= upper &
 response >= lower,
 control <= upper1 & control >= lower1) %>%
 ungroup() %>%
-select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>%
-
+select(c(ID, experiment,  experimental_replicate, rep, response, control)) %>% 
 # Percent inhibition is (control - funcide) / (control)
 mutate(inhibition = 100 * ((control - response) / control)) %>%
 #taking again outliers based on inhibition
@@ -965,39 +962,46 @@ unnest() %>%
 filter(inhibition <= upper &
 inhibition >= lower) %>%
 ungroup()
+
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-prothioconazole.plug.discs.filtered %>%
+boscalid.plug.discs.filtered %>%
 group_by(experimental_replicate) %>%
 do(tidy(shapiro.test(.$inhibition)))
 
 # transforming to log
-prothioconazole.plug.discs.filtered.2 <-
-prothioconazole.plug.discs.filtered %>%
+boscalid.plug.discs.filtered.2 <-
+boscalid.plug.discs.filtered %>%
 mutate(log.inhibition = log(inhibition))
 ###
 ## shapiro test for normality between groups of experimental replicates. There are no normality between experimental replicates
-prothioconazole.plug.discs.filtered.2 %>%
+boscalid.plug.discs.filtered.2 %>%
 group_by(experimental_replicate) %>%
 do(tidy(shapiro.test(.$log.inhibition)))
 
 
-prothioconazole.1 <- lm()
 
 #non parametric between experimental repeatlicates and experiment, there is differenc between experiment and experimental replicates, so I cant join data from experimental replicates
-prothioconazole.plug.discs.filtered  %>%
+boscalid.plug.discs.filtered  %>%
 kruskal.test(inhibition ~ experimental_replicate,
 data = .)
 
 
-prothioconazole.plug.discs.filtered  %>%
+boscalid.plug.discs.filtered  %>%
 kruskal.test(inhibition ~ experiment,
 data = .)
 
 # Now Dunn test
 
-prothioconazole.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
+boscalid.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.000016 *** plug-paper
 
+#
+ boscalid.plug.discs.filtered.2 <- boscalid.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+  # now linear model
+ 
+  boscalid.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = boscalid.plug.discs.filtered.2)
+  summary( boscalid.plug.discs.filtered.model)
 ```
 ## Fluazinam
 ```{r Fluazinam}
