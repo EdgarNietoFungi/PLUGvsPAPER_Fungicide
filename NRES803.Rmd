@@ -14,6 +14,36 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F)
 ```
+## Background
+On soybean and dry bean, _S. sclerotiorum_ is recognized as an important yield-limiting disease in many countries, including Argentina, the USA and Brazil. One method of disease control is well-timed fungicide applications. Intensive use of these fungicides, especially of site-specific products, can select for resistant or tolerant isolates and may consequently lead to control failures. Fungicide resistance during an epidemic may result in financial loss to growers applying fungicides and yield loss to disease. Estimation of fungicide sensitivity is typically performed by determination of the EC50, which is the concentration of a fungicide that inhibits growth by 50 %.  This value is the most commonly used parameter for assessing fungicide sensitivity for filamentous plant pathogens (fungi and oomycetes) in order of detecting shifts in fungicide sensitivity within pathogen populations.
+
+To determine EC50, inhibition of mycelial growth is the most common approach, wherein the agar dilution (AD) or also  plate dilution (PD) method is most common and involves amending media with fungicides in a serial dilution of concentrations.  Growth of the fungus at each concentration is measured by a dose-response curve fitted to the data to estimate EC50. A relatively newer method involves the use of a spiral plater for determining fungicide sensitivity. Since the development of spiral gradient (SG), it has been applied for one oomycete species and several species among ascomycetes, basidiomycetes, and zygomycetes. Some variation was observed between AD and SG that was speculated to be due to differences in inoculation methodologies. The agar plug containing mycelium is used for AD, whereas pre-inoculated cellophane paper strips are used for SG. Since there is no nutrient content present in cellophane, it was suggested that nutrients and living mycelium within the agar plug served as a reservoir of unaffected mycelial growth, which may directly affect correlations between the fungicide sensitivity methods. Although this mechanism seems possible, the authors did not test this hypothesis. Comparison of EC50 estimates from other methods to estimates from AD may be insufficient if AD is inherently inaccurate or biased.
+
+Variability in fungus-fungicide interactions may affect the accuracy and applicability of SG. Several methods exist for determining fungicide sensitivity, however no studies have compared them to determine if they yield similar, or accurate results for _S. sclerotiorum_.  
+
+## Research  
+
+ Thirty-four _S. sclerotiorum_ isolates were used for seven fungicides with different modes of action: iprodione, procymidone (dicarboximides), thiophanate methyl (MBC), fluazinam (phenyl-pyridinamine), boscalid (SDHI), prothioconazole (DMI), and pyraclostrobin (QoI). For AD, average colony diameter was used to fit a dose-response curve for each isolate using log-logistic regression with the ezec package using the “LL.3” model implemented in the drc package in R software version. The EC50 of AD and SG varied by fungicide and settings used for SG. The EC50 values obtained from AD and SG (2-day settings) were not significantly different for boscalid, pyraclostrobin and when data for all fungicides were combined (P > 0.05). Linear regression of EC50 between AD and SG (1-day settings) just for prothioconazole had results approaching expectations (slope = 0.86, r2 = 0.61. Overall, the EC50 of AD and SG, growth inhibition obtained from plug and paper inoculation, and validation of accuracy of AD varied among fungicides.
+
+Since EC50 of 23 soybean isolates had been determined previously by AD, we decided to use their average as the discriminatory dose,then, 11 isolates were used to compare growth from agar plugs to cellulose discs (different inoculum) in AD.
+
+In SG, a fungal isolate grows on a continuous fungicide concentration gradient. For different fungicides, fungal growth may respond gradually or abruptly to changes in fungicide concentrations. Fungus-fungicide interactions leading to abrupt growth response in the 50% inhibition zone may affect the accuracy and, thus, applicability of this method. This can be studied by screening a large set of isolates (>30) from one species against fungicides with different modes of action. Previous studies either did not use substantial number of isolates from the same species or did not test several fungicides with different modes of action. Results of these two methods for this sterile fungus (incapable of producing spores in culture) were inconsistent, possibly because spores released from the mycelium can advance growth farther on a spiral gradient as they contain nutrients provided by the mycelium. Thus, estimates of EC50 of spore-producing fungi on the spiral gradient are really combinations of effects on the mycelium and on the spore. Almost all other studies that reported good correlations between the methods used fungi that are spore producers (i.e. _Alternaria_, _Fusarium_, _Monilinia_, _Botrytis_, and  _Penicillium_ spp.). However, one caveat to this argument is that it is difficult to know whether those fungi were actively producing spores when plated onto fungicide-amended plates (either AD or SG). To test this, eight isolates of _Botrytis cinerea_, a fungus with the ability to produce spores andvery close related with _Sclerotinia sclerotiorum_, were subjected to the same methodology for the two fungicides.
+
+## Objectives of the research
+
+The first objective of the present study was to compare the EC50 calculated from mycelial growth using AD and SG. The second objective was to compare agar plug and paper inoculations for mycelial growth on fungicide amended media. The third objective was to validate EC50 obtained by AD.
+
+ What is the ecological hypothesis or model of interest?  
+      The model of interest is a linear model, maybe considering more covariances and what about if the model that fits better is another one different. There are approximately 8 citations that mention linear model is good Spiral gradient for other fungi different than _Sclerotinia_.  
+
+  What variables were measured?  
+  EC50 of AD, EC50 of SG by setting one (own feature of the special software), EC50 of SG by setting two (own feature of the special software) using discriminatory doses of 7 fungicides and 34 different isolates of _Sclerotinia sclerotiorum_.
+
+ What do you THINK the best analysis is?  
+
+Assumptions of ANOVA,  Assumptions of linear model,  and test different models base on EC50 values from AD and SG. The same but based on inhibition growth
+
+
 ## Setting the packages and wrangling
 
 ```{r set packages, echo=TRUE, warning= FALSE, include=FALSE}
@@ -735,9 +765,9 @@ It was suggested by Dr Drew Tyre, follow two possible choices:
 
 For that reason I will go for the Type II regression model which of the main difference with the type I is that X variable is the INDEPENDENT  and Y is the DEPENDENT variable. It assumes little or no error in X and all regression error is attributed to measurement or other error in Y. Meanwhile, Type II regression model which of neither X nor Y is an INDEPENDENT variable but both are assumed to be DEPENDENT on some other parameter which is often unknown. So, then both include some error.Anyways I will try first the linear model regression type I & GLM
 
-# Linear model regression type I & GLM
+# Type linear model regression & GLM
 ## Boscalid 
-the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
+
 
    
 ```{r BOSCALID  Linear model regression type I & GLM , echo=FALSE  , include=FALSE }
@@ -779,7 +809,7 @@ summary(boscalid.model.1)
 ```
 The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
 
-According to the R2, the proportion of the variation of  Y explained by  x is  **`r boscalid.summary[[8]][[1]]`**.  
+According to the R2, the proportion of the variation of  Y explained by  x is  **`r boscalid.summary[[8]][[1]]`**, that is low.  
 
 In GLM, the best AIC is **`r boscalid.summary.2[[5]][[1]]`**, that is better without the parameter of ID
 
@@ -840,7 +870,7 @@ In GLM, the best AIC is **`r fluazinam.summary.2[[5]][[1]]`**, that  is better w
   
   
 ```
-The standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is **`r iprodione.summary[[8]][[1]]`** which is very low!
+The standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is **`r iprodione.summary[[8]][[1]]`** which is low!
   
 
 In GLM, the best AIC is **`r iprodione.summary.2[[5]][[1]]`**, that  is better without the parameter of ID.
@@ -903,11 +933,12 @@ In GLM, the best AIC is **`r procymidone.summary.2[[5]][[1]]`**, that  is better
   
 ```
 
-The standarized residuals seem to be normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is **`r prothioconazole.summary[[8]][[1]]`**  which is low! There are 2 observations which have high impact in the residuals. It would be right to take them out.  
+The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is **`r prothioconazole.summary[[8]][[1]]`**  which is low. There are 2 observations which have high impact in the residuals. It would be right to take them out.  
 
 Now   and according to the R2, the proportion of the variation of  Y explained by  x is **`r prothioconazole.summary.2[[8]][[1]]`**  which is good in comparsions with the others.  
 
-In GLM, the best AIC is **`r prothioconazole.summary.3[[5]][[1]]`**, that  is better with the parameter of ID.
+In GLM, the best AIC is **`r prothioconazole.summary.3[[5]][[1]]`**, that  is better with the parameter of ID.  
+
 ## Pyraclostrobin 
 
 ```{r PYRACLOSTROBIN  Linear model regression type I & GLM , echo=FALSE  , include=FALSE}
@@ -939,9 +970,9 @@ In GLM, the best AIC is **`r prothioconazole.summary.3[[5]][[1]]`**, that  is be
   #AIC: -8.3263
   
 ```
-The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.    
+The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homogoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.    
 Even though the R2, the proportion of the variation of  Y explained by  x is **`r pyraclostrobin.summary[[8]][[1]]`** which is very low.  
-In GLM, the best AIC is **`r pyraclostrobin.summary.2[[5]][[1]]`**, that  is better with the parameter of ID.
+In GLM, the best AIC is **`r pyraclostrobin.summary.2[[5]][[1]]`**, that  is better with the parameter of ID.  
 
 ## Thiophanate methyl 
 
@@ -971,12 +1002,13 @@ In GLM, the best AIC is **`r pyraclostrobin.summary.2[[5]][[1]]`**, that  is bet
  #AIC: -35.365
   
 ```
-The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals. It would be right to take them out. Even though the R2, the proportion of the variation of  Y explained by  x is **`r thiophanate_methyl.summary[[8]][[1]]`** which is very low.
+The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homogoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals. It would be right to take them out. Even though the R2, the proportion of the variation of  Y explained by  x is **`r thiophanate_methyl.summary[[8]][[1]]`** which is very low.
 
 In GLM, the best AIC is **`r thiophanate_methyl.summary.2[[5]][[1]]`**, that  is better with the parameter of ID
   
-# Linear model regression type II
-##Boscalid
+# Type II linear model regression   
+
+## Boscalid
 ```{r BOSCALID Linear model regression type II, echo=FALSE, include= FALSE}
 
 boscalid.model.2 <-
@@ -995,7 +1027,8 @@ plot(boscalid.model.2,"SMA")
 plot(boscalid.model.2)
 ```
 
-##Fluazinam
+
+## Fluazinam
 ```{r FLUAZINAM Linear model regression type II, echo=FALSE, include= FALSE}
 
 fluazinam.model.2 <-
@@ -1013,7 +1046,7 @@ plot(fluazinam.model.2,"SMA")
 plot(fluazinam.model.2,"SMA")
 ```
 
-##Iprodione
+## Iprodione
 ```{r IPRODIONE Linear model regression type II, echo=FALSE, include= FALSE}
 
 iprodione.model.2 <-
@@ -1031,7 +1064,7 @@ plot(iprodione.model.2,"SMA")
 plot(iprodione.model.2,"SMA")
 ```
 
-##Procymidone
+## Procymidone
 ```{r PROCYMIDONE Linear model regression type II, echo=FALSE, include= FALSE}
 
 procymidone.model.2 <-
@@ -1048,7 +1081,7 @@ plot(procymidone.model.2,"SMA")
 plot(procymidone.model.2,"SMA")
 ```
 
-##Prothioconazole
+## Prothioconazole
 ```{r PROTHIOCONAZOLE Linear model regression type II, echo=FALSE, include= FALSE}
 
 prothioconazole.model.2 <-
@@ -1067,7 +1100,7 @@ plot(prothioconazole.model.2,"SMA")
 plot(prothioconazole.model.2,"RMA")
 ```
 
-##Pyraclostrobin
+## Pyraclostrobin
 ```{r PYRACLOSTROBIN Linear model regression type II, echo=FALSE, include= FALSE}
 pyraclostrobin.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
@@ -1086,7 +1119,7 @@ plot(pyraclostrobin.model.2,"SMA")
 plot(pyraclostrobin.model.2,"SMA")
 ```
 
-##Thiophanate_methyl
+## Thiophanate_methyl
 ```{r Thiophanate_methyl Linear model regression type II,echo=FALSE, include= FALSE}
 
 thiophanate_methyl.model.2 <-
@@ -1203,16 +1236,19 @@ data = .)
 boscalid.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.000016 *** plug-paper
 
-#
+```
+
+```{r Boscalid linear model, echo=TRUE, include=TRUE}
+
+
  boscalid.plug.discs.filtered.2 <- boscalid.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
   
   # now linear model
  
   boscalid.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = boscalid.plug.discs.filtered.2)
-  summary( boscalid.plug.discs.filtered.model)
-```
+boscalid.plug.discs.filtered.model.summary <-   summary( boscalid.plug.discs.filtered.model)
 
-```{r}
+
 test.boscalid.plug.discs.filtered.model <- augment(boscalid.plug.discs.filtered.model, data=boscalid.plug.discs.filtered.2)
 ggplot(
   test.boscalid.plug.discs.filtered.model,
@@ -1221,6 +1257,8 @@ ggplot(
   geom_smooth(color = "red")
   
 ```
+the R2, the proportion of the variation of  Y explained by  x is **`r boscalid.plug.discs.filtered.model.summary[[9]][[1]]`** which is very good.
+
 
 ## Fluazinam
 ```{r Fluazinam non parametric test, echo=FALSE, include=FALSE}
@@ -1263,25 +1301,34 @@ aov(inhibition ~ experiment  + experimental_replicate,
 data = .) %>%
 summary()
 
+```
+
+```{r Fluazinam linear model, echo=TRUE, include=TRUE}
 fluazinam.plug.discs.filtered.2 <- fluazinam.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
   
   # now linear model
  
   fluazinam.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = fluazinam.plug.discs.filtered.2)
-  summary( fluazinam.plug.discs.filtered.model)
+  fluazinam.plug.discs.filtered.model.summary <-summary( fluazinam.plug.discs.filtered.model)
 
-```
 
-```{r}
+
 test.fluazinam.plug.discs.filtered.model <- augment(fluazinam.plug.discs.filtered.model, data=fluazinam.plug.discs.filtered.2)
 ggplot(
   test.fluazinam.plug.discs.filtered.model,
   aes(x = .fitted, y = .resid)) +
   geom_point() +
   geom_smooth(color = "red")
-  
+  #GLM
+ glm(plug~paper+ ID + experimental_replicate+ rep,data = fluazinam.plug.discs.filtered.2)
+ glm(plug~paper+ ID + experimental_replicate,data = fluazinam.plug.discs.filtered.2)
+glm(plug~paper+ ID ,data = fluazinam.plug.discs.filtered.2)
+glm(plug~paper,data = fluazinam.plug.discs.filtered.2)
+fluazinam.plug.discs.filtered.model.summary.2 <- glm(plug~paper+ ID + experimental_replicate+ rep,data = fluazinam.plug.discs.filtered.2)
 
 ```
+the R2, the proportion of the variation of  Y explained by  x is **`r fluazinam.plug.discs.filtered.model.summary[[9]][[1]]`** that still being low although improved in comparison with Spiral gradient. 
+The best glm was when all parameters and the AIC was the lowest with **`r fluazinam.plug.discs.filtered.model.summary.2[[11]][[1]]`**
 
 ## Iprodione
 ```{r Iprodione non parametric test, echo=FALSE, include=FALSE}
@@ -1346,16 +1393,24 @@ data = .)
 iprodione.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.0258 *plug-paper
 
+
+```
+
+```{r Iprodione linear model, echo=TRUE, include=TRUE}
+
 iprodione.plug.discs.filtered.2 <- iprodione.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
   
   # now linear model
  
   iprodione.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = iprodione.plug.discs.filtered.2)
-  summary( iprodione.plug.discs.filtered.model)
+  iprodione.plug.discs.filtered.model.summary <-summary( iprodione.plug.discs.filtered.model)
+#GLM
+  glm(plug~paper+ ID + experimental_replicate+ rep,data = iprodione.plug.discs.filtered.2)
+glm(plug~paper+ ID + experimental_replicate,data = iprodione.plug.discs.filtered.2)
+glm(plug~paper+ ID ,data = iprodione.plug.discs.filtered.2)
+glm(plug~paper,data = iprodione.plug.discs.filtered.2)
 
-```
-
-```{r}
+iprodione.plug.discs.filtered.model.summary.2 <- summary(glm(plug~paper+ ID + experimental_replicate+ rep,data = iprodione.plug.discs.filtered.2))
 test.iprodione.plug.discs.filtered.model <- augment(iprodione.plug.discs.filtered.model, data=iprodione.plug.discs.filtered.2)
 ggplot(
   test.iprodione.plug.discs.filtered.model,
@@ -1365,6 +1420,8 @@ ggplot(
   
 
 ```
+the R2, the proportion of the variation of  Y explained by  x is **`r iprodione.plug.discs.filtered.model.summary[[9]][[1]]`** still being low although improved in comparison with Spiral gradient.  
+The best glm was when all parameters and the AIC was the lowest with **`r iprodione.plug.discs.filtered.model.summary.2[[11]][[1]]`**
 
 ## Procymidone
 ```{r Procymidone non parametric test, echo=FALSE, include=FALSE}
@@ -1424,16 +1481,24 @@ kruskal.test(inhibition ~ experiment,
 data = .)
 #p value = 0.09274
 
+```
+
+```{r Procymidone linear model, echo=TRUE, include=TRUE}
 procymidone.plug.discs.filtered.2 <- procymidone.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
   
   # now linear model
  
   procymidone.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = procymidone.plug.discs.filtered.2)
-  summary( procymidone.plug.discs.filtered.model)
-```
+ procymidone.plug.discs.filtered.model.summary <- summary( procymidone.plug.discs.filtered.model)
 
-```{r}
-test.procymidone.plug.discs.filtered.model <- augment(procymidone.plug.discs.filtered.model, data=procymidone.plug.discs.filtered.2)
+#GLM
+  glm(plug~paper+ ID + experimental_replicate+ rep,data = procymidone.plug.discs.filtered.2)
+  glm(plug~paper+ ID + experimental_replicate,data = procymidone.plug.discs.filtered.2)
+ procymidone.plug.discs.filtered.model.summary.2 <-   summary(glm(plug~paper+ ID ,data = procymidone.plug.discs.filtered.2))
+
+   glm(plug~paper,data = procymidone.plug.discs.filtered.2)
+
+   test.procymidone.plug.discs.filtered.model <- augment(procymidone.plug.discs.filtered.model, data=procymidone.plug.discs.filtered.2)
 ggplot(
   test.procymidone.plug.discs.filtered.model,
   aes(x = .fitted, y = .resid)) +
@@ -1442,6 +1507,9 @@ ggplot(
   
 
 ```
+the R2, the proportion of the variation of  Y explained by  x is **`r procymidone.plug.discs.filtered.model.summary[[9]][[1]]`** still being very low.
+
+The best glm was when just paper & plug parameters and the AIC was the lowest with **`r procymidone.plug.discs.filtered.model.summary.2[[11]][[1]]`**
 
 ## Prothioconazole
 ```{r Prothioconazole non parametric test, echo=FALSE, include=FALSE}
@@ -1500,16 +1568,18 @@ prothioconazole.plug.discs.filtered  %>%
 kruskal.test(inhibition ~ experiment,
 data = .)
 
+
+```
+
+```{r Prothioconazole linear model, echo=TRUE, include=TRUE}
 prothioconazole.plug.discs.filtered.2 <- prothioconazole.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
   
   # now linear model
  
   prothioconazole.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = prothioconazole.plug.discs.filtered.2)
-  summary( prothioconazole.plug.discs.filtered.model)
+ prothioconazole.plug.discs.filtered.model.summary <- summary( prothioconazole.plug.discs.filtered.model)
 
-```
 
-```{r}
 test.prothioconazole.plug.discs.filtered.model <- augment(prothioconazole.plug.discs.filtered.model, data=prothioconazole.plug.discs.filtered.2)
 ggplot(
   test.prothioconazole.plug.discs.filtered.model,
@@ -1519,6 +1589,8 @@ ggplot(
   
 
 ```
+the R2, the proportion of the variation of  Y explained by  x is **`r prothioconazole.plug.discs.filtered.model.summary[[9]][[1]]`** which is very good, in fact, the best.  
+
 
 ## Pyraclostrobin
 ```{r Pyraclostrobin non parametric test, echo=FALSE, include=FALSE}
@@ -1582,17 +1654,28 @@ pyraclostrobin.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data =
 #P VALUE 0.000000000000079 *** plug-paper
 
 
+
+```
+
+```{r Pyraclostrobin linear model, echo=TRUE, include=TRUE}
 pyraclostrobin.plug.discs.filtered.2 <- pyraclostrobin.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
   
   # now linear model
  
   pyraclostrobin.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = pyraclostrobin.plug.discs.filtered.2)
-  summary( pyraclostrobin.plug.discs.filtered.model)
+  pyraclostrobin.plug.discs.filtered.model.summary <-summary( pyraclostrobin.plug.discs.filtered.model)
 
-```
 
-```{r}
-test.pyraclostrobin.plug.discs.filtered.model <- augment(pyraclostrobin.plug.discs.filtered.model, data=pyraclostrobin.plug.discs.filtered.2)
+#GLM
+  glm(plug~paper+ ID + experimental_replicate+ rep,data = pyraclostrobin.plug.discs.filtered.2)
+
+  pyraclostrobin.plug.discs.filtered.model.summary.2 <- summary( glm(plug~paper+ ID + experimental_replicate,data = pyraclostrobin.plug.discs.filtered.2))
+  
+   glm(plug~paper+ ID ,data = pyraclostrobin.plug.discs.filtered.2)
+   
+   glm(plug~paper ,data = pyraclostrobin.plug.discs.filtered.2)
+   
+  test.pyraclostrobin.plug.discs.filtered.model <- augment(pyraclostrobin.plug.discs.filtered.model, data=pyraclostrobin.plug.discs.filtered.2)
 ggplot(
   test.pyraclostrobin.plug.discs.filtered.model,
   aes(x = .fitted, y = .resid)) +
@@ -1601,6 +1684,9 @@ ggplot(
   
 
 ```
+the R2, the proportion of the variation of  Y explained by  x is **`r pyraclostrobin.plug.discs.filtered.model.summary[[9]][[1]]`** which is fair in comparison with the one obtained from Spiral gradient.  
+
+The best glm was when just paper & plug parameters and the AIC was the lowest with **`r pyraclostrobin.plug.discs.filtered.model.summary.2[[5]][[1]]`**
 
 ## Thiophanate_methyl
 ```{r Thiophanate_methyl non parametric test, echo=FALSE, include=FALSE}
@@ -1662,16 +1748,23 @@ TM.plug.discs <-
   TM.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
   #P VALUE 0.0456 * plug-paper
   
-  TM.plug.discs.filtered.2 <- TM.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+```
+
+```{r Thiophanate methyl linear model, echo=TRUE, include=TRUE}
+ TM.plug.discs.filtered.2 <- TM.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
   
   # now linear model
  
   TM.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = TM.plug.discs.filtered.2)
-  summary( TM.plug.discs.filtered.model)
-  
-```
+  TM.plug.discs.filtered.model.summary <-summary( TM.plug.discs.filtered.model)
+ 
+  #GLM
+  glm(plug~paper+ ID + experimental_replicate+ rep,data = TM.plug.discs.filtered.2)
+  glm(plug~paper+ ID + experimental_replicate,data = TM.plug.discs.filtered.2)
+  TM.plug.discs.filtered.model.summary.2 <- summary(glm(plug~paper+ ID ,data = TM.plug.discs.filtered.2))
+glm(plug~paper,data = TM.plug.discs.filtered.2)
 
-```{r}
 test.TM.plug.discs.filtered.model <- augment(TM.plug.discs.filtered.model, data=TM.plug.discs.filtered.2)
 ggplot(
   test.TM.plug.discs.filtered.model,
@@ -1681,5 +1774,16 @@ ggplot(
   
 
 ```
+the R2, the proportion of the variation of  Y explained by  x is **`r TM.plug.discs.filtered.model.summary[[9]][[1]]`** which is low-fair.
 
+The best glm was when just paper,  plug, & ID parameters and the AIC was the lowest with **`r TM.plug.discs.filtered.model.summary.2[[5]][[1]]`**
+
+# Discussions
+By type I linear model in EC50 comparisons with just one covariate, sometimes the fungicides had better AIC in GLM (by the link = "identity") when the parameter/covariate added but other times when not added. However, when comparison of paper and plug inoculum by given discriminatory doses, R2 from the type I linear model, increased many as compared with the previous. Further, according to the GLM (by the link = "identity") the best AIC was obtained when all parameters or mostly all parameters set in the model, as the case of boscalid, however for fluazinam,  and iprodione, the effort was not enough. Perhaps, the R2 can be improved if remove observations that affect the assumptions of the linear regressions. 
+
+By type II linear model in EC50 comparisons with just one parameter/covariate, it was possible to carry out by 99 permutations and a range of interval for x & y.
+
+Prothioconazole was the best fit fungicide; nevertheless,  the significant improvement occurred when using many parameters in the model at the last test. However, the R2 of pyraclostrobin and thiophanate methyl did not have enough effort, in which the GLM (by the link = "identity") showed the best parameters to be only to the paper and plug (opposite to the other fungicides). That indicates that the size of the error of SG is considerable, and it was not possible to relate with some potential parameter/covariate to know which ones affect them more. 
+
+Procymidone fungicide had very low R2  in both tests,  the comparison of EC50 values and with paper and plug comparisons, so, that indicates the error using this fungicide is even bigger than with the rest of fungicides used in this study.
 
