@@ -1044,6 +1044,13 @@ aov(inhibition ~ experiment  + experimental_replicate,
 data = .) %>%
 summary()
 
+fluazinam.plug.discs.filtered.2 <- fluazinam.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+  # now linear model
+ 
+  fluazinam.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = fluazinam.plug.discs.filtered.2)
+  summary( fluazinam.plug.discs.filtered.model)
+
 ```
 ## Iprodione
 ```{r Iprodione}
@@ -1108,6 +1115,13 @@ data = .)
 iprodione.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.0258 *plug-paper
 
+iprodione.plug.discs.filtered.2 <- iprodione.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+  # now linear model
+ 
+  iprodione.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = iprodione.plug.discs.filtered.2)
+  summary( iprodione.plug.discs.filtered.model)
+
 ```
 ## Procymidone
 ```{r Procymidone}
@@ -1167,7 +1181,12 @@ kruskal.test(inhibition ~ experiment,
 data = .)
 #p value = 0.09274
 
-
+procymidone.plug.discs.filtered.2 <- procymidone.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+  # now linear model
+ 
+  procymidone.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = procymidone.plug.discs.filtered.2)
+  summary( procymidone.plug.discs.filtered.model)
 ```
 
 ## Prothioconazole
@@ -1226,6 +1245,13 @@ data = .)
 prothioconazole.plug.discs.filtered  %>%
 kruskal.test(inhibition ~ experiment,
 data = .)
+
+prothioconazole.plug.discs.filtered.2 <- prothioconazole.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+  # now linear model
+ 
+  prothioconazole.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = prothioconazole.plug.discs.filtered.2)
+  summary( prothioconazole.plug.discs.filtered.model)
 
 ```
 ## Pyraclostrobin
@@ -1289,6 +1315,14 @@ data = .)
 pyraclostrobin.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
 #P VALUE 0.000000000000079 *** plug-paper
 
+
+pyraclostrobin.plug.discs.filtered.2 <- pyraclostrobin.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+  # now linear model
+ 
+  pyraclostrobin.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = pyraclostrobin.plug.discs.filtered.2)
+  summary( pyraclostrobin.plug.discs.filtered.model)
+
 ```
 ## Thiophanate_methyl
 ```{r Thiophanate_methyl}
@@ -1350,6 +1384,12 @@ TM.plug.discs <-
   TM.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., method = "bonferroni")
   #P VALUE 0.0456 * plug-paper
   
+  TM.plug.discs.filtered.2 <- TM.plug.discs.filtered %>% select(-c(response, control, upper, lower)) %>% group_by(ID, experiment, rep )%>% spread(experiment , inhibition) %>%ungroup() 
+  
+  # now linear model
+ 
+  TM.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = TM.plug.discs.filtered.2)
+  summary( TM.plug.discs.filtered.model)
 ```
 
 
