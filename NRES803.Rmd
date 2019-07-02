@@ -2,7 +2,13 @@
 title: "NRES803"
 author: "Nieto_Lopez"
 date: "5/7/2019"
-output: html_document
+
+output: 
+ html_document: 
+    df_print: paged
+    toc: TRUE
+    toc_depth: 2
+  
 ---
 
 ```{r setup, include=FALSE}
@@ -10,7 +16,7 @@ knitr::opts_chunk$set(echo = F)
 ```
 ## Setting the packages and wrangling
 
-```{r set packages, echo=FALSE}
+```{r set packages, echo=TRUE, warning= FALSE, include=FALSE}
 
 packages <- c("tidyverse","agricolae", "mosaic", "broom", "car","lawstat", "ggridges", "cowplot", "gridExtra", "arsenal", "DescTools","ezec", "lmodel2")
 lapply( packages, require, character.only = TRUE)
@@ -18,7 +24,7 @@ lapply( packages, require, character.only = TRUE)
   
 ```
 
-```{r reading data}
+```{r reading data, echo=FALSE, include=FALSE}
 #####boscalid  Plate dilution
 
 boscalid.data <-
@@ -565,8 +571,8 @@ thiophanate_methyl.data <-
   ungroup()
   
 ```
-
-```{r}
+## Function to detect ouliers among observations within same isolate and dose and take them away
+```{r, echo=TRUE}
 #Function to detect ouliers among observations within same isolate and dose and take them away
 
 get_range <- function(mynumber) {
@@ -577,8 +583,8 @@ get_range <- function(mynumber) {
   return(data.frame(upper = dd, lower = ee))
 }
 ```
-# Determination of EC50 by Dose-response curve by package "ezec" using ) using the “LL.3” model implemented in the R “drc” package 
-```{r}
+# Determination of EC50 by Dose-response curve by  "ezec"package  using the “LL.3” model implemented in the R “drc” package 
+```{r, echo= TRUE, include= FALSE}
 #Boscalid
 boscalid.filtered <- boscalid.data %>%
   group_by(ID, dose) %>%
@@ -720,15 +726,22 @@ boscalid.filtered <- boscalid.data %>%
   
 ```
 
-It was suggested by Dr Drew Tyre, follow two possible choices:
--Type II regression model
--Fit a single dose response model to all the data,including the type of assay as a covariate on one or more of the parameters in the model. However, the spiral plater inject the fungicide in the petri plate as spiral way from the highest concentration (center) to the lowest (edges) and then we set should set the growth in comparison with a control,  in a special software (spiral plater software) and it delivers the EC50, so the measurements in cm (growth) are completely different from SG and AD. So then I am lack of more covariates.
 
-For that reason I will go for the Type II regression model which of the main difference with the type I is that X variable is the INDEPENDENT  and Y is the DEPENDENT variable. It assumes little or no error in X and all regression error is attributed to measurement or other error in Y. Meanwhile, Type II regression model which of neither X nor Y is an INDEPENDENT variable but both are assumed to be DEPENDENT on some other parameter which is often unknown. So, then both include some error.
 
-Anyways I will try first the linear model regression type I
-```{r}
-# Boscalid
+# Probably solutions about the discussed problem  
+It was suggested by Dr Drew Tyre, follow two possible choices:  
+-Type II regression model  
+-Fit a single dose response model to all the data,including the type of assay as a covariate on one or more of the parameters in the model. However, the spiral plater inject the fungicide in the petri plate as spiral way from the highest concentration (center) to the lowest (edges) and then we set should set the growth in comparison with a control,  in a special software (spiral plater software) and it delivers the EC50, so the measurements in cm (growth) are completely different from SG and AD. So then I am lack of more covariates unless the ID.
+
+For that reason I will go for the Type II regression model which of the main difference with the type I is that X variable is the INDEPENDENT  and Y is the DEPENDENT variable. It assumes little or no error in X and all regression error is attributed to measurement or other error in Y. Meanwhile, Type II regression model which of neither X nor Y is an INDEPENDENT variable but both are assumed to be DEPENDENT on some other parameter which is often unknown. So, then both include some error.Anyways I will try first the linear model regression type I & GLM
+
+# Linear model regression type I & GLM
+## Boscalid 
+the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
+
+   
+```{r BOSCALID  Linear model regression type I & GLM , echo=FALSE  , include=FALSE }
+
 boscalid.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG) +ID, data =  boscalid.final)
 summary(boscalid.model.1)
@@ -741,48 +754,130 @@ summary(boscalid.model.1)
   
   boscalid.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG) +ID , data =  boscalid.final[-c(19, 21, 22), ])
-  summary(boscalid.model.1)
+  boscalid.summary <- summary(boscalid.model.1)
   
   tidy(boscalid.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(boscalid.model.1)
   
   # According to the R2, the proportion of the variation of  Y explained by  x is 0.24 or 24% which is low  
+   
+  #GLM
+   boscalid.model.1.1 <-
+  glm(log(EC50_PD) ~ log(EC50_SG) +ID , data =  boscalid.final[-c(19, 21, 22), ])
+  summary(boscalid.model.1.1)
+  #AIC is 30.128 
+  boscalid.model.1.2 <-
+  glm(log(EC50_PD) ~ log(EC50_SG), data =  boscalid.final[-c(19, 21, 22), ])
+ boscalid.summary.2 <-  summary(boscalid.model.1.2)
   
-  ##Fluazinam
+  #AIC is 28.142
+  #It is better without the parameter of ID
+  
+  
+  
+```
+The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
+
+According to the R2, the proportion of the variation of  Y explained by  x is  **`r boscalid.summary[[8]][[1]]`**.  
+
+In GLM, the best AIC is **`r boscalid.summary.2[[5]][[1]]`**, that is better without the parameter of ID
+
+## Fluazinam
+```{r FLUAZINAM  Linear model regression type I & GLM , echo=FALSE  , include=FALSE}
+##Fluazinam
   fluazinam.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = fluazinam.final)
-  summary(fluazinam.model.1)
+ fluazinam.summary <-  summary(fluazinam.model.1)
   
   tidy( fluazinam.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(fluazinam.model.1)
   
   # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 05226 or 5.2% which is too low! 
+  #GLM
+  fluazinam.model.1.1 <-
+  glm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = fluazinam.final)
+  summary(fluazinam.model.1.1)
+ 
+#  AIC is 6.707
+   fluazinam.model.1.2 <-
+  glm(log(EC50_PD) ~ log(EC50_SG), data = fluazinam.final)
+  fluazinam.summary.2 <- summary(fluazinam.model.1.2)
   
-  ##Iprodione
+  #  AIC is 5.5818
+  #It is better without the parameter of ID
+  
+```
+The standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is  **`r fluazinam.summary[[8]][[1]]`** which is too low!
+ 
+
+In GLM, the best AIC is **`r fluazinam.summary.2[[5]][[1]]`**, that  is better without the parameter of ID.
+
+## Iprodione 
+
+```{r IPRODIONE  Linear model regression type I & GLM , echo=FALSE  , include=FALSE}
+##Iprodione
   iprodione.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = iprodione.final)
-  summary(iprodione.model.1)
+  iprodione.summary <- summary(iprodione.model.1)
   
   # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.2963 or 29.63% which is very low!
    tidy(iprodione.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(iprodione.model.1)
   
-  ##Procymidone
+  #GLM
+  
+  iprodione.model.1.1 <-
+  glm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = iprodione.final)
+  summary(iprodione.model.1.1)
+  #AIC: -104.04
+  iprodione.model.1.2 <-
+  glm(log(EC50_PD) ~ log(EC50_SG), data = iprodione.final)
+  iprodione.summary.2 <- summary(iprodione.model.1.2)
+  #AIC: -94.488, it is better without the parameter of ID
+  
+  
+```
+The standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is **`r iprodione.summary[[8]][[1]]`** which is very low!
+  
+
+In GLM, the best AIC is **`r iprodione.summary.2[[5]][[1]]`**, that  is better without the parameter of ID.
+
+## Procymidone 
+
+```{r PROCYMIDONE  Linear model regression type I & GLM , echo=FALSE  , include=FALSE}
+##Procymidone
   procymidone.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = procymidone.final)
-  summary(procymidone.model.1)
+  procymidone.summary <- summary(procymidone.model.1)
   # the standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.07238 or 7.2.% which is very low!
    tidy(procymidone.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
   plot(procymidone.model.1)
+  #GLM
+  procymidone.model.1.1 <-
+  glm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = procymidone.final)
+  summary(procymidone.model.1.1)
+  # AIC: -57.799
+  procymidone.model.1.2 <-
+  glm(log(EC50_PD) ~ log(EC50_SG), data = procymidone.final)
+  procymidone.summary.2 <-  summary(procymidone.model.1.2)
+  #AIC: -55.178, it is better without the parameter of ID
   
-  ##Prothioconazole
+  
+```
+The standarized residuals seem to be not normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is **`r procymidone.summary[[8]][[1]]`** which is very low!
+
+In GLM, the best AIC is **`r procymidone.summary.2[[5]][[1]]`**, that  is better without the parameter of ID.
+
+## Prothioconazole
+```{r PROTHIOCONAZOLE  Linear model regression type I & GLM , echo=FALSE  , include=FALSE}
+##Prothioconazole
   prothioconazole.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG)+ID, data = prothioconazole.final)
-  summary(prothioconazole.model.1)
+ prothioconazole.summary <-  summary(prothioconazole.model.1)
   # the standarized residuals seem to be normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is 0.5537 or 55.37% which is low! There are 2 observations which have high impact in the residuals. It would be right to take them out.
   tidy(prothioconazole.model.1, conf.int = TRUE)
   old.par = par(mfrow = c(2, 2))
@@ -791,12 +886,32 @@ summary(boscalid.model.1)
   
   prothioconazole.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = prothioconazole.final[-c(6, 10), ])
-  summary(prothioconazole.model.1)
+ prothioconazole.summary.2 <-  summary(prothioconazole.model.1)
   plot(prothioconazole.model.1)
   
  # Now   and according to the R2, the proportion of the variation of  Y explained by  x is 0.7129 or 71.29% whic is good in comparsions with the others
+###GLM
+  prothioconazole.model.1.1 <-
+  glm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = prothioconazole.final[-c(6, 10), ])
+ prothioconazole.summary.3 <-  summary(prothioconazole.model.1.1)
+  # AIC: 17.571, it is better with the parameter of  ID
+  
+  prothioconazole.model.1.2 <-
+  glm(log(EC50_PD) ~ log(EC50_SG), data = prothioconazole.final[-c(6, 10), ])
+  summary(prothioconazole.model.1.2)
+  #AIC: 28.624
+  
+```
 
-   ##Pyraclostrobin
+The standarized residuals seem to be normal distributed, a lack of assumption of the linear model. The variance seems somewhat homgoneous but not completely. According to the R2, the proportion of the variation of  Y explained by  x is **`r prothioconazole.summary[[8]][[1]]`**  which is low! There are 2 observations which have high impact in the residuals. It would be right to take them out.  
+
+Now   and according to the R2, the proportion of the variation of  Y explained by  x is **`r prothioconazole.summary.2[[8]][[1]]`**  which is good in comparsions with the others.  
+
+In GLM, the best AIC is **`r prothioconazole.summary.3[[5]][[1]]`**, that  is better with the parameter of ID.
+## Pyraclostrobin 
+
+```{r PYRACLOSTROBIN  Linear model regression type I & GLM , echo=FALSE  , include=FALSE}
+ ##Pyraclostrobin
   pyraclostrobin.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG) + ID, data = pyraclostrobin.final)
   summary(pyraclostrobin.model.1)
@@ -808,11 +923,30 @@ summary(boscalid.model.1)
   # the standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.
   pyraclostrobin.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = pyraclostrobin.final[-c(15, 21, 23), ])
-  summary(pyraclostrobin.model.1)
+  pyraclostrobin.summary <- summary(pyraclostrobin.model.1)
   
   # Even though the R2, the proportion of the variation of  Y explained by  x is 0.1368 or 13.68% which is very low
   
-  #Thiophanate_methyl
+  
+  #GLM
+  pyraclostrobin.model.1.1 <-
+  glm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = pyraclostrobin.final[-c(15, 21, 23), ])
+ pyraclostrobin.summary.2 <-  summary(pyraclostrobin.model.1.1)
+  #AIC: -6.7674, it is better with the parameter of ID
+  pyraclostrobin.model.1.2 <-
+  glm(log(EC50_PD) ~ log(EC50_SG), data = pyraclostrobin.final[-c(15, 21, 23), ])
+  summary(pyraclostrobin.model.1.2)
+  #AIC: -8.3263
+  
+```
+The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals & in leverage and in cook distance, respectively. It would be right to take them out.    
+Even though the R2, the proportion of the variation of  Y explained by  x is **`r pyraclostrobin.summary[[8]][[1]]`** which is very low.  
+In GLM, the best AIC is **`r pyraclostrobin.summary.2[[5]][[1]]`**, that  is better with the parameter of ID.
+
+## Thiophanate methyl 
+
+```{r THIOPHANATE METHYL  Linear model regression type I & GLM , echo=FALSE  , include=FALSE}
+#Thiophanate_methyl
   thiophanate_methyl.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG)+ ID, data = thiophanate_methyl.final)
   summary(thiophanate_methyl.model.1)
@@ -825,11 +959,26 @@ summary(boscalid.model.1)
   
    thiophanate_methyl.model.1 <-
   lm(log(EC50_PD) ~ log(EC50_SG) +ID, data =  thiophanate_methyl.final[-c(5, 21, 25), ])
-   summary(thiophanate_methyl.model.1)
+  thiophanate_methyl.summary <- summary(thiophanate_methyl.model.1)
+   #GLM
+   thiophanate_methyl.model.1.1 <-
+  glm(log(EC50_PD) ~ log(EC50_SG) +ID, data =  thiophanate_methyl.final[-c(5, 21, 25), ])
+  thiophanate_methyl.summary.2 <- summary(thiophanate_methyl.model.1.1)
+   # AIC: -33.372, it is better with the parameter of ID
+   thiophanate_methyl.model.1.2 <-
+  glm(log(EC50_PD) ~ log(EC50_SG) , data =  thiophanate_methyl.final[-c(5, 21, 25), ])
+   summary(thiophanate_methyl.model.1.2)
+ #AIC: -35.365
+  
 ```
+The standarized residuals seem to be normal distributed, an assumption of the linear model. The variance seems somewhat homgoneous but not completely. There are 3 observations which have high impact in in the standirezd resdiduals. It would be right to take them out. Even though the R2, the proportion of the variation of  Y explained by  x is **`r thiophanate_methyl.summary[[8]][[1]]`** which is very low.
 
-```{r}
-#Boscalid
+In GLM, the best AIC is **`r thiophanate_methyl.summary.2[[5]][[1]]`**, that  is better with the parameter of ID
+  
+# Linear model regression type II
+##Boscalid
+```{r BOSCALID Linear model regression type II, echo=FALSE, include= FALSE}
+
 boscalid.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = boscalid.final, range.y = "interval", range.x = "interval",nperm = 99)
@@ -839,7 +988,16 @@ plot(boscalid.model.2,"RMA")
 plot(boscalid.model.2,"OLS")
 plot(boscalid.model.2,"SMA")
 
-#Fluazinam
+
+```
+
+```{r}
+plot(boscalid.model.2)
+```
+
+##Fluazinam
+```{r FLUAZINAM Linear model regression type II, echo=FALSE, include= FALSE}
+
 fluazinam.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG) +ID,
   data = fluazinam.final, range.y = "interval", range.x = "interval",nperm = 99)
@@ -849,7 +1007,15 @@ plot(fluazinam.model.2,"RMA")
 plot(fluazinam.model.2,"OLS")
 plot(fluazinam.model.2,"SMA")
 
-#Iprodione
+```
+
+```{r}
+plot(fluazinam.model.2,"SMA")
+```
+
+##Iprodione
+```{r IPRODIONE Linear model regression type II, echo=FALSE, include= FALSE}
+
 iprodione.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG) + ID,
   data = iprodione.final, range.y = "interval", range.x = "interval",nperm = 99)
@@ -858,7 +1024,16 @@ plot(iprodione.model.2)
 plot(iprodione.model.2,"RMA")
 plot(iprodione.model.2,"OLS")
 plot(iprodione.model.2,"SMA")
-#Procymidone
+
+```
+
+```{r}
+plot(iprodione.model.2,"SMA")
+```
+
+##Procymidone
+```{r PROCYMIDONE Linear model regression type II, echo=FALSE, include= FALSE}
+
 procymidone.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = procymidone.final, range.y = "interval", range.x = "interval",nperm = 99)
@@ -867,7 +1042,15 @@ plot(procymidone.model.2)
 plot(procymidone.model.2,"RMA")
 plot(procymidone.model.2,"OLS")
 plot(procymidone.model.2,"SMA")
-#Prothioconazole
+```
+
+```{r}
+plot(procymidone.model.2,"SMA")
+```
+
+##Prothioconazole
+```{r PROTHIOCONAZOLE Linear model regression type II, echo=FALSE, include= FALSE}
+
 prothioconazole.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = prothioconazole.final, range.y = "interval", range.x = "interval",nperm = 99)
@@ -876,7 +1059,16 @@ plot(prothioconazole.model.2)
 plot(prothioconazole.model.2,"RMA")
 plot(prothioconazole.model.2,"OLS")
 plot(prothioconazole.model.2,"SMA")
-#Pyraclostrobin
+
+
+```
+
+```{r}
+plot(prothioconazole.model.2,"RMA")
+```
+
+##Pyraclostrobin
+```{r PYRACLOSTROBIN Linear model regression type II, echo=FALSE, include= FALSE}
 pyraclostrobin.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = pyraclostrobin.final, range.y = "interval", range.x = "interval",nperm = 99)
@@ -885,7 +1077,18 @@ plot(pyraclostrobin.model.2)
 plot(pyraclostrobin.model.2,"RMA")
 plot(pyraclostrobin.model.2,"OLS")
 plot(pyraclostrobin.model.2,"SMA")
-#Thiophanate_methyl
+
+
+
+```
+
+```{r}
+plot(pyraclostrobin.model.2,"SMA")
+```
+
+##Thiophanate_methyl
+```{r Thiophanate_methyl Linear model regression type II,echo=FALSE, include= FALSE}
+
 thiophanate_methyl.model.2 <-
   lmodel2(log(EC50_PD) ~ log(EC50_SG)+ ID,
   data = thiophanate_methyl.final, range.y = "interval", range.x = "interval",nperm = 99)
@@ -898,9 +1101,14 @@ plot(thiophanate_methyl.model.2,"SMA")
 
 ```
 
-
-
 ```{r}
+plot(thiophanate_methyl.model.2,"RMA")
+```
+
+
+# Plug and Paper inoculum comparison on PDA by a given discriminatory concentration of the fungicides
+
+```{r Plug and Paper  comparison on PDA, echo=TRUE, include=FALSE}
 ####
 plug.discs <-
   read.csv(
@@ -931,9 +1139,9 @@ plug.discs <-
   #spread( treatment )
 ```
 
-##  By fungicide
+
 ## Boscalid
-```{r prothioconazole}
+```{r Boscalid non parametric test, echo=FALSE, include=FALSE}
 
 #boscalid
 boscalid.plug.discs <-
@@ -1003,8 +1211,19 @@ boscalid.plug.discs.filtered  %>% DunnTest(inhibition ~ experiment, data = ., me
   boscalid.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = boscalid.plug.discs.filtered.2)
   summary( boscalid.plug.discs.filtered.model)
 ```
+
+```{r}
+test.boscalid.plug.discs.filtered.model <- augment(boscalid.plug.discs.filtered.model, data=boscalid.plug.discs.filtered.2)
+ggplot(
+  test.boscalid.plug.discs.filtered.model,
+  aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_smooth(color = "red")
+  
+```
+
 ## Fluazinam
-```{r Fluazinam}
+```{r Fluazinam non parametric test, echo=FALSE, include=FALSE}
 #Fluazinam
 fluazinam.plug.discs <-
 plug.discs %>% filter(Fungicide == "fluazinam") %>%
@@ -1052,8 +1271,20 @@ fluazinam.plug.discs.filtered.2 <- fluazinam.plug.discs.filtered %>% select(-c(r
   summary( fluazinam.plug.discs.filtered.model)
 
 ```
+
+```{r}
+test.fluazinam.plug.discs.filtered.model <- augment(fluazinam.plug.discs.filtered.model, data=fluazinam.plug.discs.filtered.2)
+ggplot(
+  test.fluazinam.plug.discs.filtered.model,
+  aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_smooth(color = "red")
+  
+
+```
+
 ## Iprodione
-```{r Iprodione}
+```{r Iprodione non parametric test, echo=FALSE, include=FALSE}
 
 
 iprodione.plug.discs <-
@@ -1123,8 +1354,20 @@ iprodione.plug.discs.filtered.2 <- iprodione.plug.discs.filtered %>% select(-c(r
   summary( iprodione.plug.discs.filtered.model)
 
 ```
+
+```{r}
+test.iprodione.plug.discs.filtered.model <- augment(iprodione.plug.discs.filtered.model, data=iprodione.plug.discs.filtered.2)
+ggplot(
+  test.iprodione.plug.discs.filtered.model,
+  aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_smooth(color = "red")
+  
+
+```
+
 ## Procymidone
-```{r Procymidone}
+```{r Procymidone non parametric test, echo=FALSE, include=FALSE}
 
 
 procymidone.plug.discs <-
@@ -1189,8 +1432,19 @@ procymidone.plug.discs.filtered.2 <- procymidone.plug.discs.filtered %>% select(
   summary( procymidone.plug.discs.filtered.model)
 ```
 
+```{r}
+test.procymidone.plug.discs.filtered.model <- augment(procymidone.plug.discs.filtered.model, data=procymidone.plug.discs.filtered.2)
+ggplot(
+  test.procymidone.plug.discs.filtered.model,
+  aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_smooth(color = "red")
+  
+
+```
+
 ## Prothioconazole
-```{r Prothioconazole}
+```{r Prothioconazole non parametric test, echo=FALSE, include=FALSE}
 ## Prothioconazole
 prothioconazole.plug.discs <-
 plug.discs %>% filter(Fungicide == "prothioconazole") %>%
@@ -1254,8 +1508,20 @@ prothioconazole.plug.discs.filtered.2 <- prothioconazole.plug.discs.filtered %>%
   summary( prothioconazole.plug.discs.filtered.model)
 
 ```
+
+```{r}
+test.prothioconazole.plug.discs.filtered.model <- augment(prothioconazole.plug.discs.filtered.model, data=prothioconazole.plug.discs.filtered.2)
+ggplot(
+  test.prothioconazole.plug.discs.filtered.model,
+  aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_smooth(color = "red")
+  
+
+```
+
 ## Pyraclostrobin
-```{r Pyraclostrobin}
+```{r Pyraclostrobin non parametric test, echo=FALSE, include=FALSE}
 ## Pyraclostrobin
 pyraclostrobin.plug.discs <-
 plug.discs %>% filter(Fungicide == "pyraclostrobin") %>%
@@ -1324,8 +1590,20 @@ pyraclostrobin.plug.discs.filtered.2 <- pyraclostrobin.plug.discs.filtered %>% s
   summary( pyraclostrobin.plug.discs.filtered.model)
 
 ```
+
+```{r}
+test.pyraclostrobin.plug.discs.filtered.model <- augment(pyraclostrobin.plug.discs.filtered.model, data=pyraclostrobin.plug.discs.filtered.2)
+ggplot(
+  test.pyraclostrobin.plug.discs.filtered.model,
+  aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_smooth(color = "red")
+  
+
+```
+
 ## Thiophanate_methyl
-```{r Thiophanate_methyl}
+```{r Thiophanate_methyl non parametric test, echo=FALSE, include=FALSE}
 
 TM.plug.discs <-
   plug.discs %>% filter(Fungicide == "thiophanate_methyl") %>%
@@ -1390,6 +1668,18 @@ TM.plug.discs <-
  
   TM.plug.discs.filtered.model <-  lm(plug~paper+ ID + experimental_replicate+ rep,data = TM.plug.discs.filtered.2)
   summary( TM.plug.discs.filtered.model)
+  
+```
+
+```{r}
+test.TM.plug.discs.filtered.model <- augment(TM.plug.discs.filtered.model, data=TM.plug.discs.filtered.2)
+ggplot(
+  test.TM.plug.discs.filtered.model,
+  aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_smooth(color = "red")
+  
+
 ```
 
 
