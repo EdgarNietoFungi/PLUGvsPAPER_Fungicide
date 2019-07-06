@@ -765,7 +765,7 @@ It was suggested by Dr Drew Tyre, follow two possible choices:
 
 For that reason I will go for the Type II regression model which of the main difference with the type I is that X variable is the INDEPENDENT  and Y is the DEPENDENT variable. It assumes little or no error in X and all regression error is attributed to measurement or other error in Y. Meanwhile, Type II regression model which of neither X nor Y is an INDEPENDENT variable but both are assumed to be DEPENDENT on some other parameter which is often unknown. So, then both include some error.Anyways I will try first the linear model regression type I & GLM
 
-# Type linear model regression & GLM
+# Type I linear model regression & GLM
 ## Boscalid 
 
 
